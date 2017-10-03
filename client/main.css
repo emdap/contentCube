@@ -26,73 +26,106 @@
   margin: 0 0 0 0;
   display: block;
   position: absolute;
-  border: 6px white solid;
-  width: 196px;
-  height: 196px;
+  border: 2px white solid;
+  width: 198px;
+  height: 198px;
   backface-visibility: hidden;
   
 }
 
 #card .front {
-  background: red;
   transform: rotateX( 0deg ) translateZ( 100px );
 }
 
 #card .back {
-  background: #00ffff;
   transform: rotateX( 180deg ) translateZ( 100px );
 }
 
 #card .left {
-  background: blue;
   transform: rotateY( -90deg ) translateZ( 100px );
 }
 
 #card .right {
-  background: #ffff00;
   transform: rotateY( 90deg ) translateZ( 100px );
 }
 
 #card .top {
-  background: green;
   transform: rotateX( 90deg ) translateZ( 100px );
 }
 
 #card .bottom{
-  background: #ff00ff;
   transform: rotateX( -90deg ) translateZ( 100px );
 }
 
 
-#content .front {
+.front {
   background: red;
 }
 
-#content .back {
+.back {
   background: #00ffff;
 }
 
-#content .left {
+.left {
   background: blue;
 }
 
-#content .right {
+.right {
   background: #ffff00;
 }
 
-#content .top {
+.top {
   background: green;
 }
 
-#content .bottom{
+.bottom {
   background: #ff00ff;
 }
 
-div.explode{
+
+
+#explode{
 	opacity: .5;
 	position: fixed;
-	width: 500px;
-	height: 500px;
 	top: calc(50% - 20rem);
 	left: calc(50% - 25rem);
+	transition: all 1s;
+	transition: height 1s ease, width 1s ease, margin 1s ease, opacity 1s ease;
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+
+#explode.smooth{
+	transition: all 1s;
+}
+
+#explode.min{
+	opacity: .7;
+	height: 198px;
+	width: 198px;
+	margin: calc(20rem - 99px) calc(25rem - 99px);
+}
+
+#explode.max{
+	opacity: 1;
+	height: 40rem;
+	width: 50rem;
+	margin: 0;
+}
+
+#explode.hide{
+	opacity: 0;
+	height: 198px;
+	width: 198px;
+	margin: calc(20rem - 99px) calc(25rem - 99px);
+}
+
+#minmaxbutt.default{
+  transform: rotateZ( 45deg );
+  transition: all 1s;
+}
+
+#minmaxbutt.min{
+  transform: rotateZ( 0deg );
+  transition: all 1s;
 }
