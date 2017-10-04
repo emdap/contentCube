@@ -1,3 +1,8 @@
+body {
+	background: black;
+	font-family: arial, verdana;
+}
+
 .container { 
   width: 200px;
   height: 200px;
@@ -120,12 +125,55 @@
 	margin: calc(20rem - 99px) calc(25rem - 99px);
 }
 
+button{
+  border: 0;
+  font-weight: lighter;
+  opacity: .8;
+  color: black;
+  background: none;
+  text-align: center;
+  outline: 0;
+  height: 2rem;
+  width: 2rem;
+  padding: auto;
+  font-size: 1rem;
+  transition: all 1s;
+}
+
+
+#minmaxbutt:hover{
+  opacity: 1;
+}
+
+#explodeContent{
+  padding: 5px;
+}
+
 #minmaxbutt.default{
   transform: rotateZ( 45deg );
-  transition: all 1s;
 }
 
 #minmaxbutt.min{
   transform: rotateZ( 0deg );
-  transition: all 1s;
+}
+
+#menubar.up{
+  transform: rotateZ( 90deg );
+}
+
+#menubar.down{
+  transform: rotateZ( 0deg );
+}
+
+#menu{
+	overflow: scroll;
+	width: 100px;
+	height: 2rem;
+	transition: all 1s;
+}
+
+.bolded{
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+	background: black;
 }

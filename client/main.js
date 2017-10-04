@@ -1,4 +1,5 @@
 //wait until cube has stopped spinning before generating
+//use thumbnail if in min mode instead of content (do on this side when injecting to innerHTML, not to react element)
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,6 +14,7 @@ Meteor.startup(() => {
 
 //$('.explode').hide();
 
+var facingCalls = 0;
 var y = 0;
 var x = 0;
 var z = 0;
@@ -31,11 +33,12 @@ function recede(elm){
 }
 
 
-
 function getFacing(){
 	$('#dispCoords').html('x: ' + x % 360 + ', y: ' + y % 360 + ', z: ' + z % 360);
-
+	facingCalls += 1;
 	setTimeout(function() {
+	facingCalls -= 1;
+	if (facingCalls == 0){
 	if(document.querySelector("figure.front").getBoundingClientRect().height > 199 && document.querySelector("figure.front").getBoundingClientRect().width > 199 ){
 		curFace = '.front';
 	} else if (document.querySelector("figure.back").getBoundingClientRect().height > 199 && document.querySelector("figure.back").getBoundingClientRect().width > 199 ){
@@ -69,9 +72,10 @@ function getFacing(){
 	if (curFace){
 		ReactDOM.render(<ExplodeBox explodeClass={curFace} state={state}/>, document.getElementById('content'));
 		faceContent = curFace.slice(1) + 'Face';
-		document.getElementById('innerContent').innerHTML = document.getElementById(faceContent).innerHTML
+		document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
 		explode(curFace);
 	}
+}
 }, 1000);
 
 }
@@ -160,13 +164,14 @@ $(document).keydown(function(e) {
 	// deltaX = x - origX;
 	// deltaY = y - origY;
 	// deltaZ = z - origZ;
-	if ( document.getElementById('explode') && Math.floor((new Date() - lastTime)/6000) > 0 ) {
-    	document.getElementById('explode').className = prevElm.slice(1) + ' smooth min';
-		lastTime =  new Date();
-	} else {
-    // get from url
-    	lastTime =  new Date();
-	}
+	// console.log(Math.floor((new Date() - lastTime)/60000));
+	// if ( document.getElementById('explode') && Math.floor((new Date() - lastTime)/6000) > 0 ) {
+ //    	document.getElementById('explode').className = prevElm.slice(1) + ' smooth min';
+ //    	console.log('moving');
+	// 	lastTime =  new Date();
+	// } else {
+ //    	lastTime =  new Date();
+	// }
 	document.getElementById('explode').style.transform = 'rotateX(' + deltaX + 'deg ) rotateY(' + deltaY + 'deg) rotateZ(' + deltaZ + 'deg) translateZ( 100px )';
 
 	document.getElementById('card').style.transform = 'translateZ( -100px ) rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)' ;
