@@ -7,10 +7,14 @@ import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
 import ExplodeBox from './../imports/explodeBox';
+import Cube from './../imports/cube';
 
 import './main.html';
 
 Meteor.startup(() => {
+
+ReactDOM.render(<Cube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
+		
 
 //$('.explode').hide();
 
@@ -21,19 +25,19 @@ var z = 0;
 var lastTime = new Date();
 
 
-var prevElm;
+var prevElm = ".front";
 
 
 getFacing();
 
-function recede(elm){
-	elm = elm.slice(1);
+// function recede(elm){
+// 	elm = elm.slice(1);
 
-	document.getElementById('explode').className =  elm + ' smooth hide';
-}
+// 	document.getElementById('explode').className =  elm + ' smooth hide';
+// }
 
 
-function getFacing(){
+function getFacing(coords){
 	$('#dispCoords').html('x: ' + x % 360 + ', y: ' + y % 360 + ', z: ' + z % 360);
 	facingCalls += 1;
 	setTimeout(function() {
@@ -54,26 +58,14 @@ function getFacing(){
 	}
 	
 
-	if(document.getElementById('explode')){
-		if(document.getElementById('explode').getAttribute('state') == 'min'){
-			prevElm2 = curFace;
-			state = 'min';
-		} else{
-			state = 'max';
-			prevElm2 = curFace;
-		}
-	} else {
-		state = 'max';	
-	}
-
 	prevElm = curFace;
 
 	$('#curFace2').html(curFace);
 	if (curFace){
-		ReactDOM.render(<ExplodeBox explodeClass={curFace} state={state}/>, document.getElementById('content'));
+		ReactDOM.render(<Cube curFace={curFace.slice(1)}/>, document.getElementById('app'));
 		faceContent = curFace.slice(1) + 'Face';
 		document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
-		explode(curFace);
+		//explode(curFace);
 	}
 }
 }, 1000);
@@ -93,14 +85,14 @@ function explode(elm){
 	}
 }
 
-$(document).keydown(function(e) {
+document.onkeydown = function(e) {
 	var deltaX = 0;
 	var deltaY = 0;
 	var deltaZ = 0;
 
 	//$('.explode').hide();
 	if(e.which <= 40 && e.which >= 37){
-		recede(prevElm);
+		//recede(prevElm);
 		switch(e.which){
 			case 38: //up
 				deltaX = -90;
@@ -159,8 +151,8 @@ $(document).keydown(function(e) {
 				if (z % 360 == 0){ z = 0; }
 			}
 
-		getFacing();
-	}
+		getFacing([x, y, z]);
+	
 	// deltaX = x - origX;
 	// deltaY = y - origY;
 	// deltaZ = z - origZ;
@@ -172,10 +164,13 @@ $(document).keydown(function(e) {
 	// } else {
  //    	lastTime =  new Date();
 	// }
-	document.getElementById('explode').style.transform = 'rotateX(' + deltaX + 'deg ) rotateY(' + deltaY + 'deg) rotateZ(' + deltaZ + 'deg) translateZ( 100px )';
 
-	document.getElementById('card').style.transform = 'translateZ( -100px ) rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)' ;
-});
+	ReactDOM.render(<Cube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
+
+}
+	// document.getElementById('explode').style.transform = 'rotateX(' + deltaX + 'deg ) rotateY(' + deltaY + 'deg) rotateZ(' + deltaZ + 'deg) translateZ( 100px )';
+
+}
 
 
 

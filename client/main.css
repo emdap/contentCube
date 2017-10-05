@@ -94,15 +94,17 @@ body {
 	position: fixed;
 	top: calc(50% - 20rem);
 	left: calc(50% - 25rem);
-	transition: all 1s;
-	transition: height 1s ease, width 1s ease, margin 1s ease, opacity 1s ease;
 	overflow-y: scroll;
 	overflow-x: scroll;
+	transition: margin 1s, opacity 1s, width 1s, height 1s;
+	perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-#explode.smooth{
-	transition: all 1s;
-}
+#explode.smooth{ 
+	transition: margin 1s, opacity .7s, width .7s, height .7s, transform 1s;
+ }
+
 
 #explode.min{
 	opacity: .7;
@@ -137,7 +139,7 @@ button{
   width: 2rem;
   padding: auto;
   font-size: 1rem;
-  transition: all 1s;
+  transition: all 2s;
 }
 
 
@@ -150,18 +152,18 @@ button{
 }
 
 #minmaxbutt.default{
-  transform: rotateZ( 45deg );
-}
-
-#minmaxbutt.min{
   transform: rotateZ( 0deg );
 }
 
-#menubar.up{
+#minmaxbutt.min{
+  transform: rotateZ( 45deg );
+}
+
+#menubar.closed{
   transform: rotateZ( 90deg );
 }
 
-#menubar.down{
+#menubar.open{
   transform: rotateZ( 0deg );
 }
 
