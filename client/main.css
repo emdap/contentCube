@@ -94,15 +94,15 @@ body {
 	position: fixed;
 	top: calc(50% - 20rem);
 	left: calc(50% - 25rem);
-	overflow-y: scroll;
-	overflow-x: scroll;
+	overflow: hidden;
 	transition: margin 1s, opacity 1s, width 1s, height 1s;
 	perspective: 1000px;
+	direction: ltr;
     transform-style: preserve-3d;
 }
 
 #explode.smooth{ 
-	transition: margin 1s, opacity .7s, width .7s, height .7s, transform 1s;
+	transition: margin 1s, opacity .7s, width 1s, height 1s, transform 1s;
  }
 
 
@@ -159,11 +159,11 @@ button{
   transform: rotateZ( 45deg );
 }
 
-#menubar.closed{
+#menubutton.closed{
   transform: rotateZ( 90deg );
 }
 
-#menubar.open{
+#menubutton.open{
   transform: rotateZ( 0deg );
 }
 
@@ -174,8 +174,41 @@ button{
 	transition: all 1s;
 }
 
+#menucontentinner{
+	color: black;
+	transition: all 1s;
+}
+
+#menucontentinner.show{
+	opacity: 1;
+	visibility: visible;
+}
+#menucontentinner.hide{
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+#menucontentouter{
+	color: white;
+	width: 500px;
+	text-align: center;
+	margin: auto calc(50% - 250px);
+	display: block;
+	transition: all 1s;
+}
+
+#menucontentouter.show{
+	opacity: 1;
+	visibility: visible;
+}
+
+#menucontentouter.hide{
+	opacity: 0;
+	visibility: hidden;
+}	
+
 .bolded{
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-	background: black;
+	font-weight: bold;
+	font-style: italic;
 }

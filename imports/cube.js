@@ -2,12 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ExplodeBox from './explodeBox';
+import MenuContent from './menuContent';
 
 export default class Cube extends React.Component{
 	constructor(props){
 		super(props);
 		this.curFace = this.props.curFace;
 		this.coords = this.props.coords;
+
+		this.state = {
+			isMax: true,
+			showMenu: false
+		};
+
+
+		this.handleShow = this.handleShow.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -32,6 +41,8 @@ export default class Cube extends React.Component{
 	render() {
 		const [x, y, z] = this.coords;
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`}
+		menuClasses = (this.state.showMenu ? 'show' : 'hide')
+		
 		return(
 			<div>
 			<section className="container">
@@ -44,11 +55,21 @@ export default class Cube extends React.Component{
 			    <figure className="bottom"></figure>
 			  </div>
 			</section>
-
-			  <ExplodeBox explodeClass={this.explodeClass} angle={this.props.delta}/>
+			<span id='menucontentouter' className={menuClasses}>
+			<MenuContent highlight={this.curFace}/>
+			</span>
+			  <ExplodeBox explodeClass={this.explodeClass} angle={this.props.delta} handleMenu={this.handleShow}/>
 			  </div>
 
 			);
+	}
+
+	handleShow(showMenu){
+		this.setState((prevState, props) => {
+			return {
+				showMenu: showMenu
+			}
+		});
 	}
 
 }
