@@ -7,14 +7,13 @@ export default class ExplodeBox extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			isMax: true,
+			isMax: false,
 			showMenu: false,
 			showInnerMenu: false,
 			showTopMenu: false
 		};
-//		this.min = this.props.min;
-		this.handleMinMax = this.handleMinMax.bind(this);
 
+		this.handleMinMax = this.handleMinMax.bind(this);
 		this.handleShow = this.handleShow.bind(this);
 	}
 
@@ -39,7 +38,6 @@ export default class ExplodeBox extends React.Component{
 	}
 
 	handleMinMax(){
-		console.log(this.state.showMenu);
 
 		if(this.state.isMax){ //downsize, hide inner menu no matter what
 			this.setState((prevState, props) => {
@@ -117,18 +115,6 @@ class MinMaxButton extends React.Component{
 			);
 	}
 
-	// MinMax(e) {
-	// 	if (document.getElementById('minmaxbutt').className == 'min'){
-	// 		setTimeout(function() {document.getElementById('minmaxbutt').className = 'default'}, 1000);
-	// 		document.getElementById('explode').className =  this.props.explodeClass + ' max';
-	// 		document.getElementById('explode').setAttribute('state', 'max');
-	// 	} else {
-	// 		setTimeout(function() {document.getElementById('minmaxbutt').className = 'min'}, 1000);
-	// 		document.getElementById('explode').className =  this.props.explodeClass + ' min';
-	// 		document.getElementById('explode').setAttribute('state', 'min');
-	// 	}
-	// }
-
 	handleState() {
 		this.setState((prevState, props) => {
 			return {
@@ -154,16 +140,6 @@ class MenuButton extends React.Component{
 			<button id='menubutton' className={classes} onClick={this.handleState}>|||</button>
 			);
 	}
-
-	// UpDown(e){
-	// 	if (document.getElementById('menubar').className == 'up'){
-	// 		document.getElementById('menubar').className = 'down';
-	// 		document.getElementById('menucontent').style.visibility = 'visible';
-	// 	} else {
-	// 		document.getElementById('menubar').className = 'up';
-	// 		document.getElementById('menucontent').style.visibility = 'hidden';
-	// 	}
-	// }
 
 	handleState() {
 		this.setState((prevState, props) => {

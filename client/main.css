@@ -191,9 +191,9 @@ button{
 
 #menucontentouter{
 	color: white;
-	width: 500px;
+	border: 1px solid white;
 	text-align: center;
-	margin: auto calc(50% - 250px);
+	top: 50%;
 	display: block;
 	transition: all 1s;
 }

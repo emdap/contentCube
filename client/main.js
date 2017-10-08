@@ -27,9 +27,6 @@ var lastTime = new Date();
 
 var prevElm = ".front";
 
-
-getFacing();
-
 // function recede(elm){
 // 	elm = elm.slice(1);
 
@@ -60,11 +57,10 @@ function getFacing(coords){
 
 	prevElm = curFace;
 
-	$('#curFace2').html(curFace);
 	if (curFace){
 		ReactDOM.render(<Cube curFace={curFace.slice(1)}/>, document.getElementById('app'));
 		faceContent = curFace.slice(1) + 'Face';
-		document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
+		//document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
 		//explode(curFace);
 	}
 }
@@ -73,17 +69,17 @@ function getFacing(coords){
 }
 
 
-function explode(elm){
-	document.getElementById('explode').style.transform = 'rotateX( 0deg ) rotateY( 0deg) rotateZ( 0deg) translateZ( 0 )';
-	curElm = '#explode' + elm;
+// function explode(elm){
+// 	document.getElementById('explode').style.transform = 'rotateX( 0deg ) rotateY( 0deg) rotateZ( 0deg) translateZ( 0 )';
+// 	curElm = '#explode' + elm;
 
-	elm = elm.slice(1);
-	if(document.getElementById('explode').getAttribute('state') == 'min'){
-		document.getElementById('explode').className =  elm + ' min';	
-	} else {
-		document.getElementById('explode').className =  elm + ' max';
-	}
-}
+// 	elm = elm.slice(1);
+// 	if(document.getElementById('explode').getAttribute('state') == 'min'){
+// 		document.getElementById('explode').className =  elm + ' min';	
+// 	} else {
+// 		document.getElementById('explode').className =  elm + ' max';
+// 	}
+// }
 
 document.onkeydown = function(e) {
 	var deltaX = 0;
@@ -151,7 +147,7 @@ document.onkeydown = function(e) {
 				if (z % 360 == 0){ z = 0; }
 			}
 
-		getFacing([x, y, z]);
+		//getFacing([x, y, z]);
 	
 	// deltaX = x - origX;
 	// deltaY = y - origY;
@@ -166,6 +162,7 @@ document.onkeydown = function(e) {
 	// }
 
 	ReactDOM.render(<Cube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
+	getFacing();
 
 }
 	// document.getElementById('explode').style.transform = 'rotateX(' + deltaX + 'deg ) rotateY(' + deltaY + 'deg) rotateZ(' + deltaZ + 'deg) translateZ( 100px )';

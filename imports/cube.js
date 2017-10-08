@@ -7,42 +7,50 @@ import MenuContent from './menuContent';
 export default class Cube extends React.Component{
 	constructor(props){
 		super(props);
-		this.curFace = this.props.curFace;
-		this.coords = this.props.coords;
 
 		this.state = {
-			isMax: true,
-			showMenu: false
+			curFace: this.props.curFace,
+			showMenu: true,
+			coords: this.props.coords,
+			explodeClass: this.props.curFace,
+			delta: this.props.delta
 		};
 
-
 		this.handleShow = this.handleShow.bind(this);
+		this.handleRotate = this.handleRotate.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
 
 		
-		if(nextProps.curFace=='spinning'){
-			this.curFace = this.props.curFace;
-			this.coords = nextProps.coords;
-			this.explodeClass = this.curFace + ' hide smooth';
-			this.showDelta = true;
+		if(nextProps.curFace=='spinning'){ //default face, means only rotation info received
+			this.setState((prevState, props) => {
+				return {
+					coords: nextProps.coords,
+					explodeClass: this.state.curFace + ' hide smooth',
+					delta: nextProps.delta
+				}
+			});
+			//this.showDelta = true;
 		}
 
-		if(nextProps.coords[0]==-1){
-			this.coords = this.props.coords;
-			this.showDelta = false;
-			this.curFace = nextProps.curFace;
-			this.explodeClass = this.curFace;
+		if(nextProps.coords[0]==-1){ //default coords, mean has stopped rotating and is updating face
+			this.setState((prevState, props) => {
+				return {
+					curFace: nextProps.curFace,
+					explodeClass: nextProps.curFace,
+					delta: [0,0,0]
+				}
+			});
+			//this.showDelta = false;
 			this.explodeStyle = {transform: `translateZ(-100px) rotateX( 0deg) rotateY(0deg) rotateZ(0deg)`}
 
 		}
 	}
 	render() {
-		const [x, y, z] = this.coords;
+		const [x, y, z] = this.state.coords;
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`}
 		menuClasses = (this.state.showMenu ? 'show' : 'hide')
-		
 		return(
 			<div>
 			<section className="container">
@@ -56,9 +64,9 @@ export default class Cube extends React.Component{
 			  </div>
 			</section>
 			<span id='menucontentouter' className={menuClasses}>
-			<MenuContent highlight={this.curFace}/>
+			<MenuContent handleRotate={this.handleRotate} highlight={this.state.curFace}/>
 			</span>
-			  <ExplodeBox explodeClass={this.explodeClass} angle={this.props.delta} handleMenu={this.handleShow}/>
+			  <ExplodeBox explodeClass={this.state.explodeClass} angle={this.state.delta} handleMenu={this.handleShow}/>
 			  </div>
 
 			);
@@ -70,6 +78,29 @@ export default class Cube extends React.Component{
 				showMenu: showMenu
 			}
 		});
+	}
+
+	handleRotate(coords, face){
+		console.log(face);
+		const [x, y, z] = coords;
+		const [xCur, yCur, zCur] = this.state.coords;
+		this.setState((prevState, props) => {
+			return {
+				coords: coords,
+				explodeClass: this.state.explodeClass + ' hide smooth',
+				curFace: face,
+				delta: [x - xCur, y - yCur, z - zCur]
+			}
+		});
+
+		setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
+			this.setState((prevState, props) => {
+				return {
+					explodeClass: face,
+					delta: [0, 0, 0]
+				}
+			});
+		}, 1000);
 	}
 
 }
