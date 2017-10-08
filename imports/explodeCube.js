@@ -22,7 +22,7 @@ export default class ExplodeCube extends React.Component{
 		};
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
-		this.handleRotate = this.handleRotate.bind(this);
+		this.handleMenuRotate = this.handleMenuRotate.bind(this);
 		this.handleMinMax = this.handleMinMax.bind(this);
 		
 	}
@@ -50,7 +50,7 @@ export default class ExplodeCube extends React.Component{
 		}
 	}
 
-	handleRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
+	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
 		console.log(face);
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
@@ -71,6 +71,7 @@ export default class ExplodeCube extends React.Component{
 				}
 			});
 		}, 1000);
+
 	}
 
 	handleMinMax(){
@@ -142,7 +143,7 @@ export default class ExplodeCube extends React.Component{
 		return(
 			<div>
 			<Cube rotation={rotation}/>
-			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleRotate} highlight={this.state.curFace}/>
+			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.curFace}/>
 
 			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation}>
 
@@ -150,7 +151,7 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuButton menuClass={menuClass} handleClick={this.handleMenuShow}/>
 			
-				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleRotate} highlight={this.state.explodeClass}/>
+				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handlMenuRotate} highlight={this.state.explodeClass}/>
 			
 				<div id="explodeContent"></div>
 			

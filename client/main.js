@@ -12,82 +12,50 @@ import './main.html';
 
 Meteor.startup(() => {
 
-ReactDOM.render(<ExplodeCube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
-		
-
-//$('.explode').hide();
+var myCube = ReactDOM.render(<ExplodeCube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
 
 var facingCalls = 0;
-var y = 0;
-var x = 0;
-var z = 0;
-var lastTime = new Date();
 
-
-var prevElm = ".front";
-
-// function recede(elm){
-// 	elm = elm.slice(1);
-
-// 	document.getElementById('explode').className =  elm + ' smooth hide';
-// }
-
-
-function getFacing(coords){
+function getFacing(){
+	[x, y, z] = myCube.state.coords; //current rotation
 	$('#dispCoords').html('x: ' + x % 360 + ', y: ' + y % 360 + ', z: ' + z % 360);
-	facingCalls += 1;
+
+	facingCalls += 1; //keep track of how many updates requested
+
 	setTimeout(function() {
-	facingCalls -= 1;
-	if (facingCalls == 0){
-	if(document.querySelector("figure.front").getBoundingClientRect().height > 199 && document.querySelector("figure.front").getBoundingClientRect().width > 199 ){
-		curFace = '.front';
-	} else if (document.querySelector("figure.back").getBoundingClientRect().height > 199 && document.querySelector("figure.back").getBoundingClientRect().width > 199 ){
-		curFace = '.back';
-	} else if (document.querySelector("figure.bottom").getBoundingClientRect().height > 199 && document.querySelector("figure.bottom").getBoundingClientRect().width > 199 ){
-		curFace = '.bottom';
-	} else if (document.querySelector("figure.top").getBoundingClientRect().height > 199 && document.querySelector("figure.top").getBoundingClientRect().width > 199 ){
-		curFace = '.top';
-	} else if (document.querySelector("figure.left").getBoundingClientRect().height > 199 && document.querySelector("figure.left").getBoundingClientRect().width > 199 ){
-		curFace = '.left';
-	} else if (document.querySelector("figure.right").getBoundingClientRect().height > 199 && document.querySelector("figure.right").getBoundingClientRect().width > 199 ){
-		curFace = '.right';
-	}
-	
+		facingCalls -= 1; //call being answered, subtract from count
+		if (facingCalls == 0){ //only find current face of cube if this is the last call made
+			if(document.querySelector("figure.front").getBoundingClientRect().height > 199 && document.querySelector("figure.front").getBoundingClientRect().width > 199 ){
+				curFace = 'front';
+			} else if (document.querySelector("figure.back").getBoundingClientRect().height > 199 && document.querySelector("figure.back").getBoundingClientRect().width > 199 ){
+				curFace = 'back';
+			} else if (document.querySelector("figure.bottom").getBoundingClientRect().height > 199 && document.querySelector("figure.bottom").getBoundingClientRect().width > 199 ){
+				curFace = 'bottom';
+			} else if (document.querySelector("figure.top").getBoundingClientRect().height > 199 && document.querySelector("figure.top").getBoundingClientRect().width > 199 ){
+				curFace = 'top';
+			} else if (document.querySelector("figure.left").getBoundingClientRect().height > 199 && document.querySelector("figure.left").getBoundingClientRect().width > 199 ){
+				curFace = 'left';
+			} else if (document.querySelector("figure.right").getBoundingClientRect().height > 199 && document.querySelector("figure.right").getBoundingClientRect().width > 199 ){
+				curFace = 'right';
+			}
 
-	prevElm = curFace;
-
-	if (curFace){
-		ReactDOM.render(<ExplodeCube curFace={curFace.slice(1)}/>, document.getElementById('app'));
-		faceContent = curFace.slice(1) + 'Face';
-		//document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
-		//explode(curFace);
-	}
-}
-}, 1000);
+			if (curFace){
+				myCube = ReactDOM.render(<ExplodeCube curFace={curFace}/>, document.getElementById('app'));
+				faceContent = curFace + 'Face';
+			}
+		}
+	}, 1000);
 
 }
-
-
-// function explode(elm){
-// 	document.getElementById('explode').style.transform = 'rotateX( 0deg ) rotateY( 0deg) rotateZ( 0deg) translateZ( 0 )';
-// 	curElm = '#explode' + elm;
-
-// 	elm = elm.slice(1);
-// 	if(document.getElementById('explode').getAttribute('state') == 'min'){
-// 		document.getElementById('explode').className =  elm + ' min';	
-// 	} else {
-// 		document.getElementById('explode').className =  elm + ' max';
-// 	}
-// }
 
 document.onkeydown = function(e) {
-	var deltaX = 0;
-	var deltaY = 0;
-	var deltaZ = 0;
 
-	//$('.explode').hide();
 	if(e.which <= 40 && e.which >= 37){
-		//recede(prevElm);
+		[x, y, z] = myCube.state.coords;
+		var deltaX = 0;
+		var deltaY = 0;
+		var deltaZ = 0;
+
 		switch(e.which){
 			case 38: //up
 				deltaX = -90;
@@ -146,25 +114,10 @@ document.onkeydown = function(e) {
 				if (z % 360 == 0){ z = 0; }
 			}
 
-		//getFacing([x, y, z]);
-	
-	// deltaX = x - origX;
-	// deltaY = y - origY;
-	// deltaZ = z - origZ;
-	// console.log(Math.floor((new Date() - lastTime)/60000));
-	// if ( document.getElementById('explode') && Math.floor((new Date() - lastTime)/6000) > 0 ) {
- //    	document.getElementById('explode').className = prevElm.slice(1) + ' smooth min';
- //    	console.log('moving');
-	// 	lastTime =  new Date();
-	// } else {
- //    	lastTime =  new Date();
-	// }
+		myCube = ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
+		getFacing();
 
-	ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
-	getFacing();
-
-}
-	// document.getElementById('explode').style.transform = 'rotateX(' + deltaX + 'deg ) rotateY(' + deltaY + 'deg) rotateZ(' + deltaZ + 'deg) translateZ( 100px )';
+	}
 
 }
 
