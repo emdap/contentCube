@@ -6,14 +6,13 @@ import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 
-import ExplodeBox from './../imports/explodeBox';
-import Cube from './../imports/cube';
+import ExplodeCube from './../imports/explodeCube';
 
 import './main.html';
 
 Meteor.startup(() => {
 
-ReactDOM.render(<Cube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
+ReactDOM.render(<ExplodeCube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
 		
 
 //$('.explode').hide();
@@ -58,7 +57,7 @@ function getFacing(coords){
 	prevElm = curFace;
 
 	if (curFace){
-		ReactDOM.render(<Cube curFace={curFace.slice(1)}/>, document.getElementById('app'));
+		ReactDOM.render(<ExplodeCube curFace={curFace.slice(1)}/>, document.getElementById('app'));
 		faceContent = curFace.slice(1) + 'Face';
 		//document.getElementById('explodeContent').innerHTML = document.getElementById(faceContent).innerHTML
 		//explode(curFace);
@@ -161,7 +160,7 @@ document.onkeydown = function(e) {
  //    	lastTime =  new Date();
 	// }
 
-	ReactDOM.render(<Cube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
+	ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
 	getFacing();
 
 }

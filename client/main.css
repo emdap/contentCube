@@ -151,11 +151,11 @@ button{
   padding: 5px;
 }
 
-#minmaxbutt.default{
+#minmaxbutt.open{
   transform: rotateZ( 0deg );
 }
 
-#minmaxbutt.min{
+#minmaxbutt.closed{
   transform: rotateZ( 45deg );
 }
 
@@ -174,22 +174,22 @@ button{
 	transition: all 1s;
 }
 
-#menucontentinner{
+#innerMenu{
 	color: black;
 	transition: all 1s;
 }
 
-#menucontentinner.show{
+#innerMenu.open{
 	opacity: 1;
 	visibility: visible;
 }
-#menucontentinner.hide{
+#innerMenu.closed{
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
 }
 
-#menucontentouter{
+#topMenu{
 	color: white;
 	border: 1px solid white;
 	text-align: center;
@@ -198,12 +198,12 @@ button{
 	transition: all 1s;
 }
 
-#menucontentouter.show{
+#topMenu.open{
 	opacity: 1;
 	visibility: visible;
 }
 
-#menucontentouter.hide{
+#topMenu.closed{
 	opacity: 0;
 	visibility: hidden;
 }	
