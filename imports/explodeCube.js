@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import MenuContent from './menuContent';
+import ExplodeContent from './explodeContent';
 
 export default class ExplodeCube extends React.Component{
 	constructor(props){
@@ -10,6 +11,7 @@ export default class ExplodeCube extends React.Component{
 		this.state = {
 			curFace: this.props.curFace, //content window
 			explodeClass: this.props.curFace, //classes for content window
+			contentFace: this.props.curFace, //which content page to show, delayed update during menu navigation
 
 			coords: this.props.coords, //rotation of cube
 			delta: this.props.delta, //direction of movement
@@ -18,7 +20,7 @@ export default class ExplodeCube extends React.Component{
 
 			showMenu: false, //show any menu
 			showInnerMenu: false, //show inner menu
-			showTopMenu: false, //show top menu
+			showTopMenu: false //show top menu
 		};
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
@@ -43,6 +45,7 @@ export default class ExplodeCube extends React.Component{
 			this.setState((prevState, props) => {
 				return {
 					curFace: nextProps.curFace,
+					contentFace: nextProps.curFace,
 					explodeClass: nextProps.curFace,
 					delta: [0,0,0]
 				}
@@ -51,7 +54,6 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
-		console.log(face);
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
 		this.setState((prevState, props) => {
@@ -67,6 +69,7 @@ export default class ExplodeCube extends React.Component{
 			this.setState((prevState, props) => {
 				return {
 					explodeClass: face,
+					contentFace: face,
 					delta: [0, 0, 0]
 				}
 			});
@@ -151,9 +154,9 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuButton menuClass={menuClass} handleClick={this.handleMenuShow}/>
 			
-				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handlMenuRotate} highlight={this.state.explodeClass}/>
+				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.explodeClass}/>
 			
-				<div id="explodeContent"></div>
+				<ExplodeContent curFace={this.state.contentFace}/>
 			
 			</div>
 			</div>
