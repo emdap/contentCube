@@ -1,0 +1,59 @@
+.container { 
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  perspective: 1000px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  
+}
+
+#card {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+
+
+#card figure {
+  margin: 0 0 0 0;
+  display: block;
+  position: absolute;
+  border: 2px white solid;
+  width: 198px;
+  height: 198px;
+  backface-visibility: hidden;
+  
+}
+
+#card .front {
+  transform: rotateX( 0deg ) translateZ( 100px );
+}
+
+#card .back {
+  transform: rotateX( 180deg ) translateZ( 100px );
+}
+
+#card .left {
+  transform: rotateY( -90deg ) translateZ( 100px );
+}
+
+#card .right {
+  transform: rotateY( 90deg ) translateZ( 100px );
+}
+
+#card .top {
+  transform: rotateX( 90deg ) translateZ( 100px );
+}
+
+#card .bottom{
+  transform: rotateX( -90deg ) translateZ( 100px );
+}
+

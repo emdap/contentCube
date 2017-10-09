@@ -1,0 +1,39 @@
+button{
+  border: 0;
+  font-weight: lighter;
+  opacity: .8;
+  color: black;
+  background: none;
+  text-align: center;
+  outline: 0;
+  height: 2rem;
+  width: 2rem;
+  padding: auto;
+  font-size: 1rem;
+  transition: all 2s;
+}
+
+
+#minmaxbutt:hover{
+  opacity: 1;
+}
+
+#explodeContent{
+  padding: 5px;
+}
+
+#minmaxbutt.open{
+  transform: rotateZ( 0deg );
+}
+
+#minmaxbutt.closed{
+  transform: rotateZ( 45deg );
+}
+
+#menubutton.closed{
+  transform: rotateZ( 90deg );
+}
+
+#menubutton.open{
+  transform: rotateZ( 0deg );
+}

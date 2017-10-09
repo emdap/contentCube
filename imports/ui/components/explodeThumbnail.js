@@ -2,15 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-
-import Back from './backPage';
-import Front from './frontPage';
-import Top from './topPage';
-import Bottom from './bottomPage';
-import Left from './leftPage';
-import Right from './rightPage';
-
 export default class ExplodeContent extends React.Component{
+
 	constructor(props){
 		super(props)
 		this.state = {
@@ -22,6 +15,36 @@ export default class ExplodeContent extends React.Component{
 			topDisp: 'none',
 			bottomDisp: 'none'
 		}
+	}
+
+	render(){
+
+		return(
+			<div style={{width : '200px'}}>
+			<div style={{display : `${this.state.frontDisp}`}}>
+				F
+			</div>
+
+			<div style={{display : `${this.state.backDisp}`}}>
+				Ba
+			</div>
+			<div style={{display : `${this.state.topDisp}`}}>
+				T
+			</div>
+
+			<div style={{display : `${this.state.bottomDisp}`}}>
+				Bo
+			</div>
+
+			<div style={{display : `${this.state.leftDisp}`}}>
+				L
+			</div>
+
+			<div style={{display : `${this.state.rightDisp}`}}>
+				R
+			</div>		
+			</div>
+			);
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -121,24 +144,5 @@ export default class ExplodeContent extends React.Component{
 				break;
 		}
 	}
-	render(){
 
-	
-		return(
-			<div>
-			<Front disp={this.state.frontDisp}/>
-
-			<Back disp={this.state.backDisp}/>
-
-			<Bottom disp={this.state.bottomDisp}/>
-
-			<Top disp={this.state.topDisp}/>
-
-			<Left disp={this.state.leftDisp}/>
-
-			<Right disp={this.state.rightDisp}/>
-		
-			</div>
-			)
-	}
 }

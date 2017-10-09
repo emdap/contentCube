@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import MenuContent from './menuContent';
 import ExplodeContent from './explodeContent';
+import ExplodeThumbnail from './explodeThumbnail';
+import MenuButton from './menuButton';
+import MinMaxButton from './minMaxButton';
+import Cube from './cube';
 
 export default class ExplodeCube extends React.Component{
 	constructor(props){
@@ -18,15 +22,61 @@ export default class ExplodeCube extends React.Component{
 
 			isMax: false, //size of content window
 
-			showMenu: false, //show any menu
+			showMenu: true, //show any menu
 			showInnerMenu: false, //show inner menu
-			showTopMenu: false //show top menu
+			showTopMenu: true //show top menu
 		};
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
 		this.handleMenuRotate = this.handleMenuRotate.bind(this);
 		this.handleMinMax = this.handleMinMax.bind(this);
 		
+	}
+
+	render() {
+		
+		//rotations
+		const [x, y, z] = this.state.coords; //rotation for cube
+		const [dx, dy, dz] = this.state.delta; //rotation for content (when hiding, 0 if showing)
+
+		//rotations in css
+		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
+		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
+
+		//show or hide each menu based on state
+		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
+		topMenuClass = (this.state.showTopMenu ? 'open' : 'closed'); //top menu
+		menuClass = (this.state.showMenu ? 'open' : 'closed'); //menu icon
+		
+		//size of content window
+		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
+		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
+		
+		if(this.state.isMax){
+			explodeContent = <ExplodeContent curFace={this.state.contentFace}/>;
+		} else {
+			explodeContent = <ExplodeThumbnail curFace={this.state.contentFace}/>;
+		}
+
+		return(
+			<div>
+			<Cube rotation={rotation}/>
+			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.curFace}/>
+
+			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation}>
+
+				<MinMaxButton minMaxClass={minMaxClass} handleClick={this.handleMinMax}/>
+			
+				<MenuButton menuClass={menuClass} handleClick={this.handleMenuShow}/>
+			
+				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.explodeClass}/>
+			
+				{explodeContent}
+			
+			</div>
+			</div>
+
+			);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -56,12 +106,13 @@ export default class ExplodeCube extends React.Component{
 	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
+		const [xFinal, yFinal, zFinal] = [Math.sin((x - xCur)*(Math.PI/180)) * Math.abs(x - xCur) , Math.sin((y - yCur)*(Math.PI/180)) * Math.abs(y - yCur), Math.sin((z - zCur)*(Math.PI/180)) * Math.abs(z - zCur)];
 		this.setState((prevState, props) => {
 			return {
 				coords: coords,
 				explodeClass: this.state.explodeClass + ' hide smooth',
 				curFace: face,
-				delta: [x - xCur, y - yCur, z - zCur] //flip content opposite way of cube
+				delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
 			}
 		});
 
@@ -123,46 +174,6 @@ export default class ExplodeCube extends React.Component{
 		}
 	}
 
-	render() {
-		
-		//rotations
-		const [x, y, z] = this.state.coords; //rotation for cube
-		const [dx, dy, dz] = this.state.delta; //rotation for content (when hiding, 0 if showing)
-
-		//rotations in css
-		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
-		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
-
-		//show or hide each menu based on state
-		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
-		topMenuClass = (this.state.showTopMenu ? 'open' : 'closed'); //top menu
-		menuClass = (this.state.showMenu ? 'open' : 'closed'); //menu icon
-		
-		//size of content window
-		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
-		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
-		
-
-		return(
-			<div>
-			<Cube rotation={rotation}/>
-			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.curFace}/>
-
-			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation}>
-
-				<MinMaxButton minMaxClass={minMaxClass} handleClick={this.handleMinMax}/>
-			
-				<MenuButton menuClass={menuClass} handleClick={this.handleMenuShow}/>
-			
-				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.explodeClass}/>
-			
-				<ExplodeContent curFace={this.state.contentFace}/>
-			
-			</div>
-			</div>
-
-			);
-	}
 
 }
 
@@ -173,40 +184,6 @@ ExplodeCube.defaultProps = {
 }
 
 
-class MinMaxButton extends React.Component{
 
-	render(){
-		return(
-			<button id='minmaxbutt' className={this.props.minMaxClass} onClick={this.props.handleClick}>&#10005;</button>
-			);
-	}
 
-}
-
-class MenuButton extends React.Component{
-
-	render(){
-		return(
-			<button id='menubutton' className={this.props.menuClass} onClick={this.props.handleClick}>|||</button>
-			);
-	}
-
-}
-
-class Cube extends React.Component {
-	render(){
-		return(
-			<section className="container">
-				  <div id="card" style={this.props.rotation}>
-				    <figure className="front"></figure>
-				    <figure className="back"></figure>   
-				    <figure className="left"></figure>
-				    <figure className="right"></figure>
-				    <figure className="top"></figure>
-				    <figure className="bottom"></figure>
-				  </div>
-			</section>
-		);
-	}
-}
 

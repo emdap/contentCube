@@ -1,0 +1,52 @@
+
+#menu{
+	overflow: scroll;
+	width: 100px;
+	height: 2rem;
+	transition: all 1s;
+}
+
+#innerMenu{
+	color: black;
+	transition: all 1s;
+}
+
+#innerMenu.open{
+	opacity: 1;
+	visibility: visible;
+}
+#innerMenu.closed{
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+#topMenu {
+  background: black;
+	color: white;
+	border: 1px solid white;
+	text-align: center;
+	top: 50%;
+	display: block;
+	transition: all 1s;
+}
+
+#topMenu span{
+  background: black;
+  transition: all 1s;
+}
+
+#topMenu.open{
+	opacity: 1;
+	visibility: visible;
+}
+
+#topMenu.closed{
+	opacity: 0;
+	visibility: hidden;
+}	
+
+.bolded{
+  background: gray !important;
+	font-weight: bold;
+}

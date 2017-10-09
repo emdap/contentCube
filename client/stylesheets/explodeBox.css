@@ -1,0 +1,63 @@
+
+.front {
+  background: red;
+}
+
+.back {
+  background: #00ffff;
+}
+
+.left {
+  background: blue;
+}
+
+.right {
+  background: #ffff00;
+}
+
+.top {
+  background: green;
+}
+
+.bottom {
+  background: #ff00ff;
+}
+
+#explode{
+	opacity: .5;
+	position: fixed;
+	top: calc(50% - 20rem);
+	left: calc(50% - 25rem);
+	overflow: hidden;
+	transition: margin 1s, opacity 1s, width 1s, height 1s;
+	perspective: 1000px;
+	direction: ltr;
+    transform-style: preserve-3d;
+}
+
+#explode.smooth{ 
+	transition: margin 1s, opacity .7s, width 1s, height 1s, transform 1s;
+ }
+
+
+#explode.min{
+	opacity: .7;
+	height: 198px;
+	width: 198px;
+	margin: calc(20rem - 99px) calc(25rem - 99px);
+}
+
+#explode.max{
+	opacity: 1;
+	height: 40rem;
+	width: 50rem;
+	margin: 0;
+}
+
+#explode.hide{
+	opacity: 0;
+	height: 198px;
+	width: 198px;
+	margin: calc(20rem - 99px) calc(25rem - 99px);
+}
+
