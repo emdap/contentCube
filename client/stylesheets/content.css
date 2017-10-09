@@ -1,0 +1,39 @@
+#explodeContent{
+  padding: 5px;
+}
+
+#thumbnail {
+	font-size: 150px;
+	text-align: center;
+	position: absolute;
+	width: 200px;
+	transition: all 1s;
+	overflow: hidden;
+}
+
+#thumbnail.show{
+	left: 0;
+	top: 25px;
+	opacity: 1;
+}
+
+#thumbnail.hide{
+	top: 100%;
+	left: 100%;
+	opacity: 0;
+}
+
+#content{
+	padding: 1rem;
+	overflow: hidden;
+	transition: all 1s;
+}
+
+#content.show{
+  opacity: 1;
+}
+
+
+#content.hide{
+  opacity: 0;
+}

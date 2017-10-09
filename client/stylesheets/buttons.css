@@ -18,9 +18,6 @@ button{
   opacity: 1;
 }
 
-#explodeContent{
-  padding: 5px;
-}
 
 #minmaxbutt.open{
   transform: rotateZ( 0deg );

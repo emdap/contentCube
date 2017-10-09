@@ -1,39 +1,52 @@
 
-#menu{
-	overflow: scroll;
-	width: 100px;
-	height: 2rem;
-	transition: all 1s;
-}
-
 #innerMenu{
 	color: black;
+	position: absolute;
+	height: 2rem;
+	line-height: 2rem;
+	display: inline-block;
 	transition: all 1s;
 }
 
 #innerMenu.open{
-	opacity: 1;
+	max-width: 220px;
+	overflow: hidden;
 	visibility: visible;
 }
+
 #innerMenu.closed{
-	opacity: 0;
+	max-width: 0px;
 	visibility: hidden;
 	overflow: hidden;
 }
 
-#topMenu {
-  background: black;
-	color: white;
-	border: 1px solid white;
-	text-align: center;
-	top: 50%;
-	display: block;
-	transition: all 1s;
+#innerMenu > .bolded{
+  font-weight: bold;
+  padding: 2px;
 }
 
-#topMenu span{
-  background: black;
-  transition: all 1s;
+#innerMenu > div{
+	display: inline;
+}
+
+#topMenu > div{
+	display: inline;
+    transition: all 1s;
+}
+
+#topMenu {
+    background: black;
+	color: white;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 8rem;
+	width: 500px;
+	left: calc(50% - 250px);
+	top: calc(50% - 200px - 4rem);
+	position: absolute;
+	display: inline-block;
+	transition: all 2s;
+	overflow: hidden;
 }
 
 #topMenu.open{
@@ -46,7 +59,8 @@
 	visibility: hidden;
 }	
 
-.bolded{
+
+#topMenu > .bolded{
   background: gray !important;
-	font-weight: bold;
+  padding: 2rem;
 }

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import MenuContent from './menuContent';
 import ExplodeContent from './explodeContent';
-import ExplodeThumbnail from './explodeThumbnail';
 import MenuButton from './menuButton';
 import MinMaxButton from './minMaxButton';
 import Cube from './cube';
@@ -24,13 +23,16 @@ export default class ExplodeCube extends React.Component{
 
 			showMenu: true, //show any menu
 			showInnerMenu: false, //show inner menu
-			showTopMenu: true //show top menu
+			showTopMenu: true, //show top menu
+			menuHighlight: this.props.curFace
 		};
+
+		this.rotateCalls = 0;
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
 		this.handleMenuRotate = this.handleMenuRotate.bind(this);
 		this.handleMinMax = this.handleMinMax.bind(this);
-		
+			
 	}
 
 	render() {
@@ -52,16 +54,19 @@ export default class ExplodeCube extends React.Component{
 		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
 		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
 		
-		if(this.state.isMax){
-			explodeContent = <ExplodeContent curFace={this.state.contentFace}/>;
-		} else {
-			explodeContent = <ExplodeThumbnail curFace={this.state.contentFace}/>;
-		}
+		// console.log(this.state.contentFace);
+		// if(this.state.isMax){
+		// 	console.log('cont');
+		// 	explodeContent = <ExplodeContent curFace={this.state.contentFace}/>;
+		// } else {
+		// 	console.log('thumb');
+		// 	explodeContent = <ExplodeThumbnail curFace={this.state.contentFace}/>;
+		// }
 
 		return(
 			<div>
 			<Cube rotation={rotation}/>
-			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.curFace}/>
+			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 
 			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation}>
 
@@ -69,9 +74,9 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuButton menuClass={menuClass} handleClick={this.handleMenuShow}/>
 			
-				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.explodeClass}/>
+				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 			
-				{explodeContent}
+				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax}/>
 			
 			</div>
 			</div>
@@ -84,6 +89,7 @@ export default class ExplodeCube extends React.Component{
 		if(nextProps.curFace=='spinning'){ //default face, means only rotation info received
 			this.setState((prevState, props) => {
 				return {
+					menuHighlight: 'none',
 					coords: nextProps.coords,
 					explodeClass: this.state.curFace + ' hide smooth',
 					delta: nextProps.delta
@@ -94,6 +100,7 @@ export default class ExplodeCube extends React.Component{
 		if(nextProps.coords[0]==-1){ //default coords, mean has stopped rotating and is updating face
 			this.setState((prevState, props) => {
 				return {
+					menuHighlight: nextProps.curFace,
 					curFace: nextProps.curFace,
 					contentFace: nextProps.curFace,
 					explodeClass: nextProps.curFace,
@@ -112,18 +119,22 @@ export default class ExplodeCube extends React.Component{
 				coords: coords,
 				explodeClass: this.state.explodeClass + ' hide smooth',
 				curFace: face,
+				menuHighlight: face,
 				delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
 			}
 		});
-
+		this.rotateCalls += 1;
 		setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
-			this.setState((prevState, props) => {
-				return {
-					explodeClass: face,
-					contentFace: face,
-					delta: [0, 0, 0]
-				}
-			});
+			this.rotateCalls -= 1;
+			if(this.rotateCalls==0){ //only update curface when done spinning/getting rotate calls
+				this.setState((prevState, props) => {
+					return {
+						explodeClass: face,
+						contentFace: face,
+						delta: [0, 0, 0]
+					}
+				});
+			}
 		}, 1000);
 
 	}

@@ -11,23 +11,54 @@ import Left from './pageComponents/leftPage';
 import Right from './pageComponents/rightPage';
 
 export default class ExplodeContent extends React.Component{
+	
 	render(){
-
+		thumbClass = (this.state.isMax ? 'hide' : 'show');
+		contentClass = (this.state.isMax ? 'show' : 'hide');
 	
 		return(
 			<div>
-			<Front disp={this.state.frontDisp}/>
+			{/* thumbnails */}
+			<div id='thumbnail' className={thumbClass}>
+				<div style={{display : `${this.state.frontDisp}`}}>
+					F
+				</div>
 
-			<Back disp={this.state.backDisp}/>
+				<div style={{display : `${this.state.backDisp}`}}>
+					Ba
+				</div>
+				<div style={{display : `${this.state.topDisp}`}}>
+					T
+				</div>
 
-			<Bottom disp={this.state.bottomDisp}/>
+				<div style={{display : `${this.state.bottomDisp}`}}>
+					Bo
+				</div>
 
-			<Top disp={this.state.topDisp}/>
+				<div style={{display : `${this.state.leftDisp}`}}>
+					L
+				</div>
 
-			<Left disp={this.state.leftDisp}/>
+				<div style={{display : `${this.state.rightDisp}`}}>
+					R
+				</div>	
+			</div>
 
-			<Right disp={this.state.rightDisp}/>
+			{/* pages */}
+			<div id='content' className={contentClass}>
+				<Front disp={this.state.frontDisp}/>
+
+				<Back disp={this.state.backDisp}/>
+
+				<Bottom disp={this.state.bottomDisp}/>
+
+				<Top disp={this.state.topDisp}/>
+
+				<Left disp={this.state.leftDisp}/>
+
+				<Right disp={this.state.rightDisp}/>
 		
+			</div>
 			</div>
 			)
 	}
@@ -41,62 +72,31 @@ export default class ExplodeContent extends React.Component{
 			rightDisp: 'none',
 			leftDisp: 'none',
 			topDisp: 'none',
-			bottomDisp: 'none'
+			bottomDisp: 'none',
+			isMax: this.props.isMax
 		}
 	}
 
 	componentWillReceiveProps(nextProps){
-		switch(this.state.curFace) {
-			case 'front':
-				this.setState(() => {
-					return {
-						frontDisp: 'none'
-					}
-				});
-				break;
-			case 'back':
-				this.setState(() => {
-					return {
-						backDisp: 'none'
-					}
-				});
-				break;
-			case 'top':
-				this.setState(() => {
-					return {
-						topDisp: 'none'
-					}
-				});
-				break;
-			case 'bottom':
-				this.setState(() => {
-					return {
-						bottomDisp: 'none'
-					}
-				});
-				break;
-			case 'left':
-				this.setState(() => {
-					return {
-						leftDisp: 'none'
-					}
-				});
-				break;
-			case 'right':
-				this.setState(() => {
-					return {
-						rightDisp: 'none'
-					}
-				});
-				break;
-		}
 
-		switch(nextProps.curFace) {
+		this.setState(() => { //set all to none
+			return {
+				frontDisp: 'none',			
+				backDisp: 'none',			
+				topDisp: 'none',		
+				bottomDisp: 'none',			
+				leftDisp: 'none',			
+				rightDisp: 'none',
+				isMax: nextProps.isMax
+			}
+		});
+	
+
+		switch(nextProps.curFace) { //set current side to display
 			case 'front':
 				this.setState(() => {
 					return {
 						frontDisp: 'block',
-						curFace: 'front'
 					}
 				});
 				break;
@@ -104,7 +104,6 @@ export default class ExplodeContent extends React.Component{
 				this.setState(() => {
 					return {
 						backDisp: 'block',
-						curFace: 'back'
 					}
 				});
 				break;
@@ -112,7 +111,6 @@ export default class ExplodeContent extends React.Component{
 				this.setState(() => {
 					return {
 						topDisp: 'block',
-						curFace: 'top'
 					}
 				});
 				break;
@@ -120,7 +118,6 @@ export default class ExplodeContent extends React.Component{
 				this.setState(() => {
 					return {
 						bottomDisp: 'block',
-						curFace: 'bottom'
 					}
 				});
 				break;
@@ -128,7 +125,6 @@ export default class ExplodeContent extends React.Component{
 				this.setState(() => {
 					return {
 						leftDisp: 'block',
-						curFace: 'left'
 					}
 				});
 				break;
@@ -136,7 +132,6 @@ export default class ExplodeContent extends React.Component{
 				this.setState(() => {
 					return {
 						rightDisp: 'block',
-						curFace: 'right'
 					}
 				});
 				break;
