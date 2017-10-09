@@ -1,4 +1,3 @@
-//use thumbnail if in min mode instead of content (do on this side when injecting to innerHTML, not to react element)
-//improve menu styling
+//edit menucontent component so that thumbnai is automatically first letter of page
 
 import '/imports/client/startup'

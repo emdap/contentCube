@@ -21,26 +21,26 @@ export default class ExplodeContent extends React.Component{
 			{/* thumbnails */}
 			<div id='thumbnail' className={thumbClass}>
 				<div style={{display : `${this.state.frontDisp}`}}>
-					F
+					A
 				</div>
 
 				<div style={{display : `${this.state.backDisp}`}}>
-					Ba
+					P
 				</div>
 				<div style={{display : `${this.state.topDisp}`}}>
-					T
+					R
 				</div>
 
 				<div style={{display : `${this.state.bottomDisp}`}}>
-					Bo
-				</div>
-
-				<div style={{display : `${this.state.leftDisp}`}}>
 					L
 				</div>
 
+				<div style={{display : `${this.state.leftDisp}`}}>
+					E
+				</div>
+
 				<div style={{display : `${this.state.rightDisp}`}}>
-					R
+					?
 				</div>	
 			</div>
 

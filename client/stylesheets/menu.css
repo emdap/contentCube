@@ -4,12 +4,13 @@
 	position: absolute;
 	height: 2rem;
 	line-height: 2rem;
-	display: inline-block;
+	left: 4.5rem;
+	display: inline;
 	transition: all 1s;
 }
 
 #innerMenu.open{
-	max-width: 220px;
+	max-width: 400px;
 	overflow: hidden;
 	visibility: visible;
 }
@@ -22,11 +23,17 @@
 
 #innerMenu > .bolded{
   font-weight: bold;
-  padding: 2px;
+  margin: 8px;
 }
 
 #innerMenu > div{
 	display: inline;
+	transition: all 1s;
+}
+
+#innerMenu > div:hover{
+
+   	margin: 8px;
 }
 
 #topMenu > div{
@@ -40,8 +47,8 @@
 	text-align: center;
 	font-size: 2rem;
 	line-height: 8rem;
-	width: 500px;
-	left: calc(50% - 250px);
+	width: 100%;
+	left: 0;
 	top: calc(50% - 200px - 4rem);
 	position: absolute;
 	display: inline-block;

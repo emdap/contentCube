@@ -8,14 +8,13 @@ button{
   outline: 0;
   height: 2rem;
   width: 2rem;
-  padding: auto;
+  line-height: 1rem;
   font-size: 1rem;
   transition: all 2s;
 }
 
-
-#minmaxbutt:hover{
-  opacity: 1;
+button:hover{
+  font-weight: bold;
 }
 
 

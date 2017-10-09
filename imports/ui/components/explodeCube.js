@@ -111,31 +111,34 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
+	if (face != this.state.contentFace){ //only alter states if we're actually moving
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
 		const [xFinal, yFinal, zFinal] = [Math.sin((x - xCur)*(Math.PI/180)) * Math.abs(x - xCur) , Math.sin((y - yCur)*(Math.PI/180)) * Math.abs(y - yCur), Math.sin((z - zCur)*(Math.PI/180)) * Math.abs(z - zCur)];
-		this.setState((prevState, props) => {
-			return {
-				coords: coords,
-				explodeClass: this.state.explodeClass + ' hide smooth',
-				curFace: face,
-				menuHighlight: face,
-				delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
-			}
-		});
-		this.rotateCalls += 1;
-		setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
-			this.rotateCalls -= 1;
-			if(this.rotateCalls==0){ //only update curface when done spinning/getting rotate calls
-				this.setState((prevState, props) => {
-					return {
-						explodeClass: face,
-						contentFace: face,
-						delta: [0, 0, 0]
-					}
-				});
-			}
-		}, 1000);
+
+			this.setState((prevState, props) => {
+				return {
+					coords: coords,
+					explodeClass: this.state.explodeClass + ' hide smooth',
+					curFace: face,
+					menuHighlight: face,
+					delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
+				}
+			});
+			this.rotateCalls += 1;
+			setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
+				this.rotateCalls -= 1;
+				if(this.rotateCalls==0){ //only update curface when done spinning/getting rotate calls
+					this.setState((prevState, props) => {
+						return {
+							explodeClass: face,
+							contentFace: face,
+							delta: [0, 0, 0]
+						}
+					});
+				}
+			}, 1000);
+		}
 
 	}
 
