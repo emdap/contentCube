@@ -1,0 +1,110 @@
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (max-device-width: 640px){
+
+	html {
+		font-size: 62.5% !important;
+	}
+
+	body {
+		font-size: 1.3rem !important;
+	}
+
+
+
+	#explode.max{
+		opacity: 1;
+		height: 98% !important;
+		width: 96% !important;
+		top: 1% !important;
+		left: 2% !important;
+		margin: 0 !important;
+	}
+
+
+	#innerMenu{
+		font-size: 1.1rem;
+	}
+
+	#topMenu.open{
+		height: 5rem !important;
+		padding: 0rem;
+	}
+
+	#topMenu{
+		top: 5% !important;
+		width: 70%;
+		left: 15%;
+		height: auto !important;
+		line-height: 6.7rem !important;
+		overflow: visible !important;
+	}
+
+
+	#topMenu > .bolded{
+	  background: gray !important;
+	  padding: .60rem .60rem;
+	}
+
+	#topMenu > div{
+		display: inline-block;
+		height: 5.5rem !important;
+		text-align: center !important;
+		line-height: 5.5rem !important;
+	}
+
+
+	#topMenu.closed{
+		opacity: 0;
+	}	
+
+	#topMenu > div.default:hover{
+	margin: 0rem .5rem !important;
+	}
+
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 768px) and (orientation: landscape){
+  	.container { 
+	  top: 60% !important;
+	}
+	#explode{
+	  top: calc(60% - 20rem) !important;
+	 }
+
+	 #explode.max{
+		height: 96% !important;
+		width: 98% !important;
+		top: 2% !important;
+		left: 1% !important;
+	}
+
+	#explode.min{
+		opacity: .7;
+		height: 198px;
+		width: 198px;
+		top: calc(60% - 99px) !important;
+		left: calc(50% - 99px) !important;
+		margin: 0 0 0 0 !important;
+	}
+	
+	#explode.hide{
+		opacity: 0;
+		height: 0% !important;
+		width: 0% !important;
+		margin: 0 0 0 0 !important;
+		top: 60% !important;
+		left: 50% !important;
+	}
+
+	#topMenu{
+		top: 3% !important;
+	}
+
+	#topMenu.closed{
+		opacity: 1 !important;
+		margin: 0 0 0 0 !important;
+		height: auto !important;
+		visibility: visible !important;
+	}	
+}

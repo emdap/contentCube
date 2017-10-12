@@ -19,12 +19,7 @@ export default class ExplodeCube extends React.Component{
 			coords: this.props.coords, //rotation of cube
 			delta: this.props.delta, //direction of movement
 
-			isMax: false, //size of content window
-
-			showMenu: true, //show any menu
-			showInnerMenu: false, //show inner menu
-			showTopMenu: true, //show top menu
-			menuHighlight: this.props.curFace
+			menuHighlight: this.props.curFace,
 		};
 
 		this.rotateCalls = 0;
@@ -32,11 +27,17 @@ export default class ExplodeCube extends React.Component{
 		this.handleMenuShow = this.handleMenuShow.bind(this);
 		this.handleMenuRotate = this.handleMenuRotate.bind(this);
 		this.handleMinMax = this.handleMinMax.bind(this);
-			
+		this.mount = true;
+	}
+
+	componentDidMount(){
+		//intro transform
+		console.log('moutn');
+		this.mount = false;
+		console.log(this.mount);
 	}
 
 	render() {
-		
 		//rotations
 		const [x, y, z] = this.state.coords; //rotation for cube
 		const [dx, dy, dz] = this.state.delta; //rotation for content (when hiding, 0 if showing)
@@ -194,7 +195,13 @@ export default class ExplodeCube extends React.Component{
 ExplodeCube.defaultProps = {
 	delta: [0, 0, 0],
 	coords: [-1, -1, -1],
-	curFace: 'spinning'
+	curFace: 'spinning',
+
+	isMax: false, //size of content window
+
+	showMenu: false, //show any menu
+	showInnerMenu: false, //show inner menu
+	showTopMenu: false, //show top menu
 }
 
 

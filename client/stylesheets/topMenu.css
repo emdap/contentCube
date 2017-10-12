@@ -1,0 +1,30 @@
+#topMenu {
+	color: white;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 7rem;
+	top: 10%;
+	position: absolute;
+	display: inline-block;
+	transition: all 1.5s;
+}
+
+#topMenu.open{
+	height: 7rem;
+	visibility: visible;
+}
+
+#topMenu.closed{
+	height: 0rem;
+	margin: -3rem 7rem 0 0;
+	visibility: hidden;
+}	
+
+
+#topMenu > div.default:hover{
+	margin: 2rem;
+}
+
+#topMenu > div{
+    transition: all 1s;
+}

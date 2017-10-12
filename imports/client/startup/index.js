@@ -3,13 +3,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {getFacing} from '/imports/api/getFacing'
+import {getSwipe} from '/imports/api/swipes'
 import ExplodeCube from '/imports/ui/components/explodeCube';
 
 Meteor.startup(() => {
 
+getSwipe();
+
 var myCube = ReactDOM.render(<ExplodeCube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
 
 document.onkeydown = function(e) {
+
 
 	if(e.which <= 40 && e.which >= 37){
 		[x, y, z] = myCube.state.coords;

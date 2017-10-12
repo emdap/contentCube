@@ -1,0 +1,36 @@
+
+#innerMenu{
+	color: black;
+	position: absolute;
+	height: 2rem;
+	line-height: 2rem;
+	left: 4.5rem;
+	display: inline;
+	transition: all 1s;
+}
+
+#innerMenu.open{
+	max-width: 400px;
+	overflow: hidden;
+	visibility: visible;
+}
+
+#innerMenu.closed{
+	max-width: 0px;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+#innerMenu > .bolded{
+  font-weight: bold;
+  margin: 8px;
+}
+
+#innerMenu > div{
+	display: inline;
+	transition: all 1s;
+}
+
+#innerMenu > div:hover{
+   	margin: 8px;
+}
