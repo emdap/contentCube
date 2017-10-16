@@ -24,59 +24,61 @@
 }
 
 #explode.smooth{ 
-	transition: margin 1s, opacity .7s, width 1s, height 1s, transform 1s;
+	transition: top 1s, left 1s, margin 1s, opacity .7s, width 1s, height 1s, transform 1s;
  }
 
 
-	#explode{
-		opacity: .5;
-		position: fixed;
-		top: 5%;
-		left: 10%;
-		overflow: hidden;
-		transition: top 1s, left 1s, margin 1s, opacity 1s, width 1s, height 1s;
-		perspective: 1000px;
-		direction: ltr;
-	    transform-style: preserve-3d;
-	}
+#explode{
+	position: fixed;
+	transition: top 1s, left 1s, margin 1s, opacity 1s, width 1s, height 1s;
+	perspective: 1000px;
+	direction: ltr;
+    transform-style: preserve-3d;
+	top: 5%;
+	left: 10%;
+	overflow: hidden;
+}
 
-	#explode.min{
-		opacity: .7;
-		height: 198px;
-		width: 198px;
-		top: calc(50% - 99px);
-		left: calc(50% - 99px);
-	}
+#explode.min{
+	opacity: .7;
+	height: 198px;
+	width: 198px;
+	top: calc(50% - 99px);
+	left: calc(50% - 99px);
+}
 
-	#explode.hide{
-		opacity: 0;
-		height: 198px;
-		width: 198px;
-		top: calc(50% - 99px);
-		left: calc(50% - 99px);
-	}
-
+#explode.hide{
+	opacity: 0;
+	height: 198px;
+	width: 198px;
+	top: calc(50% - 99px);
+	left: calc(50% - 99px);
+}
 
 
-	#explode.max{
-		opacity: 1;
-		height: 90%;
-		width: 80%;
 
-	}
+#explode.max{
+	opacity: 1;
+	height: 90%;
+	width: 80%;
+	top: 5%;
+	left: 10%;
 
-	#topMenu {
-		width: 100%;
-		overflow: hidden;
-	}
 
-	#topMenu > div{
-		display: inline;
-	}
+}
 
-	#topMenu > .bolded{
-  		background: gray !important;
-  		padding: 2rem;
-	}
+#topMenu {
+	width: 100%;
+	overflow: hidden;
+}
+
+#topMenu > div{
+	display: inline;
+}
+
+#topMenu > .bolded{
+		background: gray !important;
+		padding: 2rem;
+}
 
 

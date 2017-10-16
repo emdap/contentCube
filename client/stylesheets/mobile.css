@@ -26,17 +26,15 @@
 	}
 
 	#topMenu.open{
-		height: 5rem !important;
 		padding: 0rem;
 	}
 
 	#topMenu{
 		top: 5% !important;
-		width: 70%;
-		left: 15%;
-		height: auto !important;
+		width: 225px;
+		left: calc(50% - 112.5px);
+		height: 25% !important;
 		line-height: 6.7rem !important;
-		overflow: visible !important;
 	}
 
 

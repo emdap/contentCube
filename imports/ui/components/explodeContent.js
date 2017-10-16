@@ -28,7 +28,7 @@ export default class ExplodeContent extends React.Component{
 					P
 				</div>
 				<div style={{display : `${this.state.topDisp}`}}>
-					R
+					E
 				</div>
 
 				<div style={{display : `${this.state.bottomDisp}`}}>
@@ -67,7 +67,7 @@ export default class ExplodeContent extends React.Component{
 		super(props)
 		this.state = {
 			curFace: this.props.curFace,
-			frontDisp: 'block',
+			frontDisp: 'none',
 			backDisp: 'none',
 			rightDisp: 'none',
 			leftDisp: 'none',
@@ -76,6 +76,12 @@ export default class ExplodeContent extends React.Component{
 			isMax: this.props.isMax
 		}
 	}
+
+	componentDidMount(){
+		console.log(this.state.curFace);
+		this.toggleCurFace(this.state.curFace);
+	}
+	
 
 	componentWillReceiveProps(nextProps){
 
@@ -90,9 +96,13 @@ export default class ExplodeContent extends React.Component{
 				isMax: nextProps.isMax
 			}
 		});
-	
 
-		switch(nextProps.curFace) { //set current side to display
+		this.toggleCurFace(nextProps.curFace);
+	}
+
+	toggleCurFace(curFace){
+
+		switch(curFace) { //set current side to display
 			case 'front':
 				this.setState(() => {
 					return {

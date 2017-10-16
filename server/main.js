@@ -1,5 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import {Users} from '../imports/api/users';
+
+import {Comments} from '../imports/api/comments';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  console.log('hello');
 });

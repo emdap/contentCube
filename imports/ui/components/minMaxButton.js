@@ -6,7 +6,7 @@ export default class MinMaxButton extends React.Component{
 
 	render(){
 		return(
-			<button id='minmaxbutt' className={this.props.minMaxClass} onClick={this.props.handleClick}>&#10005;</button>
+			<button id='minmaxbutt' className={'icon' + ' ' + this.props.minMaxClass} onClick={this.props.handleClick}>&#10005;</button>
 			);
 	}
 

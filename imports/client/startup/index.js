@@ -3,19 +3,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {getFacing} from '/imports/api/getFacing'
-import {getSwipe} from '/imports/api/swipes'
+//import {getSwipe} from '/imports/api/swipes'
 import ExplodeCube from '/imports/ui/components/explodeCube';
 
 Meteor.startup(() => {
+//initial side to show
+var firstFace = 'right';
 
-getSwipe();
-
-var myCube = ReactDOM.render(<ExplodeCube coords={[0,0,0]} curFace={'front'}/>, document.getElementById('app'));
+var myCube = ReactDOM.render(<ExplodeCube coords={[0, -90, 0]} curFace={firstFace} isMax={true}/>, document.getElementById('app'));
 
 document.onkeydown = function(e) {
 
 
-	if(e.which <= 40 && e.which >= 37){
+	if(e.which == 27){
+		myCube = ReactDOM.render(<ExplodeCube keyRender={27}/>, document.getElementById('app'));
+	} else if (e.which == 77){
+		myCube = ReactDOM.render(<ExplodeCube keyRender={77}/>, document.getElementById('app'));
+	} else if (e.which <= 40 && e.which >= 37){
 		[x, y, z] = myCube.state.coords;
 		var deltaX = 0;
 		var deltaY = 0;
@@ -80,7 +84,9 @@ document.onkeydown = function(e) {
 			}
 
 		myCube = ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
+
 		curFace = getFacing();
+
 		setTimeout(function() {
 			if(curFace){
 				myCube = ReactDOM.render(<ExplodeCube curFace={curFace}/>, document.getElementById('app'));

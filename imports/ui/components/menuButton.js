@@ -7,7 +7,7 @@ export default class MenuButton extends React.Component{
 
 	render(){
 		return(
-			<button id='menubutton' className={this.props.menuClass} onClick={this.props.handleClick}>|||</button>
+			<button id='menubutton' className={'icon' + ' ' + this.props.menuClass} onClick={this.props.handleClick}>|||</button>
 			);
 	}
 

@@ -8,6 +8,8 @@ import MinMaxButton from './minMaxButton';
 import Cube from './cube';
 
 export default class ExplodeCube extends React.Component{
+	//renders rotation coords and current face separately
+	//js used to determine current face after rotation, 1 sec delay between renders
 	constructor(props){
 		super(props);
 
@@ -20,6 +22,9 @@ export default class ExplodeCube extends React.Component{
 			delta: this.props.delta, //direction of movement
 
 			menuHighlight: this.props.curFace,
+
+			isMax: this.props.isMax,
+			preSpinMax: this.props.isMax //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
 		};
 
 		this.rotateCalls = 0;
@@ -31,10 +36,6 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	componentDidMount(){
-		//intro transform
-		console.log('moutn');
-		this.mount = false;
-		console.log(this.mount);
 	}
 
 	render() {
@@ -87,32 +88,43 @@ export default class ExplodeCube extends React.Component{
 
 	componentWillReceiveProps(nextProps) {
 
-		if(nextProps.curFace=='spinning'){ //default face, means only rotation info received
-			this.setState((prevState, props) => {
-				return {
-					menuHighlight: 'none',
-					coords: nextProps.coords,
-					explodeClass: this.state.curFace + ' hide smooth',
-					delta: nextProps.delta
+		if(nextProps.keyRender == 27){ //keyboard event toggle size on rerender
+			this.handleMinMax();
+		} else if (nextProps.keyRender == 77){ //keyboard event toggle menu on rerender
+			this.handleMenuShow();
+		} else { // a lot is assumed using default props, but only want to do this if this wasn't a keyRender
+			if(nextProps.curFace=='spinning'){ //default face, means only rotation info received
+					this.setState((prevState, props) => {
+						return {
+							menuHighlight: 'none',
+							coords: nextProps.coords,
+							explodeClass: this.state.curFace + ' hide smooth',
+							delta: nextProps.delta,
+							preSpinMax: this.state.isMax,
+							isMax: false
+						}
+					});
 				}
-			});
+			console.log(this.state.curFace);
+			console.log(nextProps.curFace);
+			if(nextProps.coords[0]==-1){ //default coords, mean has stopped rotating and is updating face
+				this.setState((prevState, props) => {
+					return {
+						menuHighlight: nextProps.curFace,
+						curFace: nextProps.curFace,
+						contentFace: nextProps.curFace,
+						explodeClass: nextProps.curFace,
+						delta: [0,0,0],
+						isMax: this.state.preSpinMax
+					}
+				});
+			}
 		}
-
-		if(nextProps.coords[0]==-1){ //default coords, mean has stopped rotating and is updating face
-			this.setState((prevState, props) => {
-				return {
-					menuHighlight: nextProps.curFace,
-					curFace: nextProps.curFace,
-					contentFace: nextProps.curFace,
-					explodeClass: nextProps.curFace,
-					delta: [0,0,0]
-				}
-			});
-		}
+		
 	}
 
 	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
-	if (face != this.state.contentFace){ //only alter states if we're actually moving
+	if (face != this.state.contentFace || this.rotateEv > 0){ //only alter states if we're actually moving/did move
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
 		const [xFinal, yFinal, zFinal] = [Math.sin((x - xCur)*(Math.PI/180)) * Math.abs(x - xCur) , Math.sin((y - yCur)*(Math.PI/180)) * Math.abs(y - yCur), Math.sin((z - zCur)*(Math.PI/180)) * Math.abs(z - zCur)];
@@ -126,10 +138,12 @@ export default class ExplodeCube extends React.Component{
 					delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
 				}
 			});
+			this.rotateEv = 1;
 			this.rotateCalls += 1;
 			setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
 				this.rotateCalls -= 1;
 				if(this.rotateCalls==0){ //only update curface when done spinning/getting rotate calls
+					this.rotateEv = 0;
 					this.setState((prevState, props) => {
 						return {
 							explodeClass: face,
@@ -202,6 +216,8 @@ ExplodeCube.defaultProps = {
 	showMenu: false, //show any menu
 	showInnerMenu: false, //show inner menu
 	showTopMenu: false, //show top menu
+
+	keyRender: 0
 }
 
 

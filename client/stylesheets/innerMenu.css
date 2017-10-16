@@ -6,19 +6,19 @@
 	line-height: 2rem;
 	left: 4.5rem;
 	display: inline;
-	transition: all 1s;
+	transition: all 1.2s;
+	overflow: scroll;
 }
 
 #innerMenu.open{
-	max-width: 400px;
-	overflow: hidden;
-	visibility: visible;
+	height: 2rem;
+	opacity: 1;
 }
 
 #innerMenu.closed{
-	max-width: 0px;
-	visibility: hidden;
-	overflow: hidden;
+	height: 0rem;
+	opacity: 0;
+	left: 3rem;
 }
 
 #innerMenu > .bolded{

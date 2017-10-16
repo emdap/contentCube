@@ -22,7 +22,6 @@ export function getFacing(){
 			} else if (document.querySelector("figure.right").getBoundingClientRect().height > 199 && document.querySelector("figure.right").getBoundingClientRect().width > 199 ){
 				curFace = 'right';
 			}
-
 			return curFace;
 		}
 	}, 1000);
