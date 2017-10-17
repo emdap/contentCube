@@ -7,9 +7,8 @@ button.icon{
   background: none;
   text-align: center;
   outline: 0;
-  height: 2rem;
-  width: 2rem;
-  line-height: 1rem;
+  height: 2.5rem;
+  width: 2.5rem;
   font-size: 1rem;
   transition: all 2s;
 }

@@ -2,23 +2,23 @@
 #innerMenu{
 	color: black;
 	position: absolute;
-	height: 2rem;
-	line-height: 2rem;
-	left: 4.5rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	left: 5rem;
 	display: inline;
 	transition: all 1.2s;
-	overflow: scroll;
+	overflow: hidden;
 }
 
 #innerMenu.open{
-	height: 2rem;
+	height: 2.5rem;
 	opacity: 1;
 }
 
 #innerMenu.closed{
 	height: 0rem;
 	opacity: 0;
-	left: 3rem;
+	left: 3.5rem;
 }
 
 #innerMenu > .bolded{

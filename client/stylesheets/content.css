@@ -11,17 +11,17 @@
 
 #thumbnail.show{
 	left: 0;
-	top: 25px;
+	top: 30px;
 	height: 200px;
 	line-height: 160px;
 }
 
 #thumbnail.hide{
-	left: calc(100% - 2rem);
+	left: calc(100% - 2.5rem);
 	top: 0;
-	width: 2rem;
-	height: 2rem;
-	line-height: 2rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
 	font-size: 1rem;
 }
 

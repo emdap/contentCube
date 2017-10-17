@@ -100,10 +100,15 @@ export default class ExplodeCube extends React.Component{
 							coords: nextProps.coords,
 							explodeClass: this.state.curFace + ' hide smooth',
 							delta: nextProps.delta,
-							preSpinMax: this.state.isMax,
 							isMax: false
 						}
 					});
+
+					if (this.state.preSpinMax == 'wait'){
+						this.setState((prevState, props) => {
+							return {preSpinMax: this.state.isMax}
+						});
+					}
 				}
 			console.log(this.state.curFace);
 			console.log(nextProps.curFace);
@@ -115,7 +120,8 @@ export default class ExplodeCube extends React.Component{
 						contentFace: nextProps.curFace,
 						explodeClass: nextProps.curFace,
 						delta: [0,0,0],
-						isMax: this.state.preSpinMax
+						isMax: this.state.preSpinMax,
+						preSpinMax: 'wait'
 					}
 				});
 			}
