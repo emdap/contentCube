@@ -141,9 +141,18 @@ export default class ExplodeCube extends React.Component{
 					explodeClass: this.state.explodeClass + ' hide smooth',
 					curFace: face,
 					menuHighlight: face,
-					delta: [xFinal, yFinal, zFinal] //flip content opposite way of cube
+					delta: [xFinal, yFinal, zFinal], //flip content opposite way of cube
+					isMax: false
 				}
 			});
+
+
+			if (this.state.preSpinMax == 'wait'){
+				this.setState((prevState, props) => {
+					return {preSpinMax: this.state.isMax}
+				});
+			}
+
 			this.rotateEv = 1;
 			this.rotateCalls += 1;
 			setTimeout(()=>{ //wait 1 second for rotation to finish before updating curface and re-rendering
@@ -154,7 +163,9 @@ export default class ExplodeCube extends React.Component{
 						return {
 							explodeClass: face,
 							contentFace: face,
-							delta: [0, 0, 0]
+							delta: [0, 0, 0],
+							isMax: this.state.preSpinMax,
+							preSpinMax: 'wait'
 						}
 					});
 				}

@@ -30,7 +30,7 @@
 	}
 
 	#topMenu{
-		top: 5% !important;
+		top: 2% !important;
 		width: 225px;
 		left: calc(50% - 112.5px);
 		height: 25% !important;
@@ -62,7 +62,7 @@
 }
 
 /* #### Mobile Phones Landscape #### */
-@media screen and (max-device-width: 768px) and (orientation: landscape){
+@media screen and (max-device-width: 800px) and (orientation: landscape){
   	.container { 
 	  top: 60% !important;
 	}
@@ -97,6 +97,8 @@
 
 	#topMenu{
 		top: 3% !important;
+		width: 100%;
+		left: 0;
 	}
 
 	#topMenu.closed{
