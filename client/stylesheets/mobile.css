@@ -30,10 +30,10 @@
 	}
 
 	#topMenu{
-		top: 2% !important;
-		width: 225px;
-		left: calc(50% - 112.5px);
-		height: 25% !important;
+		top: 10% !important;
+		width: 100%;
+		left: 0;
+		font-size: 4.5vw !important;
 		line-height: 6.7rem !important;
 	}
 
@@ -45,9 +45,9 @@
 
 	#topMenu > div{
 		display: inline-block;
-		height: 5.5rem !important;
+		height: 6.5vw !important;
 		text-align: center !important;
-		line-height: 5.5rem !important;
+		line-height: 6.5vw !important;
 	}
 
 
