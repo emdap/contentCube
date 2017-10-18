@@ -25,22 +25,22 @@ export default class ExplodeContent extends React.Component{
 				</div>
 
 				<div style={{display : `${this.state.backDisp}`}}>
-					P
-				</div>
-				<div style={{display : `${this.state.topDisp}`}}>
 					E
 				</div>
-
-				<div style={{display : `${this.state.bottomDisp}`}}>
+				<div style={{display : `${this.state.topDisp}`}}>
 					L
 				</div>
 
+				<div style={{display : `${this.state.bottomDisp}`}}>
+					H
+				</div>
+
 				<div style={{display : `${this.state.leftDisp}`}}>
-					E
+					C
 				</div>
 
 				<div style={{display : `${this.state.rightDisp}`}}>
-					?
+					P
 				</div>	
 			</div>
 
@@ -78,7 +78,6 @@ export default class ExplodeContent extends React.Component{
 	}
 
 	componentDidMount(){
-		console.log(this.state.curFace);
 		this.toggleCurFace(this.state.curFace);
 	}
 	

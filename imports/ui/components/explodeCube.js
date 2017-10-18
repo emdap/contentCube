@@ -22,6 +22,9 @@ export default class ExplodeCube extends React.Component{
 			delta: this.props.delta, //direction of movement
 
 			menuHighlight: this.props.curFace,
+			showMenu: this.props.showMenu,
+			showInnerMenu: (this.props.showMenu && this.props.isMax),
+			showTopMenu: (this.props.showMenu && !this.props.isMax),
 
 			isMax: this.props.isMax,
 			preSpinMax: this.props.isMax //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
@@ -110,8 +113,6 @@ export default class ExplodeCube extends React.Component{
 						});
 					}
 				}
-			console.log(this.state.curFace);
-			console.log(nextProps.curFace);
 			if(nextProps.coords[0]==-1){ //default coords, mean has stopped rotating and is updating face
 				this.setState((prevState, props) => {
 					return {

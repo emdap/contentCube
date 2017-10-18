@@ -8,9 +8,9 @@ import ExplodeCube from '/imports/ui/components/explodeCube';
 
 Meteor.startup(() => {
 //initial side to show
-var firstFace = 'right';
+var firstFace = 'bottom';
 
-var myCube = ReactDOM.render(<ExplodeCube coords={[0, -90, 0]} curFace={firstFace} isMax={true}/>, document.getElementById('app'));
+var myCube = ReactDOM.render(<ExplodeCube coords={[90, 0, 0]} curFace={firstFace} isMax={false} showMenu={false}/>, document.getElementById('app'));
 
 document.onkeydown = function(e) {
 
@@ -72,16 +72,14 @@ document.onkeydown = function(e) {
 	      			if(x!=0){
 	      				if ( Math.abs(x) % 360 == 180){
 	        				if ((z) % 180 == 0 || x % 180 == 0){y += 90;} 
-	          				else {y -= 90;}
+	          				else {y -= Math.cos(x*(Math.PI/180))*90;}
 	       				} 
-	       				else if ((z) % 180 == 0){y -= 90;}
-	        			else {y += 90;}
+	       				else if ((z) % 180 == 0){y += Math.cos(z*(Math.PI/180))*90;}
+	        			else {y -= Math.sin(z*(Math.PI/180))*90;}
 					} else {y -= 90}	
 	    		}
-	    		if (x % 360 == 0){ x = 0; }
-				if (y % 360 == 0){ y = 0; }
-				if (z % 360 == 0){ z = 0; }
-			}
+			} 
+		console.log([x, y, z]);
 
 		myCube = ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
 
