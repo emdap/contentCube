@@ -10,7 +10,7 @@ Meteor.startup(() => {
 //initial side to show
 var firstFace = 'bottom';
 
-var myCube = ReactDOM.render(<ExplodeCube coords={[90, 0, 0]} curFace={firstFace} isMax={false} showMenu={false}/>, document.getElementById('app'));
+var myCube = ReactDOM.render(<ExplodeCube coords={[90, 0, 0]} curFace={firstFace} isMax={true} showMenu={true}/>, document.getElementById('app'));
 
 document.onkeydown = function(e) {
 
@@ -79,8 +79,7 @@ document.onkeydown = function(e) {
 					} else {y -= 90}	
 	    		}
 			} 
-		console.log([x, y, z]);
-
+			
 		myCube = ReactDOM.render(<ExplodeCube coords={[x, y, z]} delta={[deltaX, deltaY, deltaZ]}/>, document.getElementById('app'));
 
 		curFace = getFacing();

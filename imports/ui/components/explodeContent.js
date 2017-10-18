@@ -11,7 +11,7 @@ import Left from './pageComponents/leftPage';
 import Right from './pageComponents/rightPage';
 
 export default class ExplodeContent extends React.Component{
-	
+
 	render(){
 		thumbClass = (this.state.isMax ? 'hide' : 'show');
 		contentClass = (this.state.isMax ? 'show' : 'hide');
@@ -20,26 +20,26 @@ export default class ExplodeContent extends React.Component{
 			<div>
 			{/* thumbnails */}
 			<div id='thumbnail' className={thumbClass}>
-				<div style={{display : `${this.state.frontDisp}`}}>
+				<div className={this.state.frontDisp}>
 					A
 				</div>
 
-				<div style={{display : `${this.state.backDisp}`}}>
+				<div className={this.state.backDisp}>
 					E
 				</div>
-				<div style={{display : `${this.state.topDisp}`}}>
-					L
-				</div>
-
-				<div style={{display : `${this.state.bottomDisp}`}}>
+				<div className={this.state.bottomDisp}>
 					H
 				</div>
 
-				<div style={{display : `${this.state.leftDisp}`}}>
+				<div className={this.state.topDisp}>
+					L
+				</div>
+
+				<div className={this.state.leftDisp}>
 					C
 				</div>
 
-				<div style={{display : `${this.state.rightDisp}`}}>
+				<div className={this.state.rightDisp}>
 					P
 				</div>	
 			</div>
@@ -50,7 +50,7 @@ export default class ExplodeContent extends React.Component{
 
 				<Back disp={this.state.backDisp}/>
 
-				<Bottom disp={this.state.bottomDisp}/>
+				<Bottom disp={this.state.bottomDisp} message={this.state.homeMessage} spinIt={this.props.handleRotate}/>
 
 				<Top disp={this.state.topDisp}/>
 
@@ -67,15 +67,17 @@ export default class ExplodeContent extends React.Component{
 		super(props)
 		this.state = {
 			curFace: this.props.curFace,
-			frontDisp: 'none',
-			backDisp: 'none',
-			rightDisp: 'none',
-			leftDisp: 'none',
-			topDisp: 'none',
-			bottomDisp: 'none',
+			frontDisp: 'pageClosed',
+			backDisp: 'pageClosed',
+			rightDisp: 'pageClosed',
+			leftDisp: 'pageClosed',
+			topDisp: 'pageClosed',
+			bottomDisp: 'pageClosed',
+			homeMessage: 'init', 
 			isMax: this.props.isMax
 		}
 	}
+	
 
 	componentDidMount(){
 		this.toggleCurFace(this.state.curFace);
@@ -86,12 +88,12 @@ export default class ExplodeContent extends React.Component{
 
 		this.setState(() => { //set all to none
 			return {
-				frontDisp: 'none',			
-				backDisp: 'none',			
-				topDisp: 'none',		
-				bottomDisp: 'none',			
-				leftDisp: 'none',			
-				rightDisp: 'none',
+				frontDisp: 'pageClosed',			
+				backDisp: 'pageClosed',			
+				topDisp: 'pageClosed',		
+				bottomDisp: 'pageClosed',			
+				leftDisp: 'pageClosed',			
+				rightDisp: 'pageClosed',
 				isMax: nextProps.isMax
 			}
 		});
@@ -105,42 +107,42 @@ export default class ExplodeContent extends React.Component{
 			case 'front':
 				this.setState(() => {
 					return {
-						frontDisp: 'block',
+						frontDisp: 'pageOpen',
 					}
 				});
 				break;
 			case 'back':
 				this.setState(() => {
 					return {
-						backDisp: 'block',
+						backDisp: 'pageOpen',
 					}
 				});
 				break;
 			case 'top':
 				this.setState(() => {
 					return {
-						topDisp: 'block',
+						topDisp: 'pageOpen',
 					}
 				});
 				break;
 			case 'bottom':
 				this.setState(() => {
 					return {
-						bottomDisp: 'block',
+						bottomDisp: 'pageOpen',
 					}
 				});
 				break;
 			case 'left':
 				this.setState(() => {
 					return {
-						leftDisp: 'block',
+						leftDisp: 'pageOpen',
 					}
 				});
 				break;
 			case 'right':
 				this.setState(() => {
 					return {
-						rightDisp: 'block',
+						rightDisp: 'pageOpen',
 					}
 				});
 				break;

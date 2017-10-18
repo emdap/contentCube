@@ -8,10 +8,10 @@ import PropTypes from 'prop-types';
 export default class Front extends React.Component{
 	render(){
 	//	console.log(this.props.disp);
-		return(
-			<div className='page' id='aboutPage' style={{display : `${this.props.disp}`}}>
-		   <h1>Hello World</h1>
-		   Welcome to my website! 
+		pageClass = this.props.disp;
+		return(<div className={pageClass}>
+
+
 		    </div>
 		);
 	}

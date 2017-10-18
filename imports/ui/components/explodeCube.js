@@ -27,7 +27,7 @@ export default class ExplodeCube extends React.Component{
 			showTopMenu: (this.props.showMenu && !this.props.isMax),
 
 			isMax: this.props.isMax,
-			preSpinMax: this.props.isMax //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
+			preSpinMax: 'ready' //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
 		};
 
 		this.rotateCalls = 0;
@@ -59,14 +59,6 @@ export default class ExplodeCube extends React.Component{
 		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
 		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
 		
-		// console.log(this.state.contentFace);
-		// if(this.state.isMax){
-		// 	console.log('cont');
-		// 	explodeContent = <ExplodeContent curFace={this.state.contentFace}/>;
-		// } else {
-		// 	console.log('thumb');
-		// 	explodeContent = <ExplodeThumbnail curFace={this.state.contentFace}/>;
-		// }
 
 		return(
 			<div>
@@ -81,7 +73,7 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 			
-				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax}/>
+				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate}/>
 			
 			</div>
 			</div>
@@ -107,7 +99,7 @@ export default class ExplodeCube extends React.Component{
 						}
 					});
 
-					if (this.state.preSpinMax == 'wait'){
+					if (this.state.preSpinMax == 'ready'){
 						this.setState((prevState, props) => {
 							return {preSpinMax: this.state.isMax}
 						});
@@ -122,7 +114,7 @@ export default class ExplodeCube extends React.Component{
 						explodeClass: nextProps.curFace,
 						delta: [0,0,0],
 						isMax: this.state.preSpinMax,
-						preSpinMax: 'wait'
+						preSpinMax: 'ready'
 					}
 				});
 			}
@@ -130,8 +122,10 @@ export default class ExplodeCube extends React.Component{
 		
 	}
 
-	handleMenuRotate(coords, face){ // rotation via menu button to [coords] which is the [face] of the cube
-	if (face != this.state.contentFace || this.rotateEv > 0){ //only alter states if we're actually moving/did move
+	handleMenuRotate(coords, face, force){ // rotation via menu button to [coords] which is the [face] of the cube
+	console.log('menurot');
+	if (face != this.state.contentFace || this.rotateEv > 0 || force == true){ //only alter states if we're actually moving/did move
+		//force rotate even if same face if force is true
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
 		const [xFinal, yFinal, zFinal] = [Math.sin((x - xCur)*(Math.PI/180)) * Math.abs(x - xCur) , Math.sin((y - yCur)*(Math.PI/180)) * Math.abs(y - yCur), Math.sin((z - zCur)*(Math.PI/180)) * Math.abs(z - zCur)];
