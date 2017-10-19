@@ -1,6 +1,6 @@
 # contentCube
 
-Essentially a website navigation on a 3D css cube, each page assigned to a face and zooms in when user flips to that side. In progress.
+Rotating and interactive 3D cube built with CSS and React. Each side of the cube is like a new webpage with its own content.
 
-JSFiddle:
-https://jsfiddle.net/dapodev/1tbg9cy5/
+Progress so far:
+purseweb.herokuapp.com
