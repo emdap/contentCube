@@ -61,7 +61,7 @@ export default class ExplodeCube extends React.Component{
 		
 
 		return(
-			<div>
+			<div id="appHolder">
 			<Cube rotation={rotation}/>
 			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 

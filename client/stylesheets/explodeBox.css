@@ -1,4 +1,8 @@
 
+#appHolder {
+	height: 100%;
+}
+
 .front {
   background: red;
 }
@@ -37,6 +41,7 @@
 	top: 5%;
 	left: 10%;
 	overflow: hidden;
+	height: 100%;
 }
 
 #explode.min{
@@ -59,26 +64,13 @@
 
 #explode.max{
 	opacity: 1;
-	height: 90%;
-	width: 80%;
+	height: 90vh;
+	width: 80vw;
 	top: 5%;
 	left: 10%;
 
-
 }
 
-#topMenu {
-	width: 100%;
-	overflow: hidden;
-}
 
-#topMenu > div{
-	display: inline;
-}
-
-#topMenu > .bolded{
-		background: gray !important;
-		padding: 2rem;
-}
 
 

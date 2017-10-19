@@ -7,6 +7,8 @@
 	position: absolute;
 	display: inline-block;
 	transition: all 1.5s;
+	width: 100%;
+	overflow: hidden;
 }
 
 #topMenu.open{
@@ -27,4 +29,11 @@
 
 #topMenu > div{
     transition: all 1s;
+	display: inline;
+}
+
+
+#topMenu > .bolded{
+	background: gray !important;
+	padding: 2rem;
 }

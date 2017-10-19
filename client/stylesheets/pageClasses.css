@@ -6,60 +6,99 @@
 	display: none;
 }
 
-#intro{
-	transition: all .5s;
+#home{
+  transition: all .5s;
+  position: relative;
+  height: calc(90vh - 5rem);
+  background: rgba(255, 255, 255, .7);
+  overflow: scroll;
 }
 
-#intro.in{
-	opacity: 1;
+#home p {
+  padding: 0 20% 0 20%;
+  text-align: ltr;
+  overflow: hidden;
 }
 
-#intro.out{
-	opacity: 0;
+#home p.show{
+  opacity: 1;
+  margin: 10px 0 10px 0;
+    transition:  font-size .5s,
+                margin .5s,
+                padding .5s,
+                opacity 1s .5s;
 }
 
-#intro > h2 > button{
+#home p.hide{
+  opacity: 0;
+  font-size: 0;
+  margin: 0 0 0 0;
+      transition:  font-size 1s .5s,
+                margin 1s .5s,
+                padding 1s .5s,
+                opacity .5s;
+}
+
+#home h1 {
+  margin: 0;
+  text-align: center;
+  line-height: 5rem;
+  background: rgba(255, 255, 255, .5);
+}
+
+#home h2 {
+  transition: all 1s;
+  margin: 0;
+  text-align: center;
+  line-height: 2.5rem;
+  border-top: 1px solid white;
+  background: rgba(255, 255, 255, .3);
+}
+
+#home h4{
+  margin: 0;
+  background: rgba(255, 255, 255, .5);
+  position: absolute;
+  
+  width: 100%;
+  bottom: 0;
+}
+
+#home h3{
+  margin: 0;
+  position: absolute;
+  
+  width: 100%;
+  bottom: 50%;
+}
+
+#home.in{
+  margin: 0;
+  opacity: 1;
+}
+
+#home.out{
+  margin: -50%;
+  opacity: 0;
+}
+
+#home button{
   border: 0;
-  border-radius: 10%;
   color: black;
   font-weight: bold;
   background: none;
   text-align: center;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: inherit;
+  line-height: 2rem;
   transition: all 1s;
+  width: 100%;
 }
 
-#intro > h2 > button:hover{
-   background: rgba(100,100,100,.5);
-   font-size: 1.5rem
+#home button:hover{
+   background: rgba(100,100,100,.3);
 }
 
-#intro > h4 > button:hover{
-  background: rgba(100,100,100,.5);
-  font-size: 1.2rem;
-}
-
-#intro > h4 > button{
-  border: 0;
-  border-radius: 10%;
-  color: black;
-  font-weight: bold;
-  background: none;
-  text-align: center;
-  outline: 0;
-  font-size: 1rem;
-  transition: all 1s;
-}
-
-#outro{
-	transition: all .5s;
-}
-
-#outro.in{
-	opacity: 1;
-}
-
-#outro.out{
-	opacity: 0;
+#home h2:hover{
+   background: rgba(255, 255, 255, .7);
 }

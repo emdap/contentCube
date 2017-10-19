@@ -30,7 +30,6 @@
 }
 
 #content{
-	padding: 1rem;
 	overflow: hidden;
 	transition: all 1s;
 }
