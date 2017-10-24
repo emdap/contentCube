@@ -5,26 +5,32 @@
 
 .front {
   background: #440000;
+  color: rgba(255, 255, 255, .7);
 }
 
 .back {
-  background: #004444;
+  background: #f7db4f;
+  color: rgba(0, 0, 0, .8);
 }
 
 .left {
-  background: #000044;
+  background: #f26b38;
+  color: rgba(0, 0, 0, .8);
 }
 
 .right {
-  background: #444400;
+  background: #9DE0AD;
+  color: rgba(0, 0, 0, .8);
 }
 
 .top {
-  background: #004400;
+  background: #331133;
+  color: rgba(255, 255, 255, .7);
 }
 
 .bottom {
-  background: #440044;
+  background: #002222;
+  color: rgba(255, 255, 255, .88);
 }
 
 #explode.smooth{ 
@@ -41,30 +47,34 @@
 	left: 10%;
 	overflow: hidden;
 	height: 100%;
+	border: 2px solid rgba(255, 255, 255, .6);
+    
 }
 
 #explode.min{
-	opacity: .7;
+	opacity: 1;
 	height: 198px;
 	width: 198px;
-	top: calc(50% - 99px);
-	left: calc(50% - 99px);
+	top: calc(50% - 100px);
+	left: calc(50% - 100px);
+
 }
 
 #explode.hide{
 	opacity: 0;
-	height: 198px;
-	width: 198px;
+	height: 200px;
+	width: 200px;
 	top: calc(50% - 99px);
 	left: calc(50% - 99px);
+	border: 0px solid black;
 }
 
 #explode.max{
 	opacity: 1;
 	height: 90vh;
 	width: 80vw;
-	top: 5%;
-	left: 10%;
+	top: (5% - 2px);
+	left: (10% - 2px);
 }
 
 

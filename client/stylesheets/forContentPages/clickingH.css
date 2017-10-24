@@ -13,14 +13,13 @@
 #pageHolder h2 { 
   overflow: hidden;
   float: left;
-  transition: all 1s;
   margin: 0;
   text-align: center;
   line-height: 4rem;
   border-top: 1px solid rgba(0, 0, 0, .5);
   font-weight: normal;
   height: 4rem;
-  color: white;
+  color: inherit;
 }
 
 h2.inactive{

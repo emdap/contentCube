@@ -8,6 +8,7 @@
 
 #pageHolder{
   transition: all .5s;
+  transition: color 0s;
   position: relative;
   height: calc(90vh - 2.5rem);
   overflow: hidden;
@@ -17,6 +18,7 @@
 
 #pageHolder > div {
   transition: all .25s;
+  transition: color 0s;
   position: relative;
   height: calc(90vh - 5rem);
   background: rgba(255, 255, 255, .2);
@@ -45,7 +47,7 @@
   width: 100%;
   text-align: inherit;
   font-weight: inherit;
-  color: rgba(255, 255, 255, .7);
+  color: inherit;
 }
 
 #pageHolder button:hover{
@@ -66,6 +68,6 @@
   margin-bottom: -5px;
   text-align: center;
   line-height: 5rem;
-  color: white;
+  color: inherit;
 }
 

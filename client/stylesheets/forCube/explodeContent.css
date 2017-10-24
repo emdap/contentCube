@@ -10,6 +10,7 @@
 }
 
 #thumbnail.show{
+	opacity: .7;
 	left: 0;
 	top: 30px;
 	height: 200px;
@@ -24,7 +25,7 @@
 	height: 2.5rem;
 	line-height: 2.5rem;
 	font-size: 1rem;
-	color: rgba(255, 255, 255, .7);
+	color: inherit;
 }
 
 #thumbnail.hide:hover{

@@ -1,12 +1,12 @@
 
 #innerMenu{
-	color: rgba(255, 255, 255, .7);
+	color: inherit;
 	position: absolute;
 	height: 2.5rem;
 	line-height: 2.5rem;
 	left: 5rem;
 	display: inline;
-	transition: all 1.2s;
+	transition: margin 1s, opacity 1s, height 1s, left 1s, line-height 1s;
 	overflow: scroll;
 }
 
@@ -28,7 +28,7 @@
 
 #innerMenu > div{
 	display: inline;
-	transition: all 1s;
+	transition: margin 1s, opacity 1s, height 1s, left 1s, line-height 1s;
 	margin: 4px;
 }
 
