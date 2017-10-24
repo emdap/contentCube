@@ -124,7 +124,7 @@ export default class Bottom extends React.Component{
 			    </ClickingH>
 
 			    </div>
-
+			    <div id="pHolder">
 			    <HidingP trigger={this.state.showHere}>
 			    well, what is it?
 			    </HidingP>
@@ -180,6 +180,7 @@ export default class Bottom extends React.Component{
 
 
 			    </HidingP>
+			    </div>
 			    </div>
 
 			    <h4><button onClick={this.handleClick}>Replay intro</button></h4>

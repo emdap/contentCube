@@ -1,44 +1,50 @@
 
-#pageHolder p {
-  text-align: ltr;
+#pHolder {
+  margin-top: calc(4rem + 1px);
+  width: 100%;
+  height: calc(90vh - 14.5rem + 2px);
   position: absolute;
-  width: 60vw;
-  padding-left: 10vw;
-  padding-right: 10vw;
-
+  background: rgba(255, 255, 255, .7);
 }
 
-#pageHolder p.show{
-  margin-left: 0;
-  left: 0;
+#pHolder p{
+  text-align: ltr;
+  width: 80%;
+  height: 96%;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  display: inline;
+  position: absolute;
+}
+
+
+#pHolder p.show{
   opacity: 1;
-  overflow: scroll;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  overflow-y: scroll;
+  overflow-x: wrap;
 
-  top: 9rem;
-  height: 46.8vh;
-  margin-top: 1rem;
-
+  margin: 2% 0 0 0;
+  top: 0;
   transition:  height .5s, margin-top .5s, padding .5s, top .5s;
+
 }
 
-#pageHolder p.hide{
-  padding: 0 10vw 0 10vw;
+#pHolder p.hide{
+
   opacity: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
   height: 0;
-  margin-top: -8vh;
-  top: 89vh;
-  overflow: hidden;
-
-  transition: height .5s, margin-top .5s, padding .5s, top .5s .5s, opacity .4s 0s;
+  top: 80vh;
+  transition: height .5s, margin-top .5s, margin-bottom .5s, padding .5s, top .5s .5s, opacity .4s 0s;
+  
 }
-
 
 
 
 /* 
-#pageHolder p.show{
+#pHolder p.show{
   opacity: 1;
   float: left;
   margin: 20px 0 10px 0;
@@ -48,7 +54,7 @@
                 opacity .15s .25s;
 }
 
-#pageHolder p.hide{
+#pHolder p.hide{
   opacity: 0;
   font-size: 0;
   margin: 0 0 0 0;

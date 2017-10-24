@@ -4,27 +4,27 @@
 }
 
 .front {
-  background: red;
+  background: #440000;
 }
 
 .back {
-  background: #00ffff;
+  background: #004444;
 }
 
 .left {
-  background: blue;
+  background: #000044;
 }
 
 .right {
-  background: #ffff00;
+  background: #444400;
 }
 
 .top {
-  background: green;
+  background: #004400;
 }
 
 .bottom {
-  background: #ff00ff;
+  background: #440044;
 }
 
 #explode.smooth{ 

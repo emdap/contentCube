@@ -11,13 +11,15 @@
   position: relative;
   height: calc(90vh - 2.5rem);
   overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #pageHolder > div {
   transition: all .25s;
   position: relative;
   height: calc(90vh - 5rem);
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .2);
   overflow: hidden;
 }
 
@@ -33,7 +35,6 @@
 
 #pageHolder button{
   border: 0;
-  color: black;
   font-weight: bold;
   background: none;
   outline: 0;
@@ -44,6 +45,7 @@
   width: 100%;
   text-align: inherit;
   font-weight: inherit;
+  color: rgba(255, 255, 255, .7);
 }
 
 #pageHolder button:hover{
@@ -53,7 +55,6 @@
 
 #pageHolder h4{ /* bottom button */
   margin: 0;
-  background: #ff00ff;
   height: 2.5rem;
   width: 100%;
   bottom: 0;
@@ -61,9 +62,10 @@
 }
 
 #pageHolder h1 { /* welcome */
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: -5px;
   text-align: center;
   line-height: 5rem;
-  background: rgba(255, 255, 255, .4);
+  color: white;
 }
 

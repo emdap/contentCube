@@ -6,7 +6,7 @@
 
 
 #pageHolder h2:hover{
-   background: rgba(255, 255, 255, .8);
+   background: rgba(255, 255, 255, .6);
 }
 
 
@@ -16,10 +16,11 @@
   transition: all 1s;
   margin: 0;
   text-align: center;
-  line-height: 5rem;
-  border-top: 1px solid white;
+  line-height: 4rem;
+  border-top: 1px solid rgba(0, 0, 0, .5);
   font-weight: normal;
-  height: 5rem;
+  height: 4rem;
+  color: white;
 }
 
 h2.inactive{
@@ -27,5 +28,5 @@ h2.inactive{
 }
 
 h2.active {
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .4);
 }

@@ -10,7 +10,7 @@ button.icon{
   height: 2.5rem;
   width: 2.5rem;
   font-size: 1rem;
-  transition: all 2s;
+  color: rgba(255, 255, 255, .8);
 }
 
 button.icon:hover{
@@ -18,17 +18,21 @@ button.icon:hover{
 }
 
 #minmaxbutt.open{
+  transition: all 1s 1s;
   transform: rotateZ( 0deg );
 }
 
 #minmaxbutt.closed{
+  transition: all 1s 1s;
   transform: rotateZ( 45deg );
 }
 
 #menubutton.closed{
+  transition: 1s;
   transform: rotateZ( 90deg );
 }
 
 #menubutton.open{
+  transition: 1s;
   transform: rotateZ( 0deg );
 }
