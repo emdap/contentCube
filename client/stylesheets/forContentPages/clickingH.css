@@ -1,0 +1,31 @@
+
+#pageMenu {
+  width: 100%;
+  clear: both;
+}
+
+
+#pageHolder h2:hover{
+   background: rgba(255, 255, 255, .8);
+}
+
+
+#pageHolder h2 { 
+  overflow: hidden;
+  float: left;
+  transition: all 1s;
+  margin: 0;
+  text-align: center;
+  line-height: 5rem;
+  border-top: 1px solid white;
+  font-weight: normal;
+  height: 5rem;
+}
+
+h2.inactive{
+  background: rgba(255, 255, 255, .2);
+}
+
+h2.active {
+  background: rgba(255, 255, 255, .6);
+}

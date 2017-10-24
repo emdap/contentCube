@@ -1,0 +1,19 @@
+#home h2{/* menu options for this page */
+  width: calc(100%/3);
+}
+
+#home .middleMenu{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  width: calc(100%/3 - 2px);
+}
+
+#home h3{ /* wondering where the cube is? ... */
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 50%;
+  line-height: 5rem;
+  height: 5rem;
+  text-align: center;
+}

@@ -7,7 +7,7 @@
 	left: 5rem;
 	display: inline;
 	transition: all 1.2s;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 #innerMenu.open{
@@ -29,6 +29,7 @@
 #innerMenu > div{
 	display: inline;
 	transition: all 1s;
+	margin: 4px;
 }
 
 #innerMenu > div:hover{

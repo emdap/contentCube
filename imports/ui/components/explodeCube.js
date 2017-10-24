@@ -123,7 +123,6 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	handleMenuRotate(coords, face, force){ // rotation via menu button to [coords] which is the [face] of the cube
-	console.log('menurot');
 	if (face != this.state.contentFace || this.rotateEv > 0 || force == true){ //only alter states if we're actually moving/did move
 		//force rotate even if same face if force is true
 		const [x, y, z] = coords; //coords we're rotating to
