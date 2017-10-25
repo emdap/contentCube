@@ -16,6 +16,7 @@
 	height: 200px;
 	line-height: 160px;
 	transition: left 1s, top 1s, height 1s, line-height 1s, width 1s, font-size 1s, color 1s 1s;
+	color: black;
 }
 
 #thumbnail.hide{

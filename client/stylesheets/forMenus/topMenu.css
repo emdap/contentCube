@@ -35,6 +35,6 @@
 
 
 #topMenu > .bolded{
-	background: gray !important;
 	padding: 2rem;
+	color: white;
 }
