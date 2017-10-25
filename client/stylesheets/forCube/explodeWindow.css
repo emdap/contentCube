@@ -4,17 +4,17 @@
 }
 
 .front {
-  background: #440000;
+  background: #440011;
   color: rgba(255, 255, 255, .7);
 }
 
 .back {
-  background: #f7db4f;
+  background: #ff5566;
   color: rgba(0, 0, 0, .8);
 }
 
 .left {
-  background: #f26b38;
+  background: #ff8844;
   color: rgba(0, 0, 0, .8);
 }
 

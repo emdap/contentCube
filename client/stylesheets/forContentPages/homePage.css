@@ -1,6 +1,13 @@
+#home #pHolder {
+  background: rgba(255, 255, 255, .7);
+}
+
+
 #home h2{/* menu options for this page */
   width: calc(100%/3);
+  border-top: 1px solid rgba(0, 0, 0, .5);
 }
+
 
 #home .middleMenu{
   border-left: 1px solid rgba(0, 0, 0, .5);

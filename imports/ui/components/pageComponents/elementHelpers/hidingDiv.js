@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-export default class HidingP extends React.Component{
+export default class HidingDiv extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -12,9 +12,9 @@ export default class HidingP extends React.Component{
 
 	render(){
 		return(
-			<p className={this.state.class}>
+			<div className={this.state.class}>
 			{this.props.children}
-			</p>
+			</div>
 			);
 	}
 

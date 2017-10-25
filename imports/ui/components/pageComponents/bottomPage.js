@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import HidingP from './elementHelpers/hidingP';
+import HidingDiv from './elementHelpers/hidingDiv';
 import ClickingH from './elementHelpers/clickingH';
 
 export default class Bottom extends React.Component{
@@ -125,11 +125,11 @@ export default class Bottom extends React.Component{
 
 			    </div>
 			    <div id="pHolder">
-			    <HidingP trigger={this.state.showHere}>
+			    <HidingDiv trigger={this.state.showHere}>
 			    well, what is it?
-			    </HidingP>
+			    </HidingDiv>
 
-			    <HidingP trigger={this.state.showControls}>
+			    <HidingDiv trigger={this.state.showControls}>
 
 			    
 			        Here's some random text.
@@ -150,9 +150,9 @@ export default class Bottom extends React.Component{
 			    <li>control</li>
 			    <li>control</li>
 			    <li>control</li>
-			    </HidingP>
+			    </HidingDiv>
 
-			    <HidingP trigger={this.state.showMade}>
+			    <HidingDiv trigger={this.state.showMade}>
 
 
 			        Here's some random text.
@@ -179,7 +179,7 @@ export default class Bottom extends React.Component{
     'these' are quotes too."
 
 
-			    </HidingP>
+			    </HidingDiv>
 			    </div>
 			    </div>
 

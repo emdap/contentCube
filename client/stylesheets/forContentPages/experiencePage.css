@@ -1,0 +1,33 @@
+#experience #pHolder{
+
+  background: rgba(255, 255, 255, .2);
+}
+
+#experience h2{/* menu options for this page */
+  width: calc(100%/3);
+  border-top: 1px solid rgba(255, 255, 255, .5);
+}
+
+#experience .middleMenu{
+  border-left: 1px solid rgba(255, 255, 255, .5);
+  border-right: 1px solid rgba(255, 255, 255, .5);
+  width: calc(100%/3 - 2px);
+}
+
+#experience h3{ /* wondering where the cube is? ... */
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 50%;
+  line-height: 5rem;
+  height: 5rem;
+  text-align: center;
+}
+
+#experience h2.inactive{
+  background: rgba(255, 255, 255, .4);
+}
+
+#experience h2.active {
+  background: rgba(255, 255, 255, .6);
+}

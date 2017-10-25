@@ -4,10 +4,9 @@
   width: 100%;
   height: calc(90vh - 14.5rem + 2px);
   position: absolute;
-  background: rgba(255, 255, 255, .7);
 }
 
-#pHolder p{
+#pHolder div{
   text-align: ltr;
   width: 80%;
   height: 96%;
@@ -19,7 +18,7 @@
 }
 
 
-#pHolder p.show{
+#pHolder div.show{
   opacity: 1;
   overflow-y: scroll;
   overflow-x: wrap;
@@ -30,7 +29,7 @@
 
 }
 
-#pHolder p.hide{
+#pHolder div.hide{
 
   opacity: 0;
   overflow-y: hidden;

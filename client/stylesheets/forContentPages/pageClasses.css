@@ -58,6 +58,7 @@
 #pageHolder h4{ /* bottom button */
   margin: 0;
   height: 2.5rem;
+  line-height: 2rem;
   width: 100%;
   bottom: 0;
   text-align: left;

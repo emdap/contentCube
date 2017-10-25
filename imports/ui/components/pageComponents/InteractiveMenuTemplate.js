@@ -5,8 +5,7 @@ import HidingDiv from './elementHelpers/hidingDiv';
 import ClickingH from './elementHelpers/clickingH';
 
 
-export default class Back extends React.Component{
-
+export default class Template extends React.Component{
 
 	constructor(props) {
 		super(props);
@@ -63,20 +62,17 @@ export default class Back extends React.Component{
 
 			return (
 				<div id="pageHolder" className={pageClass}>
-				<div id="experience">
+				<div id="IDHERE">
 			    <h1>Header</h1>
 			    <div id="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.menu1} trigger={"menu1"} handleShow={this.handleMenuShow}>
-			 	menu1
 			 	</ClickingH>
 
 			    <ClickingH activate={this.state.menu2} initClass={"middleMenu"} trigger={"menu2"} handleShow={this.handleMenuShow}>
-			    menu2
 			    </ClickingH>
 
 			    <ClickingH activate={this.state.menu3} trigger={"menu3"} handleShow={this.handleMenuShow}>
-			    menu3
 			    </ClickingH>
 
 			    </div>
@@ -84,15 +80,12 @@ export default class Back extends React.Component{
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.menu1}>
-			    menu1
 			    </HidingDiv>
 
 			    <HidingDiv trigger={this.state.menu2}>
-			    menu2
 			    </HidingDiv>
 
 			    <HidingDiv trigger={this.state.menu3}>
-			    menu3
 			    </HidingDiv>
 
 			    </div>
@@ -121,7 +114,6 @@ export default class Back extends React.Component{
 		);
 	}
 }
-
 
 
 

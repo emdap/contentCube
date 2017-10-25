@@ -11,12 +11,12 @@
 
 
 #pageHolder h2 { 
+  transition: background 1s;
   overflow: hidden;
   float: left;
   margin: 0;
   text-align: center;
   line-height: 4rem;
-  border-top: 1px solid rgba(0, 0, 0, .5);
   font-weight: normal;
   height: 4rem;
   color: inherit;
