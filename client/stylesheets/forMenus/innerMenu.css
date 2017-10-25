@@ -30,6 +30,9 @@
 	display: inline;
 	transition: margin 1s, opacity 1s, height 1s, left 1s, line-height 1s;
 	margin: 4px;
+	background: none;
+	color: inherit;
+
 }
 
 #innerMenu > div:hover{

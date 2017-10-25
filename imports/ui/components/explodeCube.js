@@ -123,7 +123,8 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	handleMenuRotate(coords, face, force){ // rotation via menu button to [coords] which is the [face] of the cube
-	if (face != this.state.contentFace || this.rotateEv > 0 || force == true){ //only alter states if we're actually moving/did move
+	if (face != this.state.contentFace || this.rotateEv > 0 || force == true){ 
+	//only alter states if we're actually moving/did move
 		//force rotate even if same face if force is true
 		const [x, y, z] = coords; //coords we're rotating to
 		const [xCur, yCur, zCur] = this.state.coords; //coords at this moment
@@ -136,16 +137,17 @@ export default class ExplodeCube extends React.Component{
 					curFace: face,
 					menuHighlight: face,
 					delta: [xFinal, yFinal, zFinal], //flip content opposite way of cube
-					isMax: false
+					isMax: false,
+					preSpinMax: (prevState.preSpinMax == 'ready' ? this.state.isMax : prevState.preSpinMax)
 				}
 			});
 
 
-			if (this.state.preSpinMax == 'wait'){
-				this.setState((prevState, props) => {
-					return {preSpinMax: this.state.isMax}
-				});
-			}
+			// if (this.state.preSpinMax == 'wait'){
+			// 	this.setState((prevState, props) => {
+			// 		return {preSpinMax: this.state.isMax}
+			// 	});
+			// }
 
 			this.rotateEv = 1;
 			this.rotateCalls += 1;
@@ -158,8 +160,8 @@ export default class ExplodeCube extends React.Component{
 							explodeClass: face,
 							contentFace: face,
 							delta: [0, 0, 0],
-							isMax: this.state.preSpinMax,
-							preSpinMax: 'wait'
+							isMax: prevState.preSpinMax,
+							preSpinMax: 'ready'
 						}
 					});
 				}
