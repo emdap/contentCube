@@ -13,9 +13,9 @@
 
 	#explode.max{
 		opacity: 1;
-		height: 98vh !important;
+		height: 90vh !important;
 		width: 96vw !important;
-		top: 1% !important;
+		top: 5% !important;
 		left: 2% !important;
 		margin: 0 !important;
 	}
@@ -39,7 +39,6 @@
 
 
 	#topMenu > .bolded{
-	  background: gray !important;
 	  padding: .60rem .60rem;
 	}
 
@@ -71,9 +70,9 @@
 	 }
 
 	 #explode.max{
-		height: 96% !important;
+		height: 90% !important;
 		width: 98% !important;
-		top: 2% !important;
+		top: 5% !important;
 		left: 1% !important;
 	}
 
@@ -102,7 +101,7 @@
 	}
 
 	#topMenu.closed{
-		opacity: 1 !important;
+		opacity: 0 !important;
 		margin: 0 0 0 0 !important;
 		height: auto !important;
 		visibility: visible !important;

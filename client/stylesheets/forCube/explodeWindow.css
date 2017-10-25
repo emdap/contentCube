@@ -3,32 +3,32 @@
 	height: 100%;
 }
 
-.front {
+.front { /*about*/
   background: #440011;
   color: rgba(255, 255, 255, .7);
 }
 
-.back {
-  background: #ff5566;
+.back { /*experience*/
+  background: #aaaa44;
   color: rgba(0, 0, 0, .8);
 }
 
-.left {
+.left { /*contact*/
   background: #ff8844;
   color: rgba(0, 0, 0, .8);
 }
 
-.right {
-  background: #9DE0AD;
+.right { /*projects*/
+  background: #cc90c7;
   color: rgba(0, 0, 0, .8);
 }
 
-.top {
+.top { /*links*/
   background: #331133;
   color: rgba(255, 255, 255, .7);
 }
 
-.bottom {
+.bottom { /*home*/
   background: #002222;
   color: rgba(255, 255, 255, .88);
 }
@@ -57,6 +57,8 @@
 	width: 198px;
 	top: calc(50% - 100px);
 	left: calc(50% - 100px);
+	color: black;
+	transition: top 1s, left 1s, margin 1s, opacity 1s, width 1s, height 1s, color .25s;
 
 }
 
@@ -67,6 +69,8 @@
 	top: calc(50% - 99px);
 	left: calc(50% - 99px);
 	border: 0px solid black;
+
+	transition: top 1s, left 1s, margin 1s, opacity .5s, width 1s, height 1s, transform .8s, color .25s;
 }
 
 #explode.max{
@@ -75,6 +79,7 @@
 	width: 80vw;
 	top: (5% - 2px);
 	left: (10% - 2px);
+	transition: top 1s, left 1s, margin 1s, opacity 1s, width 1s, height 1s;
 }
 
 

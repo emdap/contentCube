@@ -26,14 +26,13 @@
 }
 
 #pageHolder.in{ /* trans between intro/welcome back */
-  
-  transition: all .25s;
+  transition: margin .25s, opacity .25s;
   margin: 0;
   opacity: 1;
 }
 
 #pageHolder.out{
-  transition: all .25s;
+  transition: margin .25s, opacity .25s;
   margin: -10%;
   opacity: 0;
 }
@@ -47,6 +46,7 @@
   line-height: inherit;
   height: inherit;
   transition: all 1s;
+  transition: color 0s;
   width: 100%;
   text-align: inherit;
   font-weight: inherit;

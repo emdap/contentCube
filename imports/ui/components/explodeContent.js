@@ -20,15 +20,38 @@ export default class ExplodeContent extends React.Component{
 			<div>
 			{/* thumbnails */}
 			<div id='thumbnail' className={thumbClass}>
-				{this.toggleThumbnail(this.state.curFace)}
+					<div className={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")}>
+						A
+					</div>
+					<div className={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")}>
+						E
+					</div>
+					<div className={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")}>
+						L
+					</div>
+					<div className={(this.state.curFace == 'bottom' ? "pageOpen" : "pageClosed")}>
+						H
+					</div>
+					<div className={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")}>
+						C
+					</div>
+					<div className={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")}>
+						P
+					</div>
+
 			</div>
 
-			{/* pages */}
+			{/* pages */}	
+
 			<div id='content' className={contentClass}>
-
-			{this.toggleCurFace(this.state.curFace)}		
-		
+				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")}/>
+				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")}/>
+				<Top disp={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")}/>
+				<Bottom disp={(this.state.curFace == 'bottom' ? "pageOpen" : "pageClosed")}/>
+				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")}/>
+				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")}/>
 			</div>
+		
 			</div>
 			)
 	}
@@ -36,14 +59,7 @@ export default class ExplodeContent extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			curFace: this.props.curFace,
-			// frontDisp: 'pageClosed',
-			// backDisp: 'pageClosed',
-			// rightDisp: 'pageClosed',
-			// leftDisp: 'pageClosed',
-			// topDisp: 'pageClosed',
-			// bottomDisp: 'pageClosed',
-			// homeMessage: 'init', 
+			curFace: this.props.curFace, 
 			isMax: this.props.isMax
 		}
 	}
@@ -58,15 +74,9 @@ export default class ExplodeContent extends React.Component{
 
 		this.setState(() => { //set all to none
 			return {
-				// frontDisp: 'pageClosed',			
-				// backDisp: 'pageClosed',			
-				// topDisp: 'pageClosed',		
-				// bottomDisp: 'pageClosed',			
-				// leftDisp: 'pageClosed',			
-				// rightDisp: 'pageClosed',
 				curFace: nextProps.curFace,
 				isMax: nextProps.isMax,
-				homeMessage: 'default'
+				homeMessage: 'default' //used for bottom page, tracks when has been visited mroe than once
 			}
 		});
 	}
@@ -129,7 +139,14 @@ export default class ExplodeContent extends React.Component{
 		switch(curFace) { //set current side to display
 			case 'front':
 				return (
-					<Front disp={"pageOpen"}/>
+					<div id='content' className={contentClass}>
+						<Front disp={"pageOpen"}/>
+						<Back disp={"pageClosed"}/>
+						<Top disp={"pageClosed"}/>
+						<Bottom disp={"pageClosed"}/>
+						<Left disp={"pageClosed"}/>
+						<Right disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 
@@ -140,7 +157,14 @@ export default class ExplodeContent extends React.Component{
 				// 	}
 				// });
 				return (
-					<Back disp={"pageOpen"}/>
+					<div id='content' className={contentClass}>
+						<Back disp={"pageOpen"}/>
+						<Top disp={"pageClosed"}/>
+						<Bottom disp={"pageClosed"}/>
+						<Left disp={"pageClosed"}/>
+						<Right disp={"pageClosed"}/>
+						<Front disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 
@@ -151,7 +175,14 @@ export default class ExplodeContent extends React.Component{
 				// 	}
 				// });
 				return(
-					<Top disp={"pageOpen"}/>
+					<div id='content' className={contentClass}>
+						<Top disp={"pageOpen"}/>
+						<Bottom disp={"pageClosed"}/>
+						<Left disp={"pageClosed"}/>
+						<Right disp={"pageClosed"}/>
+						<Front disp={"pageClosed"}/>
+						<Back disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 
@@ -162,7 +193,14 @@ export default class ExplodeContent extends React.Component{
 				// 	}
 				// });
 				return (
-					<Bottom disp={"pageOpen"} message={this.state.homeMessage} spinIt={this.props.handleRotate}/>
+					<div id='content' className={contentClass}>
+						<Bottom disp={"pageOpen"} message={this.state.homeMessage} spinIt={this.props.handleRotate}/>
+						<Left disp={"pageClosed"}/>
+						<Right disp={"pageClosed"}/>
+						<Front disp={"pageClosed"}/>
+						<Back disp={"pageClosed"}/>
+						<Top disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 
@@ -173,7 +211,14 @@ export default class ExplodeContent extends React.Component{
 				// 	}
 				// });
 				return(
-					<Left disp={"pageOpen"}/>
+					<div id='content' className={contentClass}>
+						<Left disp={"pageOpen"}/>
+						<Right disp={"pageClosed"}/>
+						<Front disp={"pageClosed"}/>
+						<Back disp={"pageClosed"}/>
+						<Top disp={"pageClosed"}/>
+						<Bottom disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 	
@@ -184,10 +229,19 @@ export default class ExplodeContent extends React.Component{
 				// 	}
 				// });
 				return(
-					<Right disp={"pageOpen"}/>
+
+					<div id='content' className={contentClass}>
+						<Right disp={"pageOpen"}/>
+						<Front disp={"pageClosed"}/>
+						<Back disp={"pageClosed"}/>
+						<Top disp={"pageClosed"}/>
+						<Bottom disp={"pageClosed"}/>
+						<Left disp={"pageClosed"}/>
+					</div>
 				);
 				break;
 		}
+
 	}
 
 }

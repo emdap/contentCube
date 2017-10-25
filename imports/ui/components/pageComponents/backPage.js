@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import HidingDiv from './elementHelpers/hidingDiv';
 import ClickingH from './elementHelpers/clickingH';
-
+//experience
 
 export default class Back extends React.Component{
 
@@ -11,9 +11,9 @@ export default class Back extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			menu1: false, //declare all menu headings as a state, set to false initially
-			menu2: false,
-			menu3: false
+			work: false, //declare all menu headings as a state, set to false initially
+			school: false,
+			personal: false
 		}
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
@@ -23,33 +23,33 @@ export default class Back extends React.Component{
 	handleMenuShow(which){
 
 		switch (which){
-			case 'menu1': 
+			case 'work': 
 				this.setState(()=>{
 					return{
-					menu1: !this.state.menu1,
-					menu3: false,
-					menu2: false,
+					work: !this.state.work,
+					personal: false,
+					school: false,
 
 				}});
 
 
 				break;
-			case 'menu2': 
+			case 'school': 
 				this.setState(()=>{return{
-					menu2: !this.state.menu2,
-					menu1: false,
-					menu3: false,
+					school: !this.state.school,
+					work: false,
+					personal: false,
 
 
 				}});
 
 
 				break;
-			case 'menu3': 
+			case 'personal': 
 				this.setState(()=>{return{
-					menu3: !this.state.menu3,
-					menu1: false,
-					menu2: false,
+					personal: !this.state.personal,
+					work: false,
+					school: false,
 
 				}});
 
@@ -59,63 +59,53 @@ export default class Back extends React.Component{
 	}
 
 
-	renderInterior(){
-
-			return (
-				<div id="pageHolder" className={pageClass}>
-				<div id="experience">
-			    <h1>Header</h1>
-			    <div id="pageMenu">
-			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
-			    <ClickingH activate={this.state.menu1} trigger={"menu1"} handleShow={this.handleMenuShow}>
-			 	menu1
-			 	</ClickingH>
-
-			    <ClickingH activate={this.state.menu2} initClass={"middleMenu"} trigger={"menu2"} handleShow={this.handleMenuShow}>
-			    menu2
-			    </ClickingH>
-
-			    <ClickingH activate={this.state.menu3} trigger={"menu3"} handleShow={this.handleMenuShow}>
-			    menu3
-			    </ClickingH>
-
-			    </div>
-
-			    <div id="pHolder">
-			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
-			    <HidingDiv trigger={this.state.menu1}>
-			    menu1
-			    </HidingDiv>
-
-			    <HidingDiv trigger={this.state.menu2}>
-			    menu2
-			    </HidingDiv>
-
-			    <HidingDiv trigger={this.state.menu3}>
-			    menu3
-			    </HidingDiv>
-
-			    </div>
-			    </div>
-
-			    <h4>bottom header</h4>
-			    </div>
-				);
-		
-	}
-
 
 	render(){
 
 		pageClass = this.props.disp;
 		
 		return(
-		<div className={pageClass}>
 
 
-	       {this.renderInterior()}
+	       <div id="pageHolder" className={pageClass}>
+				<div id="experience">
+			    <h1>Relevant Experience</h1>
+			    <div id="pageMenu">
+			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
+			    <ClickingH activate={this.state.work} trigger={"work"} handleShow={this.handleMenuShow}>
+			 	Work
+			 	</ClickingH>
 
-	    </div>
+			    <ClickingH activate={this.state.school} initClass={"middleMenu"} trigger={"school"} handleShow={this.handleMenuShow}>
+			    School
+			    </ClickingH>
+
+			    <ClickingH activate={this.state.personal} trigger={"personal"} handleShow={this.handleMenuShow}>
+			    Personal
+			    </ClickingH>
+
+			    </div>
+
+			    <div id="pHolder">
+			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
+			    <HidingDiv trigger={this.state.work}>
+			    work
+			    </HidingDiv>
+
+			    <HidingDiv trigger={this.state.school}>
+			    school
+			    </HidingDiv>
+
+			    <HidingDiv trigger={this.state.personal}>
+			    personal
+			    </HidingDiv>
+
+			    </div>
+			    </div>
+
+			    <h4></h4>
+			    </div>
+
 
 
 		);

@@ -6,7 +6,7 @@
 	position: absolute;
 	width: 200px;
 	overflow: hidden;
-	transition: all 1s;
+	transition: all .7s;
 }
 
 #thumbnail.show{
@@ -15,7 +15,7 @@
 	top: 30px;
 	height: 200px;
 	line-height: 160px;
-	transition: left 1s, top 1s, height 1s, line-height 1s, width 1s, font-size 1s, color 1s 1s;
+	transition: left .7s, top .7s, height .7s, line-height .7s, width .7s, font-size .7s, color .7s .7s;
 	color: black;
 }
 
@@ -35,7 +35,7 @@
 
 #content{
 	overflow: hidden;
-	transition: all 1s;
+	transition: all .7s;
 }
 
 #content.show{

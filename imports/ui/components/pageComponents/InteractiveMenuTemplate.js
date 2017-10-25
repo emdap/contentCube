@@ -58,7 +58,10 @@ export default class Template extends React.Component{
 	}
 
 
-	renderInterior(){
+
+	render(){
+
+		pageClass = this.props.disp;
 
 			return (
 				<div id="pageHolder" className={pageClass}>
@@ -97,22 +100,6 @@ export default class Template extends React.Component{
 		
 	}
 
-
-	render(){
-
-		pageClass = this.props.disp;
-		
-		return(
-		<div className={pageClass}>
-
-
-	       {this.renderInterior()}
-
-	    </div>
-
-
-		);
-	}
 }
 
 
