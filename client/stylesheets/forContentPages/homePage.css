@@ -16,7 +16,7 @@
   width: calc(100%/3 - 2px);
 }
 
-#home h3{ /* wondering where the cube is? ... */
+#home h3{ /* What Cube? */
   margin: 0;
   position: absolute;
   width: 200px;
@@ -25,4 +25,32 @@
   bottom: calc((100% - 200px) / 2);
   left: calc((100% - 200px) / 2);
   text-align: center;
+  transition: all 1s;
+}
+
+#home h5{
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  margin-left: -1rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, .5);
+  width: 40%;
+  white-space: nowrap;
+
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,.5), rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(255,255,255,.5), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(255,255,255,.5), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(255,255,255,.5), rgba(0,0,0,0)); /* Standard syntax */
+}
+
+#home li{
+  margin-left: -1rem;
+  margin-bottom: 5px;
+}
+
+ul.controlsList{
+  margin-top: 0;
+  list-style-position: outside;
 }

@@ -7,8 +7,8 @@ export default class ClickingH extends React.Component {
 		super(props);
 		this.state = {
 			initClass: this.props.initClass,
-			allClass: this.props.initClass + ' ' + 'inactive',
-			clicked: false
+			allClass: this.props.initClass + ' ' + (this.props.activate ? 'active' : 'inactive'),
+			clicked: this.props.activate
 		}
 
 		this.handleShow = this.handleShow.bind(this);

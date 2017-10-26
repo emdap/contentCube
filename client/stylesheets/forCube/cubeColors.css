@@ -1,0 +1,30 @@
+
+.front { /*about*/
+  background: #440011;
+  color: rgba(255, 255, 255, .7);
+}
+
+.back { /*experience*/
+  background: #cc90c7;
+  color: rgba(0, 0, 0, .8);
+}
+
+.left { /*contact*/
+  background: #70c0b0;
+  color: rgba(0, 0, 0, .8);
+}
+
+.right { /*projects*/
+  background: #ffaa77;
+  color: rgba(0, 0, 0, .8);
+}
+
+.top { /*links*/
+  background: #331133;
+  color: rgba(255, 255, 255, .7);
+}
+
+.bottom { /*home*/
+  background: #002525;
+  color: rgba(255, 255, 255, .88);
+}

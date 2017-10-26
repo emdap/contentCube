@@ -45,8 +45,7 @@
   font-size: inherit;
   line-height: inherit;
   height: inherit;
-  transition: all 1s;
-  transition: color 0s;
+  transition: background 1s;
   width: 100%;
   text-align: inherit;
   font-weight: inherit;
@@ -73,5 +72,38 @@
   text-align: center;
   line-height: 5rem;
   color: inherit;
+}
+
+a{
+  text-decoration: underline;
+  transition: all .5s;
+}
+
+.link{
+  font-weight: bolder;
+}
+
+a:visited{
+  color: rgba(255, 255, 255, .5);
+}
+
+.link{
+  color: rgba(255, 255, 255, .9);
+}
+
+a:active{
+  color: white;
+}
+
+.italic{
+  font-style: italic;
+}
+
+p > strong{
+  margin-left: -1rem;
+}
+
+p{
+  margin-left: 1rem;
 }
 

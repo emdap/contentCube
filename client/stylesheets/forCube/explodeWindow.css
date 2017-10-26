@@ -1,36 +1,5 @@
-
 #appHolder {
 	height: 100%;
-}
-
-.front { /*about*/
-  background: #440011;
-  color: rgba(255, 255, 255, .7);
-}
-
-.back { /*experience*/
-  background: #cc90c7;
-  color: rgba(0, 0, 0, .8);
-}
-
-.left { /*contact*/
-  background: #ff7050;
-  color: rgba(0, 0, 0, .8);
-}
-
-.right { /*projects*/
-  background: #ffaa77;
-  color: rgba(0, 0, 0, .8);
-}
-
-.top { /*links*/
-  background: #331133;
-  color: rgba(255, 255, 255, .7);
-}
-
-.bottom { /*home*/
-  background: #002222;
-  color: rgba(255, 255, 255, .88);
 }
 
 #explode.smooth{ 

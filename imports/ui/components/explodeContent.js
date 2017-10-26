@@ -61,7 +61,8 @@ export default class ExplodeContent extends React.Component{
 		super(props)
 		this.state = {
 			curFace: this.props.curFace, 
-			isMax: this.props.isMax
+			isMax: this.props.isMax,
+			homeMessage: 'init'
 		}
 	}
 	
@@ -72,12 +73,11 @@ export default class ExplodeContent extends React.Component{
 	
 
 	componentWillReceiveProps(nextProps){
-
-		this.setState(() => { //set all to none
+		this.setState(() => { 
 			return {
 				curFace: nextProps.curFace,
 				isMax: nextProps.isMax,
-				homeMessage: 'default' //used for bottom page, tracks when has been visited mroe than once
+				homeMessage: (this.state.curFace != nextProps.curFace ? 'default' : this.state.homeMessage) //keep as same message if new curface is same as last curface (prevents changing message when component rerendered due to menu opening)
 			}
 		});
 	}
