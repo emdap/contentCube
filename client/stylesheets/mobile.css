@@ -71,6 +71,16 @@
 	#pageHolder h2 { 
 	  font-size: 4vw;
 	}
+
+	#pageHolder{
+	  transition: all .5s;
+	  transition: color 0s;
+	  position: relative;
+	  height: calc(80vh - 2.5rem);
+	  overflow: hidden;
+	  padding-left: 10px;
+	  padding-right: 10px;
+	}
 }
 
 /* #### Mobile Phones Landscape #### */
