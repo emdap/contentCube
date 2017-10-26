@@ -12,7 +12,6 @@
 
 #pageHolder h2 { 
   transition: background 1s;
-  overflow: hidden;
   float: left;
   margin: 0;
   text-align: center;
@@ -20,6 +19,9 @@
   font-weight: normal;
   height: 4rem;
   color: inherit;
+
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
 h2.inactive{

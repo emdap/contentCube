@@ -9,9 +9,8 @@ export default class Front extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			menu1: false, //declare all menu headings as a state, set to false initially
-			menu2: false,
-			menu3: false
+			professional: false, //declare all menu headings as a state, set to false initially
+			personal: false
 		}
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
@@ -21,32 +20,22 @@ export default class Front extends React.Component{
 	handleMenuShow(which){
 
 		switch (which){
-			case 'menu1': 
+			case 'professional': 
 				this.setState(()=>{
 					return{
-					menu1: !this.state.menu1,
-					menu3: false,
+					professional: !this.state.professional,
+					personal: false,
 					menu2: false,
 
 				}});
 
 
 				break;
-			case 'menu2': 
+
+			case 'personal': 
 				this.setState(()=>{return{
-					menu2: !this.state.menu2,
-					menu1: false,
-					menu3: false,
-
-
-				}});
-
-
-				break;
-			case 'menu3': 
-				this.setState(()=>{return{
-					menu3: !this.state.menu3,
-					menu1: false,
+					personal: !this.state.personal,
+					professional: false,
 					menu2: false,
 
 				}});
@@ -63,35 +52,34 @@ export default class Front extends React.Component{
 			return (
 				<div id="pageHolder" className={pageClass}>
 				<div id="about">
-			    <h1>Header</h1>
+			    <h1>Emma DaPonte</h1>
+			    <h3>ecodapo@gmail.com • (416) 452 6279</h3>
 			    <div id="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
-			    <ClickingH activate={this.state.menu1} trigger={"menu1"} handleShow={this.handleMenuShow}>
+			    <ClickingH activate={this.state.professional} trigger={"professional"} handleShow={this.handleMenuShow}>
+			 	Professional
 			 	</ClickingH>
 
-			    <ClickingH activate={this.state.menu2} initClass={"middleMenu"} trigger={"menu2"} handleShow={this.handleMenuShow}>
-			    </ClickingH>
-
-			    <ClickingH activate={this.state.menu3} trigger={"menu3"} handleShow={this.handleMenuShow}>
+			    <ClickingH activate={this.state.personal} initClass={"middleMenu"} trigger={"personal"} handleShow={this.handleMenuShow}>
+			    Personal
 			    </ClickingH>
 
 			    </div>
 
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
-			    <HidingDiv trigger={this.state.menu1}>
+			    <HidingDiv trigger={this.state.professional}>
+			    professional
 			    </HidingDiv>
 
-			    <HidingDiv trigger={this.state.menu2}>
-			    </HidingDiv>
-
-			    <HidingDiv trigger={this.state.menu3}>
+			    <HidingDiv trigger={this.state.personal}>
+			    personal
 			    </HidingDiv>
 
 			    </div>
 			    </div>
 
-			    <h4>bottom header</h4>
+			    <h4></h4>
 			    </div>
 				);
 		

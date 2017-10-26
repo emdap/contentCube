@@ -17,21 +17,21 @@ button.icon:hover{
 }
 
 #minmaxbutt.open{
-  transition: transform 1s 1s;
+  transition: transform 1s 1s, top 1s, left 1s, color .2s;
   transform: rotateZ( 0deg );
 }
 
 #minmaxbutt.closed{
-  transition: transform 1s 1s;
+  transition: transform 1s 1s, top 1s, left 1s, color .2s;
   transform: rotateZ( 45deg );
 }
 
 #menubutton.closed{
-  transition: transform 1s;
+  transition: transform 1s, top 1s, left 1s, color .2s;
   transform: rotateZ( 90deg );
 }
 
 #menubutton.open{
-  transition: transform 1s;
+  transition: transform 1s, top 1s, left 1s, color .2s;
   transform: rotateZ( 0deg );
 }

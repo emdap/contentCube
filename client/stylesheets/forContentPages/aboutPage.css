@@ -1,0 +1,31 @@
+#about h3{ /* wondering where the cube is? ... */
+  margin-top: -1.5%;
+  width: 50%;
+  padding-top: 0%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-left: 25%;
+  line-height: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: lighter;
+  border-top: 1px solid;
+}
+
+
+#about h2{/* menu options for this page */
+  width: calc(100%/2);
+  border-top: 1px solid rgba(0, 0, 0, .5);
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+
+#about .middleMenu{
+  border-left: 1px solid rgba(0, 0, 0, .5);
+  width: calc(100%/2 - 1px);
+}
+
+#about #pHolder {
+  background: rgba(255, 255, 255, .5);
+}

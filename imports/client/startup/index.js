@@ -14,7 +14,6 @@ var myCube = ReactDOM.render(<ExplodeCube coords={[90, 0, 0]} curFace={firstFace
 
 document.onkeydown = function(e) {
 
-
 	if(e.which == 27){
 		myCube = ReactDOM.render(<ExplodeCube keyRender={27}/>, document.getElementById('app'));
 	} else if (e.which == 77){

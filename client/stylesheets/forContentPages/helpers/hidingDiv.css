@@ -1,6 +1,6 @@
 
 #pHolder {
-  margin-top: calc(4rem + 1px);
+  margin-top: calc(4rem + 2px);
   width: 100%;
   height: calc(90vh - 14.5rem + 2px);
   position: absolute;
@@ -22,9 +22,8 @@
   opacity: 1;
   overflow-y: scroll;
   overflow-x: wrap;
-
   margin: 2% 0 0 0;
-  top: 0;
+  top: 0px;
   transition:  height .5s, margin-top .5s, padding .5s, top .5s;
 
 }

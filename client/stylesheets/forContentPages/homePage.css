@@ -1,11 +1,12 @@
 #home #pHolder {
-  background: rgba(255, 255, 255, .7);
+  background: rgba(255, 255, 255, .5);
 }
 
 
 #home h2{/* menu options for this page */
   width: calc(100%/3);
   border-top: 1px solid rgba(0, 0, 0, .5);
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
 }
 
 
@@ -18,9 +19,10 @@
 #home h3{ /* wondering where the cube is? ... */
   margin: 0;
   position: absolute;
-  width: 100%;
-  bottom: 50%;
-  line-height: 5rem;
-  height: 5rem;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  bottom: calc((100% - 200px) / 2);
+  left: calc((100% - 200px) / 2);
   text-align: center;
 }

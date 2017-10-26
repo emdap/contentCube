@@ -99,7 +99,9 @@ export default class Bottom extends React.Component{
 				<div id="pageHolder" className={pageClass + ' ' + this.state.intro}>
 				<div id="home">
 			    <h1>Welcome to contentCube!</h1>
-			    <h3><button onClick={()=>{this.handleRotate()}}>Wondering where the cube is? Click here!</button></h3>
+			    <h3><button onClick={()=>{this.handleRotate()}}>
+			    What cube?
+			    </button></h3>
 			    </div>
 				<h4><button onClick={this.handleClick}>Skip intro</button></h4>
 				</div>
@@ -153,31 +155,7 @@ export default class Bottom extends React.Component{
 			    </HidingDiv>
 
 			    <HidingDiv trigger={this.state.showMade}>
-
-
-			        Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."    Here's some random text.
-    <h1>left</h1>
-    And quotes too, or as one man said, "These are quotes, but
-    'these' are quotes too."
-
+				heyo
 
 			    </HidingDiv>
 			    </div>
