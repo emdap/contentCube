@@ -23,6 +23,8 @@
 
 	#innerMenu{
 		font-size: 1.1rem;
+		  overflow-x: scroll;
+		  white-space: nowrap;
 	}
 
 	#topMenu.open{
@@ -31,10 +33,13 @@
 
 	#topMenu{
 		top: 10% !important;
-		width: 100%;
-		left: 0;
+		width: 90%;
+		left: 5%;
 		font-size: 4.5vw !important;
 		line-height: 6.7rem !important;
+
+		  overflow-x: scroll;
+		  white-space: nowrap;
 	}
 
 
@@ -58,6 +63,14 @@
 	margin: 0rem .5rem !important;
 	}
 
+	#about h3{ /* contact info */
+	  width: 90% !important;
+	  margin-left: 5%;
+	}
+
+	#pageHolder h2 { 
+	  font-size: 4vw;
+	}
 }
 
 /* #### Mobile Phones Landscape #### */
@@ -106,4 +119,5 @@
 		height: auto !important;
 		visibility: visible !important;
 	}	
+
 }
