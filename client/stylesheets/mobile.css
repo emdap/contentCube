@@ -14,9 +14,9 @@
 	#explode.max{
 		opacity: 1;
 		height: 80vh !important;
-		width: 96vw !important;
-		top: 10% !important;
-		left: 2% !important;
+		width: 95vw !important;
+		top: 10vh !important;
+		left: 2.5vw !important;
 		margin: 0 !important;
 	}
 
@@ -73,13 +73,18 @@
 	}
 
 	#pageHolder{
-	  transition: all .5s;
-	  transition: color 0s;
-	  position: relative;
 	  height: calc(80vh - 2.5rem);
-	  overflow: hidden;
-	  padding-left: 10px;
-	  padding-right: 10px;
+	}
+
+	#pageHolder > div {
+	  height: calc(80vh - 5rem);
+	}
+
+	#pHolder {
+	  margin-top: calc(4rem + 2px);
+	  width: 100%;
+	  height: calc(80vh - 14.5rem + 2px);
+	  position: absolute;
 	}
 }
 
@@ -93,7 +98,7 @@
 	 }
 
 	 #explode.max{
-		height: 90% !important;
+		height: 90vh !important;
 		width: 98% !important;
 		top: 5% !important;
 		left: 1% !important;
@@ -129,5 +134,37 @@
 		height: auto !important;
 		visibility: visible !important;
 	}	
+
+
+	#about h3{ /* contact info */
+	  width: 90% !important;
+	  margin-left: 5%;
+	}
+
+	#pageHolder h2 { 
+	  font-size: 4vw;
+	}
+
+	#pageHolder{
+	  height: calc(90vh - 2.5rem);
+	}
+
+	#pageHolder > div {
+	  height: calc(90vh - 5rem);
+	}
+
+	#pHolder {
+	  margin-top: calc(4rem + 2px);
+	  width: 100%;
+	  height: calc(90vh - 14.5rem + 2px);
+	  position: absolute;
+	}
+
+	#pHolder div{
+	  height: calc(90vh - 16rem + 2px);
+	  position: absolute;
+	}
+
+
 
 }
