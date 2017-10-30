@@ -21,10 +21,21 @@ export default class Bottom extends React.Component{
 
 	}
 
-	handleRotate(){
-		this.currRot += 360;
-		this.props.spinIt([90,0,this.currRot], 'bottom', true);
-		this.changeMessage();
+	handleRotate(where){
+		
+		switch (where){
+			case 'intro':
+				this.props.spinIt([225,45,315], 'bottom', true);
+				setTimeout(()=>{
+					this.props.spinIt([90,0,0], 'bottom', true);
+					this.changeMessage();
+				}, 1000);
+				
+				break;
+			case 'about':
+				this.props.spinIt([0, 0, 0], 'front', true);
+				break;
+		}
 	}
 
 	handleClick(){
@@ -81,7 +92,7 @@ export default class Bottom extends React.Component{
 				<div id="pageHolder" className={pageClass + ' ' + this.state.intro}>
 				<div id="home">
 			    <h1>Welcome to contentCube!</h1>
-			    <h3><button onClick={()=>{this.handleRotate()}}>
+			    <h3><button onClick={()=>{this.handleRotate('intro')}}>
 			    What cube?
 			    </button></h3>
 			    </div>
@@ -142,7 +153,7 @@ export default class Bottom extends React.Component{
 			    <HidingDiv trigger={this.state.showHere}>
 			    {/* what's here? */}
 			    <h5>Now</h5>
-			    <p><strong>Currently</strong> this contentCube is serving as the personal webpage for Emma DaPonte. Check out the other pages for more specific information on Emma without the third person narrative.
+			    <p><strong>Currently</strong> this contentCube is serving as the personal webpage for Emma DaPonte. Check out <a className="link" onClick={()=>{this.handleRotate('about')}}>other pages</a> for more specific information on Emma without the third person narrative.
 			    </p>
 			    <h5>Future</h5>
 			    <p><strong>Eventually</strong> this contentCube will serve as more of a portfolio where each side can showcase a web app. In its current state it has a lot of redundant and needlessly spread out information, which is not the end goal. Come back for updates!

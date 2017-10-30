@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import HidingDiv from './elementHelpers/hidingDiv';
 import ClickingH from './elementHelpers/clickingH';
-//right
+//projects
 
 export default class Right extends React.Component{
 	constructor(props) {
@@ -56,6 +56,10 @@ export default class Right extends React.Component{
 
 	}
 
+	handleRotate(){
+		const [x, y, z] = [document.getElementById("xInput").value * 1, document.getElementById("yInput").value * 1, document.getElementById("zInput").value* 1];
+		this.props.spinIt([x,y,z], '', true, true);
+	}
 
 
 	render(){
@@ -68,6 +72,7 @@ export default class Right extends React.Component{
 			    <div id="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.menu1} trigger={"menu1"} handleShow={this.handleMenuShow}>
+			    m
 			 	</ClickingH>
 
 			    <ClickingH activate={this.state.menu2} initClass={"middleMenu"} trigger={"menu2"} handleShow={this.handleMenuShow}>
@@ -81,6 +86,7 @@ export default class Right extends React.Component{
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.menu1}>
+			    
 			    </HidingDiv>
 
 			    <HidingDiv trigger={this.state.menu2}>
@@ -92,7 +98,7 @@ export default class Right extends React.Component{
 			    </div>
 			    </div>
 
-			    <h4>bottom header</h4>
+			    <h4><button id="projectSecret" onClick={this.props.secret}>Custom Cube Mode</button></h4>
 			    </div>
 				);
 		

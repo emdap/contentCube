@@ -6,6 +6,7 @@ import ExplodeContent from './explodeContent';
 import MenuButton from './menuButton';
 import MinMaxButton from './minMaxButton';
 import Cube from './cube';
+import CubeMover from './cubeMover';
 
 export default class ExplodeCube extends React.Component{
 	//renders rotation coords and current face separately
@@ -27,7 +28,10 @@ export default class ExplodeCube extends React.Component{
 			showTopMenu: (this.props.showMenu && !this.props.isMax),
 
 			isMax: this.props.isMax,
-			preSpinMax: 'ready' //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
+			preSpinMax: 'ready', //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
+		
+			customMode: this.props.customMode, //for secret code function
+			customCoords: [0, 0, 0]
 		};
 
 		this.rotateCalls = 0;
@@ -35,13 +39,20 @@ export default class ExplodeCube extends React.Component{
 		this.handleMenuShow = this.handleMenuShow.bind(this);
 		this.handleMenuRotate = this.handleMenuRotate.bind(this);
 		this.handleMinMax = this.handleMinMax.bind(this);
+		this.simpleRotate = this.simpleRotate.bind(this);
+		this.handleReset = this.handleReset.bind(this);
 		this.mount = true;
-	}
-
-	componentDidMount(){
+		this.triggerCustom = this.triggerCustom.bind(this);
 	}
 
 	render() {
+
+		if(this.state.customMode){
+			return this.specialRender(); 
+		}
+
+		//normal mode
+
 		//rotations
 		const [x, y, z] = this.state.coords; //rotation for cube
 		const [dx, dy, dz] = this.state.delta; //rotation for content (when hiding, 0 if showing)
@@ -58,7 +69,7 @@ export default class ExplodeCube extends React.Component{
 		//size of content window
 		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
 		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
-		
+			
 
 		return(
 			<div id="appHolder">
@@ -73,17 +84,71 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 			
-				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate}/>
+				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate} handleSecret={this.triggerCustom}/>
 			
 			</div>
 			</div>
 
-			);
+				);
+	}
+
+	triggerCustom(){
+		this.setState(()=>{
+			return{ 
+				customMode: true
+				}
+		});
+	}
+
+	specialRender(){
+		const [x, y, z] = this.state.customCoords;
+		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
+		return(
+		<div id="appHolder">
+		<Cube rotation={rotation}/>
+		<CubeMover reset={this.handleReset} handleRotate={this.simpleRotate}/>
+		</div>
+		);
+	}
+
+	handleReset(){
+		//reset to homepage maximized, showmenu
+		resetFace = 'bottom';
+		resetCoords = [90, 0, 0];
+		resetMax = true;
+		resetMenu = true;
+
+		this.setState(()=>{
+			return{ 
+				customMode: false,
+				curFace: resetFace,
+				coords: resetCoords,
+				delta: [0,0,0],
+				explodeClass: resetFace,
+				contentFace: resetFace,
+				isMax: resetMax,
+				showMenu: resetMenu,
+				showInnerMenu: (resetMax && resetMenu ? true : false),
+				showTopMenu: (!resetMax && resetMenu ? true : false),
+				preSpinMax: 'ready'
+				}
+			});
+	}
+
+	simpleRotate(coords){
+		this.setState(()=>{return{
+			customCoords: coords
+		}});
+
 	}
 
 	componentWillReceiveProps(nextProps) {
 
-		if(nextProps.keyRender == 27){ //keyboard event toggle size on rerender
+		if(nextProps.customMode == true){
+			this.setState(()=>{return{
+				customMode: true
+			}});
+		} else if(nextProps.keyRender == 27){ //keyboard event toggle size on rerender
 			this.handleMinMax();
 		} else if (nextProps.keyRender == 77){ //keyboard event toggle menu on rerender
 			this.handleMenuShow();
@@ -122,8 +187,8 @@ export default class ExplodeCube extends React.Component{
 		
 	}
 
-	handleMenuRotate(coords, face, force){ // rotation via menu button to [coords] which is the [face] of the cube
-	if (face != this.state.contentFace || this.rotateEv > 0 || force == true){ 
+	handleMenuRotate(coords, face, forceRot, forceMin){ // rotation via menu button to [coords] which is the [face] of the cube
+	if (face != this.state.contentFace || this.rotateEv > 0 || forceRot == true){ 
 	//only alter states if we're actually moving/did move
 		//force rotate even if same face if force is true
 		const [x, y, z] = coords; //coords we're rotating to
@@ -139,7 +204,7 @@ export default class ExplodeCube extends React.Component{
 					menuHighlight: face,
 					delta: [xFinal, yFinal, zFinal], //flip content opposite way of cube
 					isMax: false,
-					preSpinMax: (prevState.preSpinMax == 'ready' ? this.state.isMax : prevState.preSpinMax)
+					preSpinMax: (forceMin ? false : (prevState.preSpinMax == 'ready' ? this.state.isMax : prevState.preSpinMax))
 				}
 			});
 
@@ -158,7 +223,7 @@ export default class ExplodeCube extends React.Component{
 					this.rotateEv = 0;
 					this.setState((prevState, props) => {
 						return {
-							explodeClass: face,
+							explodeClass: (forceMin ? prevState.explodeClass : face),
 							contentFace: face,
 							delta: [0, 0, 0],
 							isMax: prevState.preSpinMax,
@@ -231,7 +296,9 @@ ExplodeCube.defaultProps = {
 	showInnerMenu: false, //show inner menu
 	showTopMenu: false, //show top menu
 
-	keyRender: 0
+	keyRender: 0,
+
+	customMode: false
 }
 
 

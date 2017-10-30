@@ -50,7 +50,7 @@ export default class ExplodeContent extends React.Component{
 				<Bottom disp={(this.state.curFace == 'bottom' ? "pageOpen" : "pageClosed")} 
 					message={this.state.homeMessage} spinIt={this.props.handleRotate}/>
 				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")}/>
-				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")}/>
+				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} />
 			</div>
 		
 			</div>
