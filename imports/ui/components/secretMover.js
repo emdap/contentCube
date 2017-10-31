@@ -2,29 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-export default class CubeMover extends React.Component{
+export default class SecretMover extends React.Component{
 	constructor(props){
 		super(props);
 		this.handleMove = this.handleMove.bind(this);
 		this.handleInc = this.handleInc.bind(this);
 		this.state = {
-			coords: [0,0,0]
+			coords: [0,0,0],
+			class: 'hide'
 		}
 	}
 
 	render(){
 		return(
-			<div id="cubeMover">
+			<div id="cubeMover" className={this.state.class}>
 			
 			<input id="xRot" type="text" placeholder="X"/>
 			<input id="yRot" type="text" placeholder="Y"/>
 			<input id="zRot" type="text" placeholder="Z"/>
 			
 			<button id="xyzInc" onClick={() => {this.handleInc()}}>
-			Increment X, Y, Z by input
+			Increment by input
 			</button>
 			<button onClick={() => {this.handleMove()}}>
-			Rotate cube to X, Y, Z input
+			Rotate to input
 			</button>
 
 			<button onClick={this.props.reset}>
@@ -40,10 +41,17 @@ export default class CubeMover extends React.Component{
 			);
 	}
 
+	componentDidMount(){
+		setTimeout(()=>{
+			this.setState(()=>{return{
+				class: 'show'
+			}});
+		}, 50);
+	}
+
 	handleInc(){
 
 		const [x, y, z] = [this.state.coords[0] + (document.getElementById("xRot").value * 1), this.state.coords[1] + (document.getElementById("yRot").value * 1), this.state.coords[2] + (document.getElementById("zRot").value * 1)];
-		console.log([x,y,z]);
 
 		this.setState(()=>{return{
 			coords: [x, y, z]
@@ -56,7 +64,6 @@ export default class CubeMover extends React.Component{
 	handleMove(){
 		
 		const [x, y, z] = [document.getElementById("xRot").value * 1, document.getElementById("yRot").value * 1, document.getElementById("zRot").value * 1];
-		console.log([x,y,z]);
 
 		this.setState(()=>{return{
 			coords: [x, y, z]

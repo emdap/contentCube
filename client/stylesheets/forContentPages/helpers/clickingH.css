@@ -10,7 +10,7 @@
 }
 
 
-#pageHolder h2 { 
+#pageHolder h2:not(.inner){ 
   transition: background 1s;
   float: left;
   margin: 0;

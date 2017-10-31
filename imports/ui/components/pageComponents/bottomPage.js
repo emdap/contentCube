@@ -10,9 +10,9 @@ export default class Bottom extends React.Component{
 		this.state = {
 			message: props.message,
 			intro: 'in',
-			showHere: false, //class for dropdown under 'what's here'
-			showControls: true, //same, set to true so auto displays on first render
-			showMade: false, //same
+			showHere: (props.message == 'init' ? true : this.props.showHere), //class for dropdown under 'what's here'
+			showControls: this.props.showControls, //same, set to true so auto displays on first render
+			showMade: this.props.showMade, //same
 		}
 		this.currRot = 0;
 		this.handleClick = this.handleClick.bind(this);
@@ -52,7 +52,7 @@ export default class Bottom extends React.Component{
 		}, 900);
 	}
 
-	handleMenuShow(which){
+	handleMenuShow(which, force){
 
 		switch (which){
 			case 'here': //index 0
@@ -75,7 +75,7 @@ export default class Bottom extends React.Component{
 				break;
 			case 'made': //index 2
 				this.setState(()=>{return{
-					showMade: !this.state.showMade,
+					showMade: (force ? true : !this.state.showMade),
 					showHere: false,
 					showControls: false,
 				}});
@@ -125,7 +125,7 @@ export default class Bottom extends React.Component{
 
 			    <HidingDiv trigger={this.state.showControls}>
 			    <h5>Navigation</h5>
-			    <ul className="controlsList">
+			    <ul className="standard">
 			    <li><strong>Turn</strong> the cube using the arrow keys.</li>
 			    <li><strong>Toggle</strong> min/max mode using the "ESC" key, or clicking the "X" in the upper left hand corner.</li>
 			    <li><strong>Toggle</strong> the visibility of the menu using the "m" key, or clicking the "|||" next to the "X" in the upper left hand corner.</li>
@@ -135,14 +135,14 @@ export default class Bottom extends React.Component{
 		    	</ul>
 
 			    <h5>Modes</h5>
-			    <ul className="controlsList">
+			    <ul className="standard">
 			    <li><strong>Currently,</strong> the cube is in max mode with the menu visible.</li>
 			    <li><strong>Navigation</strong> works the same in both maximized and minimized modes.</li>
 			    <li><strong>The</strong> size of the cube window and visibility of the menu will only change if it is specifically toggled, for example going between min/max mode will not affect menu visibility.</li>
 			    </ul>
 
 			    <h5>Page Specific Buttons</h5>
-			    <ul className="controlsList">
+			    <ul className="standard">
 			    <li><strong>Sometimes</strong> a unique feature button can be found on a page.</li>
 			    <li><strong>If</strong> some text has a hover effect, it is likely (but not always) such a button.</li>
 			    <li><strong>There</strong> is one at the bottom of this page ... keep an eye out for more!</li> 
@@ -164,7 +164,7 @@ export default class Bottom extends React.Component{
 			    <HidingDiv trigger={this.state.showMade}>
 				<h5>High Level</h5>
 				<p><strong>
-					contentCube </strong> is made with React components and uses CSS transform properties to look 3-dimensional. In addition to interactive buttons within these React components to manipulate the cube, there's a Javascript <span className="italic">onkeydown</span> listener that re-renders the React components when functional keys are pressed (the arrow keys, "ESC", and "m"). <a className="link" href="https://desandro.github.io/3dtransforms/docs/cube.html">This tutorial</a> is helpful for creating a 3D css cube, and was used for the basis of this project's 3D cube.
+					contentCube </strong> is built with Meteor and hosted on Heroku. It uses React components for the UI, and CSS transform properties for the 3-dimensional look. In addition to interactive buttons within the React components to manipulate the cube, there's a Javascript <span className="italic">onkeydown</span> listener that re-renders the React components when functional keys are pressed (the arrow keys, "ESC", and "m"). <a className="link" href="https://desandro.github.io/3dtransforms/docs/cube.html">This tutorial</a> is helpful for creating a 3D css cube, and was used for the basis of this project's 3D cube.
 				</p>
 
 				<h5>The Cube, the Content, and the App</h5>
@@ -219,9 +219,16 @@ export default class Bottom extends React.Component{
 	componentWillReceiveProps(nextProps){
 		if (nextProps.message != 'init'){ //change from greeting home page to actual home page if prop changes from init
 			this.changeMessage();
-			this.setState(()=>{return{intro: 'in'}});
+			this.setState(()=>{return{
+				intro: 'in',
+				// showMade: false
+				// showHere: nextProps.showHere,
+				// showControls: nextProps.showControls
+			}});
 		}
-
+		if (nextProps.showMade){ //when rendered from projects page, go to 'how it's made' page
+			this.handleMenuShow('made', true);
+		}
 
 	}
 
@@ -231,7 +238,10 @@ export default class Bottom extends React.Component{
 }
 
 Bottom.defaultProps = {
-	message: 'init'
+	message: 'init',
+	showMade: false,
+	showControls: false,
+	showHere: false
 }
 
 

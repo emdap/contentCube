@@ -6,7 +6,7 @@ export default class HidingDiv extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			class: 'hide'
+			class: 'hide ' + this.props.initClass
 		}
 	}
 
@@ -22,13 +22,13 @@ export default class HidingDiv extends React.Component{
 		if (nextProps.trigger){ //is next to be displayed, push in
 
 			this.setState(()=>{return{
-				class: 'show'
+				class: 'show ' + this.props.initClass
 			}});
 
 		} else { //currently open, push out
 			
 			this.setState(()=>{return{
-				class: 'hide'
+				class: 'hide ' + this.props.initClass
 			}});
 			
 		}
@@ -39,3 +39,9 @@ export default class HidingDiv extends React.Component{
 		
 	}
 }
+
+
+HidingDiv.defaultProps = {
+	initClass: 'default'
+}
+

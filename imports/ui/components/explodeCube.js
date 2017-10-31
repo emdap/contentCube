@@ -6,7 +6,7 @@ import ExplodeContent from './explodeContent';
 import MenuButton from './menuButton';
 import MinMaxButton from './minMaxButton';
 import Cube from './cube';
-import CubeMover from './cubeMover';
+import SecretMover from './secretMover';
 
 export default class ExplodeCube extends React.Component{
 	//renders rotation coords and current face separately
@@ -93,11 +93,23 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	triggerCustom(){
-		this.setState(()=>{
+
+		this.setState(()=>{ //transition to 0 0 0 and hidden so that smooth transition to custom mode
 			return{ 
-				customMode: true
-				}
+				explodeClass: this.state.explodeClass + ' hide smooth',
+				isMax: false,
+				coords: [0, 0, 0],
+				delta: [-1 * this.state.coords[0], -1 * this.state.coords[1], -1 * this.state.coords[2]]
+			}
 		});
+
+		setTimeout(()=>{ //delay before dismounting
+			this.setState(()=>{
+				return{
+					customMode: true
+				}
+			});
+		}, 1000);
 	}
 
 	specialRender(){
@@ -106,33 +118,57 @@ export default class ExplodeCube extends React.Component{
 		return(
 		<div id="appHolder">
 		<Cube rotation={rotation}/>
-		<CubeMover reset={this.handleReset} handleRotate={this.simpleRotate}/>
+		<SecretMover reset={this.handleReset} handleRotate={this.simpleRotate}/>
 		</div>
 		);
 	}
 
-	handleReset(){
+	handleReset(secretMover){
+		//eventually switch on previous curFace and correct coords
+		if(this.state.curFace == 'right'){ //accessed from projects page, return here
+			resetFace = 'right';
+			resetCoords = [0, -90, 0];
+		} else {
 		//reset to homepage maximized, showmenu
 		resetFace = 'bottom';
 		resetCoords = [90, 0, 0];
+		}
+
 		resetMax = true;
 		resetMenu = true;
 
-		this.setState(()=>{
-			return{ 
-				customMode: false,
-				curFace: resetFace,
-				coords: resetCoords,
-				delta: [0,0,0],
-				explodeClass: resetFace,
-				contentFace: resetFace,
-				isMax: resetMax,
-				showMenu: resetMenu,
-				showInnerMenu: (resetMax && resetMenu ? true : false),
-				showTopMenu: (!resetMax && resetMenu ? true : false),
-				preSpinMax: 'ready'
+		document.getElementById("cubeMover").classList.remove('show');
+		document.getElementById("cubeMover").classList.add('hide');
+
+		setTimeout(()=>{
+			this.setState(()=>{
+				return{ 
+					customMode: false,
+					customCoords: [0,0,0],
+					curFace: resetFace,
+					coords: resetCoords,
+					delta: [0,0,0],
+					explodeClass: resetFace + ' hide',
+					contentFace: resetFace,
+					menuHighlight: resetFace,
+					isMax: false,
+					showMenu: resetMenu,
+					showInnerMenu: (resetMax && resetMenu ? true : false),
+					showTopMenu: (!resetMax && resetMenu ? true : false),
+					preSpinMax: 'ready'
 				}
 			});
+
+			setTimeout(()=>{
+				this.setState(()=>{
+					return{
+						explodeClass: resetFace,
+						isMax: true
+					}
+				});
+			}, 100);
+
+		}, 500);
 	}
 
 	simpleRotate(coords){
@@ -187,7 +223,7 @@ export default class ExplodeCube extends React.Component{
 		
 	}
 
-	handleMenuRotate(coords, face, forceRot, forceMin){ // rotation via menu button to [coords] which is the [face] of the cube
+	handleMenuRotate(coords, face, forceRot){ // rotation via menu button to [coords] which is the [face] of the cube
 	if (face != this.state.contentFace || this.rotateEv > 0 || forceRot == true){ 
 	//only alter states if we're actually moving/did move
 		//force rotate even if same face if force is true
@@ -204,7 +240,7 @@ export default class ExplodeCube extends React.Component{
 					menuHighlight: face,
 					delta: [xFinal, yFinal, zFinal], //flip content opposite way of cube
 					isMax: false,
-					preSpinMax: (forceMin ? false : (prevState.preSpinMax == 'ready' ? this.state.isMax : prevState.preSpinMax))
+					preSpinMax: (prevState.preSpinMax == 'ready' ? this.state.isMax : prevState.preSpinMax)
 				}
 			});
 
@@ -223,7 +259,7 @@ export default class ExplodeCube extends React.Component{
 					this.rotateEv = 0;
 					this.setState((prevState, props) => {
 						return {
-							explodeClass: (forceMin ? prevState.explodeClass : face),
+							explodeClass: face,
 							contentFace: face,
 							delta: [0, 0, 0],
 							isMax: prevState.preSpinMax,

@@ -15,7 +15,6 @@ export default class ExplodeContent extends React.Component{
 	render(){
 		thumbClass = (this.state.isMax ? 'hide' : 'show');
 		contentClass = (this.state.isMax ? 'show' : 'hide');
-	
 		return(
 			<div>
 			{/* thumbnails */}
@@ -48,9 +47,9 @@ export default class ExplodeContent extends React.Component{
 				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")}/>
 				<Top disp={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")}/>
 				<Bottom disp={(this.state.curFace == 'bottom' ? "pageOpen" : "pageClosed")} 
-					message={this.state.homeMessage} spinIt={this.props.handleRotate}/>
+					message={this.state.homeMessage} spinIt={this.props.handleRotate} showMade={this.state.showBottomMade}/>
 				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")}/>
-				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} />
+				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} spinIt={this.handleRotateTrigger}/>
 			</div>
 		
 			</div>
@@ -62,14 +61,29 @@ export default class ExplodeContent extends React.Component{
 		this.state = {
 			curFace: this.props.curFace, 
 			isMax: this.props.isMax,
-			homeMessage: 'init'
+			homeMessage: 'init',
+			showBottomMade: false
 		}
+
+		this.handleRotateTrigger = this.handleRotateTrigger.bind(this);
 	}
 	
 
 	// componentDidMount(){
 	// 	this.toggleCurFace(this.state.curFace);
 	// }
+
+	handleRotateTrigger(coords, page, force, trigger){
+		if(trigger == 'made'){
+			this.setState(()=>{return{
+				showBottomMade: true,
+				curFace: page,
+				isMax: true
+			}});
+		}
+
+		this.props.handleRotate(coords, page, force);
+	}
 	
 
 	componentWillReceiveProps(nextProps){
