@@ -81,12 +81,13 @@ export default class Right extends React.Component{
 			    <h6>Technologies Used</h6>
 			    <ul className="inner">
 			    <li>Javascript</li>
-			    <li>jQuery</li>
+			    <li>jQuery</li>			    
 			    <li>JSON</li>
 			    </ul>
+
 			    <ClickingH activate={this.state.linkPreview} initClass={"inner"} trigger={'linkPreview'} handleShow={this.handleMenuShow}>More Info</ClickingH>
 			    <HidingDiv initClass={"inner"} trigger={this.state.linkPreview}>
-			    <p><strong>Link Preview</strong> was inspired by two things: extensions I've used in the past with similar functionality, and Kijiji.ca's lack luster location information. When searching for 'stuff' on Kijiji.ca, the exact address of the item is not shown in the advert, only a (frequently uninformative) general location; the only way to see the exact location is to click through. I wanted to be able to get this exact address without having to open every single ad. There are lots of Google Chrome extensions that generate same-window previews for links, but none that are individually tailored to the website to only show specific content. Link Preview does just that, and for the Kijiji.ca iteration, it gets the exact address and shows the user a clickable Google Map (in addition to other information only visible on the ad's actual page). This saves the user time browsing, and the different states of the preview window make it easy to compare multiple ads at once (more info on the different states below).
+			    <p><strong>Link Preview • Fall 2017</strong> was inspired by two things: extensions I've used in the past with similar functionality, and Kijiji.ca's lack luster location information. When searching for 'stuff' on Kijiji.ca, the exact address of the item is not shown in the advert, only a (frequently uninformative) general location; the only way to see the exact location is to click through. I wanted to be able to get this exact address without having to open every single ad. There are lots of Google Chrome extensions that generate same-window previews for links, but none that are individually tailored to the website to only show specific content. Link Preview does just that, and for the Kijiji.ca iteration, it gets the exact address and shows the user a clickable Google Map (in addition to other information only visible on the ad's actual page). This saves the user time browsing, and the different states of the preview window make it easy to compare multiple ads at once (more info on the different states below).
 			    </p>
 
 			     <p>The preview window responds to keyboard commands and has three states:</p>
@@ -103,21 +104,89 @@ export default class Right extends React.Component{
 			    </HidingDiv>
 
 
-			    <h5>contentCube</h5>
+			    <h5>contentCube • Fall 2017</h5>
 			    <p><strong>contentCube</strong> is a ... oh wait, you're already here! I created this project to get hands-on experience using React and to try out CSS's transform properties. Read more about how it works <a className="link" onClick={()=>{this.handleRotate('bottom','made')}}>here</a>.</p>
 
 			    <h6>Technologies Used</h6>
 			    <ul className="inner">
-			    <li>Meteor</li>
 			    <li>Heroku</li>
-			    <li>React</li>
 			    <li>Javascript</li>
+			    <li>Meteor</li>
+			    <li>React</li>
 			    </ul>
-			    <h2 className="inner"/>
 
 			    </HidingDiv>
 
 			    <HidingDiv trigger={this.state.school}>
+
+				<h5>Facial Recognition • Fall 2015</h5>
+				<p><strong>Created</strong> a machine learning Python program to identify a face's emotion by modifying classifier functions from the scikit-learn library. The program was trained using the Toronto Faces Dataset and classified the test set with 74% accuracy.
+				</p>
+
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>Python Anaconda</li>
+			    <li>Scikit-Learn</li>
+			    <li>Wing IDE</li>
+			    </ul>
+			    <h2 className="inner"/>
+
+				<h5>Interactive and Embedded SQL • Fall 2015</h5>
+				<p><strong>Wrote</strong> SQL statements to perform complicated queries and changes to a database. Connected to a database and issued queries using JDBC with prepared statements.
+				</p>
+				
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>Java JDBC</li>
+			    <li>PostgreSQL</li>
+			    </ul>
+			    <h2 className="inner"/>
+
+				<h5>Image Processing • Spring 2015</h5>
+				<p><strong>Used</strong> Python to modify a digital photo to resemble a painting. Edges of the photo were detected using gradients and filters so that brush strokes could be oriented perpendicular to edges and then clipped before crossing them.
+				</p>
+
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>NumPy</li>
+			    <li>Python</li>
+			    <li>SciPy</li>
+			    <li>Wing IDE</li>
+			    </ul>
+			    <h2 className="inner"/>
+
+				<h5>DE2 Board Game • Spring 2015</h5>
+				<p><strong>Created</strong> a "Simon Says" game using Verilog that was playable on a DE2 board. The board would flash LEDs in random order, which the user had to copy by toggling switches. A winning message was displayed if the user's input was correct.
+				</p>
+
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>DE2 board</li>
+			    <li>Verilog</li>
+			    </ul>
+			    <h2 className="inner"/>
+
+				<h5>Calendar • Fall 2014</h5>
+				<p><strong>Made </strong>a calendar system where multiple users, events, and collections of events could be created. Users could subscribe to collections of events and receive updates when those events  changed. Data was stored in linked lists for easy accessibility. 
+				</p>
+
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>C</li>
+			    <li>Unix</li>
+			    </ul>
+			    <h2 className="inner"/>
+
+				<h5>Mock Shell (Group Project) • Summer 2014</h5>
+				<p><strong>Created </strong>a mock unix shell which could create and manage a file system. Basic shell commands were accepted (such as ls, mkdir, etc) demonstrating an understanding of using a command line and Java. The project was completed in Eclipse and all teammates shared a repository that was accessed using subversion.
+				</p>
+
+				<h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>Eclipse IDE</li>
+			    <li>Java</li>
+			    </ul>
+
 			    </HidingDiv>
 
 			    </div>
