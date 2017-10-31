@@ -77,8 +77,9 @@ export default class Right extends React.Component{
 			    <p><strong>Link Preview</strong> is an extension for Google Chrome that allows the user to see certain information from a link on a webpage, without having to actually click on the link. It generates a div which follows the mouse (the preview window) to show this information, and only creates the preview window when hovering over specific HTML elements (as opposed to creating a preview window for all links). The information that the preview window shows is specific to each website (as opposed to showing the next webpage in its entirety). Currently, Link Preview only works on Kijji.ca. You can download it <a href="https://chrome.google.com/webstore/detail/link-preview/bjoabjghhaegfioipdfaggpecmegfelp?" className="link">here</a>.
 			    </p>
 
-			    <ul className="standard">
+
 			    <h6>Technologies Used</h6>
+			    <ul className="inner">
 			    <li>Javascript</li>
 			    <li>jQuery</li>
 			    <li>JSON</li>
@@ -94,9 +95,10 @@ export default class Right extends React.Component{
 			    	<li><strong>Paused:</strong> The preview window no longer follows the mouse and  stays in one place, and its content does not update. Its position can be moved by dragging and dropping, and its relative position on the screen is maintained during scrolling. The active preview window will enter this state when the user presses the "shift" key. There can be unlimited paused windows.</li>
 			    	<li><strong>Fixed:</strong> Equivalent to the paused state with one exception: the content of a fixed preview window <span className="italic">will</span> continue to update as the user mouses over eligible links. The active preview window will enter this state when the user presses the "f" key. There can be unlimited fixed windows.</li>
 			    	</ul>
-			    <p>Additional commands and documentation for Link Preview can be found <a href="https://github.com/emdap/LinkPreview" className="link">here.</a></p>
+			    <p>Additional commands and documentation for Link Preview can be found <a href="https://github.com/emdap/LinkPreview" className="link">here</a>.</p>
 
 			    <p><strong>The</strong> Link Preview extension is easy for a developer to adjust for new websites by creating 2 new files/functions. One that returns a jQuery object pointing to the HTML element that should trigger the preview window, and another that takes the source code of the link for which to generate the preview window as a parameter, extracts the needed data, and then returns a string of HTML to populate the preview window with. So, one function for the HTML elements that generate the preview window, and one for the actual preview window content. These new files/functions will be loaded when visiting the intended webpage by adding another 'content_script' to the extension's manifest.json file that matches to the intended website.</p>
+			    <ClickingH activate={this.state.linkPreview} initClass={"inner short"} trigger={'linkPreview'} handleShow={this.handleMenuShow}>Hide</ClickingH>
 
 			    </HidingDiv>
 
@@ -104,13 +106,14 @@ export default class Right extends React.Component{
 			    <h5>contentCube</h5>
 			    <p><strong>contentCube</strong> is a ... oh wait, you're already here! I created this project to get hands-on experience using React and to try out CSS's transform properties. Read more about how it works <a className="link" onClick={()=>{this.handleRotate('bottom','made')}}>here</a>.</p>
 
-			    <ul className="standard">
 			    <h6>Technologies Used</h6>
+			    <ul className="inner">
 			    <li>Meteor</li>
 			    <li>Heroku</li>
 			    <li>React</li>
 			    <li>Javascript</li>
 			    </ul>
+			    <h2 className="inner"/>
 
 			    </HidingDiv>
 

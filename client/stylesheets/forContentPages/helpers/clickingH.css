@@ -5,7 +5,7 @@
 }
 
 
-#pageHolder h2:hover{
+#pageHolder h2:hover:not(.inner){
    background: rgba(255, 255, 255, .6);
 }
 
@@ -24,10 +24,35 @@
   white-space: nowrap;
 }
 
-h2.inactive{
+h2.inactive:not(.inner){
   background: rgba(255, 255, 255, .2);
 }
 
-h2.active {
+h2.active:not(.inner) {
   background: rgba(255, 255, 255, .4);
 }
+
+#pageHolder h2.inner{
+  width: calc(100% + 50px);
+  text-align: center;
+  font-weight: normal;
+  font-size: 1rem;
+  height: 30px;
+  line-height: 30px;
+  margin-left: -25px;
+  border-top: none;
+  border-bottom: 1px solid rgba(0,0,0,.5);
+  font-style: italic;
+  font-weight: bolder;
+  color: rgba(0,0,0,.5);
+  transition: all .5s;
+}
+
+#pageHolder h2.inner:hover{
+  color: black;
+}
+
+#pageHolder h2.inner.active{
+  color: black;
+}
+
