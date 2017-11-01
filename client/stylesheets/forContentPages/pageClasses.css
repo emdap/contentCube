@@ -81,8 +81,6 @@
   padding-left: 1rem;
   font-size: 1.5rem;
   background: rgba(255, 255, 255, .5);
-  width: 40%;
-  white-space: nowrap;
 
   background: red; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, rgba(255,255,255,.5), rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
@@ -134,8 +132,7 @@ p{
 h6{
   font-size: .9rem;
   margin: 0 15px;
-  border-bottom: 1px solid rgba(0,0,0,.5);
-  width: 8.2rem;
+  text-decoration: underline;
   padding: 0;
 }
 
@@ -145,4 +142,20 @@ ul.inner{
   margin-top: 7px;
 }
 
+.bold{
+  font-weight: bold;
+}
+
+p.inner{
+  margin-top: 0;
+  font-style: italic;
+}
+
+span.break{
+  width: calc(100% + 50px);
+  margin: 20px 0 30px -25px;
+  border-bottom: 1px solid rgba(0,0,0,.5);
+  color: rgba(0,0,0,.5);
+  display: block;
+}
 

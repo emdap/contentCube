@@ -129,7 +129,7 @@ export default class Right extends React.Component{
 			    <li>Scikit-Learn</li>
 			    <li>Wing IDE</li>
 			    </ul>
-			    <h2 className="inner"/>
+			    <span className="break"/>
 
 				<h5>Interactive and Embedded SQL • Fall 2015</h5>
 				<p><strong>Wrote</strong> SQL statements to perform complicated queries and changes to a database. Connected to a database and issued queries using JDBC with prepared statements.
@@ -140,7 +140,7 @@ export default class Right extends React.Component{
 			    <li>Java JDBC</li>
 			    <li>PostgreSQL</li>
 			    </ul>
-			    <h2 className="inner"/>
+			    <span className="break"/>
 
 				<h5>Image Processing • Spring 2015</h5>
 				<p><strong>Used</strong> Python to modify a digital photo to resemble a painting. Edges of the photo were detected using gradients and filters so that brush strokes could be oriented perpendicular to edges and then clipped before crossing them.
@@ -153,7 +153,7 @@ export default class Right extends React.Component{
 			    <li>SciPy</li>
 			    <li>Wing IDE</li>
 			    </ul>
-			    <h2 className="inner"/>
+			    <span className="break"/>
 
 				<h5>DE2 Board Game • Spring 2015</h5>
 				<p><strong>Created</strong> a "Simon Says" game using Verilog that was playable on a DE2 board. The board would flash LEDs in random order, which the user had to copy by toggling switches. A winning message was displayed if the user's input was correct.
@@ -164,7 +164,7 @@ export default class Right extends React.Component{
 			    <li>DE2 board</li>
 			    <li>Verilog</li>
 			    </ul>
-			    <h2 className="inner"/>
+			    <span className="break"/>
 
 				<h5>Calendar • Fall 2014</h5>
 				<p><strong>Made </strong>a calendar system where multiple users, events, and collections of events could be created. Users could subscribe to collections of events and receive updates when those events  changed. Data was stored in linked lists for easy accessibility. 
@@ -174,10 +174,11 @@ export default class Right extends React.Component{
 			    <ul className="inner">
 			    <li>C</li>
 			    <li>Unix</li>
-			    </ul>
-			    <h2 className="inner"/>
+			    </ul>			    
+			    <span className="break"/>
 
-				<h5>Mock Shell (Group Project) • Summer 2014</h5>
+				<h5>Mock Shell • Summer 2014</h5>
+				<h7>(Group Project)</h7>
 				<p><strong>Created </strong>a mock unix shell which could create and manage a file system. Basic shell commands were accepted (such as ls, mkdir, etc) demonstrating an understanding of using a command line and Java. The project was completed in Eclipse and all teammates shared a repository that was accessed using subversion.
 				</p>
 
