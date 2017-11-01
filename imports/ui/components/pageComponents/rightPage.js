@@ -9,7 +9,7 @@ export default class Right extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			personal: false, //declare all menu headings as a state, set to false initially
+			personal: true, //initial menu
 			school: false,
 			linkPreview: false
 		}

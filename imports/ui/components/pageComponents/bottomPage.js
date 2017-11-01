@@ -10,7 +10,7 @@ export default class Bottom extends React.Component{
 		this.state = {
 			message: props.message,
 			intro: 'in',
-			showHere: (props.message == 'init' ? true : this.props.showHere), //class for dropdown under 'what's here'
+			showHere: this.props.showHere, //class for dropdown under 'what's here'
 			showControls: this.props.showControls, //same, set to true so auto displays on first render
 			showMade: this.props.showMade, //same
 		}
