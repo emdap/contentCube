@@ -178,7 +178,7 @@ export default class Right extends React.Component{
 			    <span className="break"/>
 
 				<h5>Mock Shell • Summer 2014</h5>
-				<h7>(Group Project)</h7>
+				<span className="italic">(Group Project)</span>
 				<p><strong>Created </strong>a mock unix shell which could create and manage a file system. Basic shell commands were accepted (such as ls, mkdir, etc) demonstrating an understanding of using a command line and Java. The project was completed in Eclipse and all teammates shared a repository that was accessed using subversion.
 				</p>
 

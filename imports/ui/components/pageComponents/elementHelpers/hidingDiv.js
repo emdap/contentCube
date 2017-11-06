@@ -6,7 +6,7 @@ export default class HidingDiv extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			class: 'hide ' + this.props.initClass
+			class: (props.trigger ? 'show ' + props.initClass : 'hide ' + props.initClass)
 		}
 	}
 

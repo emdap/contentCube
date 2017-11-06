@@ -71,7 +71,7 @@ export default class Back extends React.Component{
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.work}>
 			    <h5>Programmer/Technician • Amec Foster Wheeler</h5>
-			    <h7><span className="italic">July 2016 - August 2017</span></h7>
+			    <span className="italic">July 2016 - August 2017</span>
 			    <p><strong>During</strong> my time at Amec Foster Wheeler I worked in the Project Planning department, where I did full stack software development and provided technical support.
 			    </p>
 			    <p><strong>My</strong> main focus was creating automated Excel reports and automating pre-existing Excel reports, which greatly reduced error and saved company time. Additionally, I would revise the code structure and create documentation for pre-existing programs, which improved usability and trouble shooting. Otherwise, I fulfilled ad hoc requests to add features to other programs or reports, full stack web development and website maintenance, and helping people both in and outside of my department solve technical issues.</p>
@@ -94,7 +94,7 @@ export default class Back extends React.Component{
 			    <HidingDiv trigger={this.state.school}>
 			    
 			    <h5>University of Toronto</h5>
-			    <h7><span className="italic">Sept 2011 - Jan 2016</span></h7>
+			    <span className="italic">Sept 2011 - Jan 2016</span>
 			    <p><strong>I received</strong> an Honors Bachelor of Science from the University of Toronto and majored in <span className="bold">Computer Science</span> and <span className="bold">Math</span>, in addition to a minor in Philosophy.
 			    </p>
 			    <h6>Favorite Classes</h6>

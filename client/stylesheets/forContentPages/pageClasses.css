@@ -45,17 +45,20 @@
   font-size: inherit;
   line-height: inherit;
   height: inherit;
-  transition: background 1s;
+  transition: background 1s, margin-left .5s;
   width: 100%;
   text-align: inherit;
   font-weight: inherit;
   color: inherit;
 }
 
-#pageHolder button:hover{
+#pageHolder h3 button:hover{
    background: rgba(255,255,255,.3);
 }
 
+#pageHolder h4 button:hover{
+  margin-left: 20px;
+}
 
 #pageHolder h4{ /* bottom button */
   margin: 0;
