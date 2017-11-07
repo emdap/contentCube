@@ -42,6 +42,7 @@ export default class HidingDiv extends React.Component{
 
 
 HidingDiv.defaultProps = {
-	initClass: 'default'
+	initClass: 'default',
+	trigger: true //if no trigger given, always show (for pages without multiple hidingDivs)
 }
 

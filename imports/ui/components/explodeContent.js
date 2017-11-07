@@ -9,6 +9,7 @@ import Top from './pageComponents/topPage';
 import Bottom from './pageComponents/bottomPage';
 import Left from './pageComponents/leftPage';
 import Right from './pageComponents/rightPage';
+import EmailWindow from './emailWindow';
 
 export default class ExplodeContent extends React.Component{
 
@@ -43,15 +44,21 @@ export default class ExplodeContent extends React.Component{
 			{/* pages */}	
 
 			<div id='content' className={contentClass}>
-				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")}/>
+				
+				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")} spinIt={this.handleRotate} handleEmail={this.showEmail}/>
+				
 				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")}/>
+				
 				<Top disp={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")}/>
+				
 				<Bottom disp={(this.state.curFace == 'bottom' ? "pageOpen" : "pageClosed")} 
 					message={this.state.homeMessage} spinIt={this.props.handleRotate} showMade={this.state.showBottomMade} showControls={(this.state.showBottomMade ? false : true)}/>
-				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")}/>
+				
+				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")} handleEmail={this.showEmail}/>
 				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} spinIt={this.handleRotateTrigger}/>
+
 			</div>
-		
+			<EmailWindow trigger={this.state.showEmail} handleEmail={this.showEmail}/>
 			</div>
 			)
 	}
@@ -59,13 +66,15 @@ export default class ExplodeContent extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			curFace: this.props.curFace, 
-			isMax: this.props.isMax,
-			homeMessage: 'init',
-			showBottomMade: false
+			curFace: this.props.curFace, //current page
+			isMax: this.props.isMax, //content size
+			homeMessage: 'init', //for which version of home page to show (init is initial, 'where's the cube' message)
+			showBottomMade: false, //show 'how it's made' div on bottom (home) page
+			showEmail: false
 		}
 
 		this.handleRotateTrigger = this.handleRotateTrigger.bind(this);
+		this.showEmail = this.showEmail.bind(this);
 	}
 	
 
@@ -73,7 +82,7 @@ export default class ExplodeContent extends React.Component{
 	// 	this.toggleCurFace(this.state.curFace);
 	// }
 
-	handleRotateTrigger(coords, page, force, trigger){
+	handleRotateTrigger(coords, page, force, trigger){ //for handling a rotate which also triggers a certain hidingDiv to show on the page rotated to
 		if(trigger == 'made'){
 			this.setState(()=>{return{
 				showBottomMade: true,
@@ -94,6 +103,16 @@ export default class ExplodeContent extends React.Component{
 				homeMessage: (this.state.curFace != nextProps.curFace ? 'default' : this.state.homeMessage) //keep as same message if new curface is same as last curface (prevents changing message when component rerendered due to menu opening)
 			}
 		});
+	}
+
+	showEmail(){
+		this.setState(() => {
+			return{
+				showEmail: !this.state.showEmail
+			}
+		});
+
+		this.props.handleEmail(); //changes state in contentCube, so that onkeydown listener turned off
 	}
 
 

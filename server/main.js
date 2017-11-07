@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
+import {handleMail} from './api/mailer'
 
 
 Meteor.startup(() => {
-  console.log('hello');
+	//Meteor.call('handleMail', 'notsp', 'am i swear it', 'dapodev@gmail.com');
 });

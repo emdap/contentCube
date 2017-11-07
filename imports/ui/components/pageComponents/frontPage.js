@@ -79,7 +79,7 @@ export default class Front extends React.Component{
 			    </div>
 			    </div>
 
-			    <h4></h4>
+			    <h4><button onClick={this.props.handleEmail}>Email Me</button></h4>
 			    </div>
 				);
 		

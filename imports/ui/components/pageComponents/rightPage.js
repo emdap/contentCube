@@ -73,7 +73,7 @@ export default class Right extends React.Component{
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.personal}>
-			    <h5>Link Preview</h5>
+			    <h5>Link Preview • Summer 2017</h5>
 			    <p><strong>Link Preview</strong> is an extension for Google Chrome that allows the user to see certain information from a link on a webpage, without having to actually click on the link. It generates a div which follows the mouse (the preview window) to show this information, and only creates the preview window when hovering over specific HTML elements (as opposed to creating a preview window for all links). The information that the preview window shows is specific to each website (as opposed to showing the next webpage in its entirety). Currently, Link Preview only works on Kijji.ca. You can download it <a href="https://chrome.google.com/webstore/detail/link-preview/bjoabjghhaegfioipdfaggpecmegfelp?" className="link">here</a>.
 			    </p>
 

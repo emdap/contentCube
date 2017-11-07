@@ -7,6 +7,7 @@ import MenuButton from './menuButton';
 import MinMaxButton from './minMaxButton';
 import Cube from './cube';
 import SecretMover from './secretMover';
+import EmailWindow from './emailWindow';
 
 export default class ExplodeCube extends React.Component{
 	//renders rotation coords and current face separately
@@ -31,7 +32,9 @@ export default class ExplodeCube extends React.Component{
 			preSpinMax: 'ready', //so that isMax can be toggled during cube spin but retain value from pre-spin on next render that updates curFace
 		
 			customMode: this.props.customMode, //for secret code function
-			customCoords: [0, 0, 0]
+			customCoords: [0, 0, 0],
+
+			ready: true
 		};
 
 		this.rotateCalls = 0;
@@ -43,6 +46,7 @@ export default class ExplodeCube extends React.Component{
 		this.handleReset = this.handleReset.bind(this);
 		this.mount = true;
 		this.triggerCustom = this.triggerCustom.bind(this);
+		this.showEmail = this.showEmail.bind(this);
 	}
 
 	render() {
@@ -84,12 +88,21 @@ export default class ExplodeCube extends React.Component{
 			
 				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 			
-				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate} handleSecret={this.triggerCustom}/>
+				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate} handleSecret={this.triggerCustom}
+					handleEmail={this.showEmail}/>
 			
 			</div>
 			</div>
 
 				);
+	}
+
+	showEmail(){
+		this.setState(()=>{
+			return{
+				ready: !this.state.ready
+			}
+		})
 	}
 
 	triggerCustom(){

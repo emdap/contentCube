@@ -1,0 +1,110 @@
+#emailWindow {
+    position: absolute;
+    background-color: rgba(255,255,255,.9);
+    width: calc(100% - 20px);
+    height: calc(100% - 40px);
+    transition: all .5s;
+    padding: 30px 10px 10px 10px;
+}
+
+#emailWindow.hide{
+    top: 100%;
+	visibility: hidden;
+}
+
+#emailWindow.show{
+    top: 0px;
+	visibility: visible;
+}
+
+#emailWindow > button{
+    font-size: 1rem;
+    border: 0;
+    font-weight: bold;
+    background: none;
+    outline: 0;
+    transition: all .5s;
+    position: absolute;
+    padding: 10px;
+}
+
+#emailWindow > button:hover{
+    background: rgba(100, 100, 100, .4);
+}
+
+#emailClose{
+    top: 0px;
+    right: 0px;
+}
+
+#emailSend{
+    bottom: 0px;
+    width: 100%;
+    right: 0px;
+}
+
+#emailClear{
+    top: 0px;
+    left: 0px;
+}
+
+#emailWindow > textarea:not(#emailText){
+    font-size: .9rem;
+    line-height: 1.3rem;
+    padding: 1%;
+    height: 1.3rem;
+    width: calc(50% - 10px);
+    resize: none;
+}
+
+#emailWindow > p:not(#result){
+    font-size: .8rem;
+    line-height: .8rem;
+    margin-bottom: 5px;
+    margin-left: 0;
+    font-weight: bold;
+    color: black;
+}
+
+#result{
+    top: 10%;
+    left: 0;
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 5rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: all .5s;
+    color: rgba(255, 255, 255, .8);
+}
+
+#result.error{
+    background: rgba(100, 0, 0, .7);
+}
+
+#result.success{
+    background: rgba(0, 200, 0, .7);
+}
+
+#result.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+#result.hide{
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+#emailText{
+    height: calc(100% - 13rem - 10px);
+    line-height: 20px;
+    width: calc(100% - 15px);
+    line-height: 1rem;
+    font-size: .9rem;
+    padding: 1% 1%;
+    resize: none;
+}
