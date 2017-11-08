@@ -1,0 +1,13 @@
+#links a{
+	text-decoration: none !important;
+	transition: all 1s;
+}
+
+#links a:hover{
+	margin: 0 5px;
+}
+
+#links p{
+	text-align: center !important;
+	margin: 10px 0 !important;
+}

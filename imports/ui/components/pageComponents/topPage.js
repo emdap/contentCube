@@ -6,99 +6,46 @@ import ClickingH from './elementHelpers/clickingH';
 //links
 
 export default class Top extends React.Component{
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {
-            menu1: false, //declare all menu headings as a state, set to false initially
-            menu2: false,
-            menu3: false
-        }
-
-        this.handleMenuShow = this.handleMenuShow.bind(this);
-
+        this.dance = this.dance.bind(this);
     }
 
-    handleMenuShow(which){
-
-        switch (which){
-            case 'menu1': 
-                this.setState(()=>{
-                    return{
-                    menu1: !this.state.menu1,
-                    menu3: false,
-                    menu2: false,
-
-                }});
-
-
-                break;
-            case 'menu2': 
-                this.setState(()=>{return{
-                    menu2: !this.state.menu2,
-                    menu1: false,
-                    menu3: false,
-
-
-                }});
-
-
-                break;
-            case 'menu3': 
-                this.setState(()=>{return{
-                    menu3: !this.state.menu3,
-                    menu1: false,
-                    menu2: false,
-
-                }});
-
-                break;
-            }
-
-    }
-
-
-    
     render(){
 
         pageClass = this.props.disp;
             return (
                 <div id="pageHolder" className={pageClass}>
                 <div id="links">
-                <h1>Header</h1>
-                <div id="pageMenu">
-                {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
-                <ClickingH activate={this.state.menu1} trigger={"menu1"} handleShow={this.handleMenuShow}>
-                mmmm
-                </ClickingH>
+                <h1>Find me Online</h1>
 
-                <ClickingH activate={this.state.menu2} initClass={"middleMenu"} trigger={"menu2"} handleShow={this.handleMenuShow}>
-                mm
-                </ClickingH>
-
-                <ClickingH activate={this.state.menu3} trigger={"menu3"} handleShow={this.handleMenuShow}>
-                m
-                </ClickingH>
-
-                </div>
-
-                <div id="pHolder">
-            {/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
-                <HidingDiv trigger={this.state.menu1}>
-                </HidingDiv>
-
-                <HidingDiv trigger={this.state.menu2}>
-                </HidingDiv>
-
-                <HidingDiv trigger={this.state.menu3}>
-                </HidingDiv>
+                <div className="content">
+                <p><a href="https://github.com/emdap" className="link" target="_blank" >GitHub</a> • 
+                <a href="https://jsfiddle.net/user/dapodev/fiddles/" className="link" target="_blank"> JSFiddle</a> • 
+                <a hreft="https://chrome.google.com/webstore/search/dapodev" className="link"  target="_blank"> Google Chrome Developer</a></p>
 
                 </div>
                 </div>
-
-                <h4>bottom header</h4>
+                <h4><button onClick={()=>this.dance()}>Dance!</button></h4>
                 </div>
                 );
         
+    }
+
+    dance(){
+        this.props.spinIt([Math.random() * 360,Math.random() * 360,Math.random() * 360], 'top', true);
+        
+        setTimeout(()=>{
+            this.props.spinIt([Math.random() * 360,Math.random() * 360,Math.random() * 360], 'top', true);
+        }, 1000);
+        
+        setTimeout(()=>{
+            this.props.spinIt([Math.random() * 360,Math.random() * 360,Math.random() * 360], 'top', true);
+        }, 2000);
+        
+        setTimeout(()=>{
+            this.props.spinIt([-90,0,0], 'top', true);
+        }, 3000);
     }
 
 

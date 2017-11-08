@@ -84,7 +84,6 @@ export default class EmailWindow extends React.Component{
 				class: 'hide'
 			}
 		});
-		this.clear();
 		this.props.handleEmail();
 	}
 

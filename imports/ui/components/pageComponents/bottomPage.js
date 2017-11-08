@@ -164,7 +164,7 @@ export default class Bottom extends React.Component{
 			    <HidingDiv trigger={this.state.showMade}>
 				<h5>High Level</h5>
 				<p><strong>
-					contentCube </strong> is built with Meteor and hosted on Heroku. It uses React components for the UI, and CSS transform properties for the 3-dimensional look. In addition to interactive buttons within the React components to manipulate the cube, there's a Javascript <span className="italic">onkeydown</span> listener that re-renders the React components when functional keys are pressed (the arrow keys, "ESC", and "m"). <a className="link" href="https://desandro.github.io/3dtransforms/docs/cube.html">This tutorial</a> is helpful for creating a 3D css cube, and was used for the basis of this project's 3D cube.
+					contentCube </strong> is built with Meteor and hosted on Heroku. It uses React components for the UI, and CSS transform properties for the 3-dimensional look. In addition to interactive buttons within the React components to manipulate the cube, there's a Javascript <span className="italic">onkeydown</span> listener that re-renders the React components when functional keys are pressed (the arrow keys, "ESC", and "m"). <a className="link" href="https://desandro.github.io/3dtransforms/docs/cube.html" target="_blank">This tutorial</a> is helpful for creating a 3D css cube, and was used for the basis of this project's 3D cube.
 				</p>
 
 				<h5>The Cube, the Content, and the App</h5>

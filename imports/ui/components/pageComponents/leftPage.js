@@ -15,13 +15,13 @@ export default class Left extends React.Component{
 			return (
 				<div id="pageHolder" className={pageClass}>
 				<div id="contact">
-			    <h1>Contact</h1>
+			    <h1>Get in Touch</h1>
 
-
-			    <div id="pHolder">
-			    <HidingDiv>
-				hello
-				</HidingDiv>
+			    <div className="content">
+			    <h3>Feel free to contact me with any opportunities or inquiries.</h3>
+				<p><strong>Email:</strong> ecodapo@gmail.com</p>
+				<p><strong>Phone:</strong> (416) 452 6279</p>
+				<p className='subtitle'>Use the button at the bottom to send an email through contentCube using <a href="https://nodemailer.com/about/" className="link" target="_blank">nodemailer</a>.</p>
 			    </div>
 			    </div>
 

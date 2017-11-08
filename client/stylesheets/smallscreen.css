@@ -1,0 +1,7 @@
+@media (max-width: 520px){
+	#explode.max{
+		width: 95vw !important;
+		left: 2.5vw !important;
+	}
+
+}

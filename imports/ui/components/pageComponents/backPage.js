@@ -115,7 +115,7 @@ export default class Back extends React.Component{
 			   	<span className="break"/>
 
 			   	<h5>Udemy</h5>
-			    <p><strong>I took</strong> a course at <a className="link" href="www.udemy.com">Udemy</a> on Meteor and React. Currently I'm working through a course on app development using Swift.</p>
+			    <p><strong>I took</strong> a course at <a className="link" href="www.udemy.com" target="_blank">Udemy</a> on Meteor and React. Currently I'm working through a course on app development using Swift.</p>
 
 			    </HidingDiv>
 
