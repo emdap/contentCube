@@ -70,9 +70,7 @@ export default class ExplodeCube extends React.Component{
 		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
 
 		const custColor = (this.state.curFace == "back" ? this.state.custStyle : {}); //use custom color for backpage if that's the current face
-
-		console.log(custColor);
-		console.log(this.state.custStyle);
+		
 		//show or hide each menu based on state
 		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
 		topMenuClass = (this.state.showTopMenu ? 'open' : 'closed'); //top menu
