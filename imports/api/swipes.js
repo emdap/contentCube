@@ -1,18 +1,34 @@
 
 var xDown = null;                                                        
-var yDown = null;    
+var yDown = null; 
 
+var startTime = null;
 
-export function handleTouchStart(e) {                                         
+var dir = null;
+
+export function handleTouchStart(e) {                     
+console.log('start');                    
     xDown = e.touches[0].clientX;                                      
     yDown = e.touches[0].clientY;
 
-                                           
-console.log(yDown, xDown);                                      
-};    
+    startTime = new Date();                                      
+};
+
+export function handleTouchEnd(e){
+    console.log('end');
+    var endTime = new Date();
+    var diffTime = endTime.getTime() - startTime.getTime();
+
+    if (diffTime < 200){
+        console.log(diffTime);
+        return dir;
+    }
+
+}
 
 
 export function handleTouchMove(e) {
+    console.log('move');
     if ( ! xDown || ! yDown ) {
         return;
     }
@@ -23,27 +39,28 @@ export function handleTouchMove(e) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
+
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
             /* left swipe */
-            var dir = {which: 39} 
+            dir = {which: 39} 
             //create object so that handleRotate can access this same way as keyboard event
            
 
         } else {
-            var dir = {which: 37} 
+            dir = {which: 37} 
             /* right swipe */
 
 
         }                       
     } else {
         if ( yDiff > 0 ) {
-            var dir = {which: 40} 
+            dir = {which: 40} 
             /* up swipe */ 
 
 
         } else { 
-            var dir = {which: 38} 
+            dir = {which: 38} 
             /* down swipe */
 
 
@@ -51,7 +68,5 @@ export function handleTouchMove(e) {
     }
     /* reset values */               
     xDown = null;
-    yDown = null;
-
-    return dir;                                             
+    yDown = null;                                             
 };

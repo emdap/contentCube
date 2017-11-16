@@ -13,7 +13,7 @@
 
 	#explode.max{
 		opacity: 1;
-		height: 96vh !important;
+		height: 80vh !important;
 		width: 95vw !important;
 		top: 2vh !important;
 		left: 2.5vw !important;
@@ -73,17 +73,17 @@
 	}
 
 	#pageHolder{
-	  height: calc(96vh - 2.5rem);
+	  height: calc(80vh - 2.5rem);
 	}
 
 	#pageHolder > div {
-	  height: calc(96vh - 5rem);
+	  height: calc(80vh - 5rem);
 	}
 
 	#pHolder {
 	  margin-top: calc(4rem + 2px);
 	  width: 100%;
-	  height: calc(96vh - 14.5rem + 2px);
+	  height: calc(80vh - 14.5rem + 2px);
 	  position: absolute;
 	}
 }
