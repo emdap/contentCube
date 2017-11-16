@@ -34,6 +34,9 @@ export default class ExplodeCube extends React.Component{
 			customMode: this.props.customMode, //for secret code function
 			customCoords: [0, 0, 0],
 
+			custStyle: {}, //toggle random color
+			custStyleSet: false,
+
 			ready: true
 		};
 
@@ -47,6 +50,7 @@ export default class ExplodeCube extends React.Component{
 		this.mount = true;
 		this.triggerCustom = this.triggerCustom.bind(this);
 		this.showEmail = this.showEmail.bind(this);
+		this.toggleColor = this.toggleColor.bind(this);
 	}
 
 	render() {
@@ -65,6 +69,10 @@ export default class ExplodeCube extends React.Component{
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
 		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
 
+		const custColor = (this.state.curFace == "back" ? this.state.custStyle : {}); //use custom color for backpage if that's the current face
+
+		console.log(custColor);
+		console.log(this.state.custStyle);
 		//show or hide each menu based on state
 		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
 		topMenuClass = (this.state.showTopMenu ? 'open' : 'closed'); //top menu
@@ -77,10 +85,10 @@ export default class ExplodeCube extends React.Component{
 
 		return(
 			<div id="appHolder">
-			<Cube rotation={rotation}/>
+			<Cube rotation={rotation} backColor={this.state.custStyle}/>
 			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 
-			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation}>
+			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation, custColor}>
 
 				<MinMaxButton minMaxClass={minMaxClass} handleClick={this.handleMinMax}/>
 			
@@ -89,7 +97,8 @@ export default class ExplodeCube extends React.Component{
 				<MenuContent menuID='innerMenu' menuClass={innerMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 			
 				<ExplodeContent curFace={this.state.contentFace} isMax={this.state.isMax} handleRotate={this.handleMenuRotate} handleSecret={this.triggerCustom}
-					handleEmail={this.showEmail}/>
+					handleEmail={this.showEmail}
+					handleColor={this.toggleColor}/>
 			
 			</div>
 			</div>
@@ -105,7 +114,23 @@ export default class ExplodeCube extends React.Component{
 		})
 	}
 
-	triggerCustom(){
+	toggleColor(newColor){ //toggles background to random color, for button on 'experience' page
+
+		if(this.state.custStyleSet){//remove cust style so original class shows
+			this.setState(()=>{return{
+				custStyle: {},
+				custStyleSet: false
+			}});
+
+		} else {
+			this.setState(()=>{return{
+				custStyle: {background: newColor},
+				custStyleSet: true
+			}});
+		}
+	}
+
+	triggerCustom(){//custom rotate option
 
 		this.setState(()=>{ //transition to 0 0 0 and hidden so that smooth transition to custom mode
 			return{ 
@@ -125,7 +150,7 @@ export default class ExplodeCube extends React.Component{
 		}, 1000);
 	}
 
-	specialRender(){
+	specialRender(){ //render when in custom mode
 		const [x, y, z] = this.state.customCoords;
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
 		return(
@@ -136,7 +161,7 @@ export default class ExplodeCube extends React.Component{
 		);
 	}
 
-	handleReset(secretMover){
+	handleReset(secretMover){ //go back to normal
 		//eventually switch on previous curFace and correct coords
 		if(this.state.curFace == 'right'){ //accessed from projects page, return here
 			resetFace = 'right';
@@ -184,7 +209,7 @@ export default class ExplodeCube extends React.Component{
 		}, 500);
 	}
 
-	simpleRotate(coords){
+	simpleRotate(coords){ //for rotations in custom mode
 		this.setState(()=>{return{
 			customCoords: coords
 		}});

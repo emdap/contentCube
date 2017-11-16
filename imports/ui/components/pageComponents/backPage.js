@@ -16,6 +16,7 @@ export default class Back extends React.Component{
 		}
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
+		this.handleColor = this.handleColor.bind(this);
 
 	}
 
@@ -78,12 +79,13 @@ export default class Back extends React.Component{
 			    <p><strong>The</strong> biggest project I completed was creating an ETL process for analyzing financial information supplied by the company's vendors. I created it using Microsoft Access and Excel. The end result was a fully automated dashboard for every vendor, which included multiple graphs and metrics to show the accuracy of their reporting.</p>
 			    <h6>Key Technologies</h6>
 			    <ul className="inner">
+			    <li>FileZilla</li>
 			    <li>HTML/CSS and Bootstrap</li>
 			    <li>Javascript</li>
 			    <li>jQuery</li>
-			    <li>FileZilla</li>
 			    <li>Microsoft Access</li>
 			    <li>Microsoft Excel</li>
+			    <li>Primavera P6</li>
 			    <li>SQL Server Managment Studio</li>
 			    <li>Talend</li>
 			    <li>VBA</li>	
@@ -121,12 +123,24 @@ export default class Back extends React.Component{
 
 			    </div>
 			</div>
+			<h4><button onClick={this.handleColor}>Toggle Random Color</button></h4>
 		</div>
 
 
 
 		);
 	}
+
+	handleColor(){
+		var red = Math.round(255 * Math.random());
+		var green = Math.round(255 * Math.random());
+		var blue = Math.round(255 * Math.random());
+
+		var newColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+		this.props.toggleColor(newColor);
+	}
+
 }
 
 

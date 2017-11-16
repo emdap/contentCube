@@ -47,7 +47,7 @@ export default class ExplodeContent extends React.Component{
 				
 				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")} spinIt={this.handleRotate} handleEmail={this.showEmail}/>
 				
-				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")}/>
+				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")} toggleColor={this.props.handleColor}/>
 				
 				<Top disp={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")} spinIt={this.props.handleRotate}/>
 				

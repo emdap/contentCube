@@ -8,7 +8,7 @@ export default class Cube extends React.Component {
 			<section className="container">
 				  <div id="card" style={this.props.rotation}>
 				    <figure className="front"></figure>
-				    <figure className="back"></figure>   
+				    <figure className="back" style={this.props.backColor}></figure>   
 				    <figure className="left"></figure>
 				    <figure className="right"></figure>
 				    <figure className="top"></figure>

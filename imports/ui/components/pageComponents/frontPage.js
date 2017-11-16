@@ -9,8 +9,7 @@ export default class Front extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			professional: false, //declare all menu headings as a state, set to false initially
-			personal: false
+			hello: true, //declare all menu headings as a state, set to false initially
 		}
 
 		this.handleMenuShow = this.handleMenuShow.bind(this);
@@ -20,25 +19,13 @@ export default class Front extends React.Component{
 	handleMenuShow(which){
 
 		switch (which){
-			case 'professional': 
+			case 'hello': 
 				this.setState(()=>{
 					return{
-					professional: !this.state.professional,
-					personal: false,
-					menu2: false,
+					hello: !this.state.hello
 
 				}});
 
-
-				break;
-
-			case 'personal': 
-				this.setState(()=>{return{
-					personal: !this.state.personal,
-					professional: false,
-					menu2: false,
-
-				}});
 
 				break;
 			}
@@ -56,26 +43,17 @@ export default class Front extends React.Component{
 			    <h3>ecodapo@gmail.com • (416) 452 6279</h3>
 			    <div id="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
-			    <ClickingH activate={this.state.professional} trigger={"professional"} handleShow={this.handleMenuShow}>
-			 	Professional
+			    <ClickingH activate={this.state.hello} trigger={"hello"} handleShow={this.handleMenuShow}>
+			 	Hello!
 			 	</ClickingH>
-
-			    <ClickingH activate={this.state.personal} initClass={"middleMenu"} trigger={"personal"} handleShow={this.handleMenuShow}>
-			    Personal
-			    </ClickingH>
 
 			    </div>
 
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
-			    <HidingDiv trigger={this.state.professional}>
-			    professional
+			    <HidingDiv trigger={this.state.hello}>
+			    heyo heyo heyo
 			    </HidingDiv>
-
-			    <HidingDiv trigger={this.state.personal}>
-			    personal
-			    </HidingDiv>
-
 			    </div>
 			    </div>
 
