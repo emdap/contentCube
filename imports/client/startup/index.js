@@ -2,7 +2,8 @@ import {Meteor} from 'meteor/meteor';
 import {initRender} from '/imports/api/initRender'
 import {handleRender} from '/imports/api/handleRender'
 
-//import {getSwipe} from '/imports/api/swipes'
+import {handleTouchStart, handleTouchMove} from '/imports/api/swipes'
+
 
 
 Meteor.startup(() => {
@@ -19,5 +20,16 @@ const renderEl = document.getElementById('app');
 var myCube = initRender(firstFace, initCoords, isMax, showMenu, renderEl);
 
 document.onkeydown = (e) =>  handleRender(e, myCube, renderEl);
+
+
+//for swiping
+document.addEventListener('touchstart', handleTouchStart, false);        
+
+document.addEventListener('touchmove', function(e) {
+	var dir = handleTouchMove(e);
+	if(dir){
+		handleRender(dir, myCube, renderEl);
+	}
+}, false);
 
 });

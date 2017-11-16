@@ -52,9 +52,11 @@ export default class Front extends React.Component{
 			    <div id="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.hello}>
-			    heyo heyo heyo
 			    <img border="0" className="portrait"
 			    src="/images/face.jpg" />
+
+			    heyo heyo heyo
+			    
 			    </HidingDiv>
 			    </div>
 			    </div>
