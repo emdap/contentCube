@@ -1,4 +1,4 @@
-import {handleCode} from './secretCode'
+import {handleCode} from './secretCode' //it's for an easter egg not literally to handle all code don't worry
 
 export function handleRotate(e, cube, renderEl) {
 	if(cube.state.ready){
@@ -35,7 +35,7 @@ export function handleRotate(e, cube, renderEl) {
 					x += 90;
 					handleCode('down');
 					break;
-
+//3d rotations make the y and z axes change places, below is a hacky attempt at handling this rather than sitting down and figuring out an equation
 				case 37: //left
 					handleCode('left');
 					deltaY = 90;

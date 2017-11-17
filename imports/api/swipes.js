@@ -6,8 +6,7 @@ var startTime = null;
 
 var dir = null;
 
-export function handleTouchStart(e) {                     
-console.log('start');                    
+export function handleTouchStart(e) {                   
     xDown = e.touches[0].clientX;                                      
     yDown = e.touches[0].clientY;
 
@@ -15,20 +14,18 @@ console.log('start');
 };
 
 export function handleTouchEnd(e){
-    console.log('end');
     var endTime = new Date();
     var diffTime = endTime.getTime() - startTime.getTime();
-
-    if (diffTime < 200){
-        console.log(diffTime);
-        return dir;
+    var useDir = dir;
+    dir = null;
+    if (diffTime < 200 && useDir){
+        return useDir;
     }
 
 }
 
 
 export function handleTouchMove(e) {
-    console.log('move');
     if ( ! xDown || ! yDown ) {
         return;
     }
@@ -41,6 +38,8 @@ export function handleTouchMove(e) {
 
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+
+        console.log(xDiff + ', ' + yDiff);
         if ( xDiff > 0 ) {
             /* left swipe */
             dir = {which: 39} 
@@ -66,6 +65,7 @@ export function handleTouchMove(e) {
 
         }                                                                 
     }
+    console.log(dir.which);
     /* reset values */               
     xDown = null;
     yDown = null;                                             
