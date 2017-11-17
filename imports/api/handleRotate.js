@@ -16,7 +16,7 @@ export function handleRotate(e, cube, renderEl) {
 			
 			return(['keyRender', 77]);
 
-		} else if (e.which <= 40 && e.which >= 37){
+	} else if (e.which <= 40 && e.which >= 37){
 
 			[x, y, z] = cube.state.coords;
 			var deltaX = 0;

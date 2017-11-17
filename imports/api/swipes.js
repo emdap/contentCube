@@ -1,9 +1,6 @@
-
-var xDown = null;                                                        
+var xDown = null;                                           
 var yDown = null; 
-
 var startTime = null;
-
 var dir = null;
 
 export function handleTouchStart(e) {                   
@@ -18,6 +15,7 @@ export function handleTouchEnd(e){
     var diffTime = endTime.getTime() - startTime.getTime();
     var useDir = dir;
     dir = null;
+
     if (diffTime < 200 && useDir){
         return useDir;
     }
@@ -29,6 +27,7 @@ export function handleTouchMove(e) {
     if ( ! xDown || ! yDown ) {
         return;
     }
+
 
     var xUp = e.touches[0].clientX;                                    
     var yUp = e.touches[0].clientY;
