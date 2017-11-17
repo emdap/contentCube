@@ -40,6 +40,11 @@ export default class ClickingH extends React.Component {
 					clicked: false,
 					allClass: this.state.initClass + ' inactive'
 				}});
+		} else {
+			this.setState(()=>{return{
+				clicked: true,
+				allClass: this.state.initClass + ' active'
+			}});
 		}
 	}
 }

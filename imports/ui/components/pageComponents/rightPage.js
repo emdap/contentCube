@@ -19,6 +19,15 @@ export default class Right extends React.Component{
 
 	}
 
+	componentWillReceiveProps(props){
+		if(props.changeH){
+			this.setState(()=>{return{
+				personal: props.showPersonal,
+				school: !props.showPersonal
+			}});
+		}
+	}
+
 	handleMenuShow(which){
 
 		switch (which){
@@ -54,6 +63,7 @@ export default class Right extends React.Component{
 	render(){
 
 		pageClass = this.props.disp;
+		
 			return (
 				<div id="pageHolder" className={pageClass}>
 				<div id="projects">

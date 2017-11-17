@@ -34,8 +34,8 @@ export default class ExplodeCube extends React.Component{
 			customMode: this.props.customMode, //for secret code function
 			customCoords: [0, 0, 0],
 
-			custStyle: {}, //toggle random color
-			custStyleSet: false,
+			custBackStyle: {}, //toggle random color
+			//custStyleSet: false,
 
 			ready: true
 		};
@@ -69,7 +69,7 @@ export default class ExplodeCube extends React.Component{
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
 		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
 
-		const custColor = (this.state.curFace == "back" ? this.state.custStyle : {}); //use custom color for backpage if that's the current face
+		const custColor = (this.state.explodeClass == 'back' || this.state.explodeClass == 'back hide smooth' ? this.state.custBackStyle : {}); //use custom color for backpage if that's the current face
 		
 		//show or hide each menu based on state
 		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
@@ -83,7 +83,7 @@ export default class ExplodeCube extends React.Component{
 
 		return(
 			<div id="appHolder">
-			<Cube rotation={rotation} backColor={this.state.custStyle}/>
+			<Cube rotation={rotation} backColor={this.state.custBackStyle}/>
 			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 
 			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation, custColor}>
@@ -114,18 +114,18 @@ export default class ExplodeCube extends React.Component{
 
 	toggleColor(newColor){ //toggles background to random color, for button on 'experience' page
 
-		if(this.state.custStyleSet){//remove cust style so original class shows
-			this.setState(()=>{return{
-				custStyle: {},
-				custStyleSet: false
-			}});
+		// if(this.state.custStyleSet){//remove cust style so original class shows
+		// 	this.setState(()=>{return{
+		// 		custStyle: {},
+		// 		custStyleSet: false
+		// 	}});
 
-		} else {
+		// } else {
 			this.setState(()=>{return{
-				custStyle: {background: newColor},
-				custStyleSet: true
+				custBackStyle: {background: newColor},
+		//		custStyleSet: true
 			}});
-		}
+		//}
 	}
 
 	triggerCustom(){//custom rotate option

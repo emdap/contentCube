@@ -20,6 +20,15 @@ export default class Back extends React.Component{
 
 	}
 
+	componentWillReceiveProps(props){
+		if(props.changeH){
+			this.setState(()=>{return{
+				work: props.showWork,
+				school: props.showSchool
+			}});
+		}
+	}
+
 	handleMenuShow(which){
 
 		switch (which){
@@ -49,7 +58,6 @@ export default class Back extends React.Component{
 	render(){
 
 		pageClass = this.props.disp;
-		
 		return(
 
 
@@ -123,7 +131,7 @@ export default class Back extends React.Component{
 
 			    </div>
 			</div>
-			<h4><button onClick={this.handleColor}>Toggle Random Color</button></h4>
+			<h4><button onClick={this.handleColor}>Random Background</button></h4>
 		</div>
 
 

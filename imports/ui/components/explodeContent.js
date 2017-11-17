@@ -14,6 +14,7 @@ import EmailWindow from './emailWindow';
 export default class ExplodeContent extends React.Component{
 
 	render(){
+		console.log(this.state);
 		thumbClass = (this.state.isMax ? 'hide' : 'show');
 		contentClass = (this.state.isMax ? 'show' : 'hide');
 		return(
@@ -45,9 +46,9 @@ export default class ExplodeContent extends React.Component{
 
 			<div id='content' className={contentClass}>
 				
-				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")} spinIt={this.handleRotate} handleEmail={this.showEmail}/>
+				<Front disp={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")} spinIt={this.handleRotateTrigger} handleEmail={this.showEmail}/>
 				
-				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")} toggleColor={this.props.handleColor}/>
+				<Back disp={(this.state.curFace == 'back' ? "pageOpen" : "pageClosed")} toggleColor={this.props.handleColor} showWork={this.state.showBackWork} showSchool={this.state.showBackSchool} changeH={this.state.changeBackH}/>
 				
 				<Top disp={(this.state.curFace == 'top' ? "pageOpen" : "pageClosed")} spinIt={this.props.handleRotate}/>
 				
@@ -55,7 +56,8 @@ export default class ExplodeContent extends React.Component{
 					message={this.state.homeMessage} spinIt={this.props.handleRotate} showMade={this.state.showBottomMade} showControls={(this.state.showBottomMade ? false : true)}/>
 				
 				<Left disp={(this.state.curFace == 'left' ? "pageOpen" : "pageClosed")} handleEmail={this.showEmail}/>
-				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} spinIt={this.handleRotateTrigger}/>
+
+				<Right disp={(this.state.curFace == 'right' ? "pageOpen" : "pageClosed")} secret={this.props.handleSecret} showPersonal={this.state.showRightPersonal} changeH={this.state.changeRightH} spinIt={this.handleRotateTrigger}/>
 
 			</div>
 			<EmailWindow trigger={this.state.showEmail} handleEmail={this.showEmail}/>
@@ -70,7 +72,14 @@ export default class ExplodeContent extends React.Component{
 			isMax: this.props.isMax, //content size
 			homeMessage: 'init', //for which version of home page to show (init is initial, 'where's the cube' message)
 			showBottomMade: false, //show 'how it's made' div on bottom (home) page
-			showEmail: false
+			showEmail: false,
+
+			showBackSchool: false,
+			showBackWork: false,
+			changeBackH: false,
+
+			showRightPersonal: false,
+			changeRightH: false
 		}
 
 		this.handleRotateTrigger = this.handleRotateTrigger.bind(this);
@@ -83,19 +92,81 @@ export default class ExplodeContent extends React.Component{
 	// }
 
 	handleRotateTrigger(coords, page, force, trigger){ //for handling a rotate which also triggers a certain hidingDiv to show on the page rotated to
-		if(trigger == 'made'){
-			this.setState(()=>{return{
-				showBottomMade: true,
-				curFace: page,
-				isMax: true
-			}});
+		switch(trigger){
+			case 'made':
+				this.setState(()=>{return{
+					showBottomMade: true,
+					curFace: page,
+					isMax: true
+				}});
+				break;
+
+			case 'school':
+				this.setState(()=>{return{
+					showBackSchool: true,
+					showBackWork: false,
+					curFace: page,
+					isMax: true,
+					changeBackH: true
+				}});
+				break;
+
+			case 'work':
+				this.setState(()=>{return{
+					showBackWork: true,
+					showBackSchool: false,
+					curFace: page,
+					isMax: true,
+					changeBackH: true
+				}});
+
+					setTimeout(()=>{
+						this.setState(()=>{return{
+							changeBackH: false,
+						}});
+					}, 1000); //remove this state after rotation finishes
+
+				break;
+
+			case 'personal':
+				this.setState(()=>{return{
+					showRightPersonal: true,
+					curFace: page,
+					isMax: true,
+					changeRightH: true
+				}});
+
+					setTimeout(()=>{
+						this.setState(()=>{return{
+							changeRightH: false
+						}});
+					}, 1000); //remove this state after rotation finishes
+
+				break;
 		}
+
+		setTimeout(()=>{
+			this.setState(()=>{return{
+				changeBackH: false,
+				changeRightH: false
+			}});
+		}, 1000); //remove this state after rotation finishes
+
+		console.log(this.state);
+		// if(trigger == 'made'){
+		// 	this.setState(()=>{return{
+		// 		showBottomMade: true,
+		// 		curFace: page,
+		// 		isMax: true
+		// 	}});
+		// } else if(trigge)
 
 		this.props.handleRotate(coords, page, force);
 	}
 	
 
 	componentWillReceiveProps(nextProps){
+		console.log('here');
 		this.setState(() => { 
 			return {
 				curFace: nextProps.curFace,

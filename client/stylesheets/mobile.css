@@ -86,6 +86,11 @@
 	  height: calc(80vh - 14.5rem + 2px);
 	  position: absolute;
 	}
+
+	.portrait{
+		height: 150px;
+		margin-left: -10%;
+	}
 }
 
 /* #### Mobile Phones Landscape #### */

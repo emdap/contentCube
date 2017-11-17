@@ -5,14 +5,14 @@
 
 #home h2{/* menu options for this page */
   width: calc(100%/3);
-  border-top: 1px solid rgba(0, 0, 0, .5);
-  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  border-top: 1px solid rgba(255, 255, 255, .5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
 
 
 #home .middleMenu{
-  border-left: 1px solid rgba(0, 0, 0, .5);
-  border-right: 1px solid rgba(0, 0, 0, .5);
+  border-left: 1px solid rgba(255, 255, 255, .5);
+  border-right: 1px solid rgba(255, 255, 255, .5);
   width: calc(100%/3 - 2px);
 }
 

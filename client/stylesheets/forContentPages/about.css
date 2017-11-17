@@ -1,4 +1,12 @@
-#about h3{ /* wondering where the cube is? ... */
+.portrait{
+  height: 250px;
+  position: relative;
+  margin-left: -1.5em;
+  margin-right: 1.5em; 
+  float: left;
+}
+
+#about h3{ /* contact info */
   margin-top: -1.5%;
   width: 50%;
   padding-top: 0%;
@@ -16,11 +24,29 @@
 
 #about h2{/* menu options for this page */
   width: calc(100%);
-  border-top: 1px solid rgba(0, 0, 0, .5);
-  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  border-top: 1px solid rgba(255, 255, 255, .5);
 }
 
 
 #about #pHolder {
   background: rgba(255, 255, 255, .5);
+  height: calc(100% - 12rem - 4px);
+  margin-top: calc(4rem);
+
+}
+
+#about #pHolder div{
+  padding: 0 10%;
+}
+
+#about strong{
+    margin-left: 0;
+}
+
+#about p{
+    margin-top: 0;
+}
+
+#about p{
+  margin-left: 0px;
 }

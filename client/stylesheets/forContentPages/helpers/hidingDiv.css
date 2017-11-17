@@ -24,7 +24,7 @@
   overflow-x: wrap;
   margin: 2% 0 0 0;
   top: 0px;
-  transition:  height .5s, margin-top .5s, padding .5s, top .5s;
+  transition:  height .5s, margin-top .5s, padding .5s, top .5s, opacity .4s 0s;
 
 }
 
