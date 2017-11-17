@@ -3,6 +3,7 @@
   position: relative;
   margin-left: -1.5em;
   margin-right: 1.5em; 
+  margin-bottom: .5em;
   float: left;
 }
 
@@ -30,7 +31,7 @@
 
 #about #pHolder {
   background: rgba(255, 255, 255, .5);
-  height: calc(100% - 12rem - 4px);
+  height: calc(100% - 12rem );
   margin-top: calc(4rem);
 
 }
@@ -45,6 +46,7 @@
 
 #about p{
     margin-top: 0;
+    line-height: 1.3rem;
 }
 
 #about p{
