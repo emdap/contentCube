@@ -83,8 +83,15 @@ export default class Back extends React.Component{
 			    <span className="italic">July 2016 - August 2017</span>
 			    <p><strong>During</strong> my time at Amec Foster Wheeler I worked in the Project Planning department, where I did full stack software development and provided technical support.
 			    </p>
-			    <p><strong>My</strong> main focus was creating automated Excel reports and automating pre-existing Excel reports, which greatly reduced error and saved company time. Additionally, I would revise the code structure and create documentation for pre-existing programs, which improved usability and trouble shooting. Otherwise, I fulfilled ad hoc requests to add features to other programs or reports, full stack web development and website maintenance, and helping people both in and outside of my department solve technical issues.</p>
-			    <p><strong>The</strong> biggest project I completed was creating an ETL process for analyzing financial information supplied by the company's vendors. I created it using Microsoft Access and Excel. The end result was a fully automated dashboard for every vendor, which included multiple graphs and metrics to show the accuracy of their reporting.</p>
+			    <p><strong>My</strong> main focus was creating automated Excel reports and automating pre-existing Excel reports. The automated reports used data both from SQL Server databases and human generated reports. This was a great opportunity to learn about working with large amounts of data, and also for handling human error in manual reports. The reports that I automated greatly reduced error and saved company time, allowing for more advanced analysis on the same data. When the automated reports required some human input (like importing files), I created user friendly interfaces with in-depth logs and error descriptions for maximum ease and efficiency.</p>
+
+			    <p><strong>I was</strong> also responsible for optimizing, debugging, and documenting pre-existing code/programs. I hold my code to a high standard and imparted this on the company programs I worked with to ensure that they would be maintainable by future developers.</p>
+
+			    <p><strong>Otherwise,</strong> I fulfilled ad hoc requests to add features to other programs or reports, full stack web development and website maintenance, and helping people both in and outside of my department solve technical issues.</p>
+
+			    <p><strong>The</strong> biggest project I completed was an ETL process for analyzing the accuracy of financial reports provided by our vendors. I created it using Microsoft Access and Excel. The analysis results were presented in a fully automated dashboard for each vendor which incorporated various graphs and metrics. The automated dashboard needed to be created once a month, and the input for each vendor was four reports spanning two months. I completed all technical aspects of the project myself and structured the database with the analysis queries in mind. There had been a prototype database structure developed previously but I completely overhauled this and was able to cut querying time in half. I also designed a user interface for importing the reports that, when encountering a formatting issue (such as the vendor name location not following the official template), would alert the user to exactly where the issue occured, the information that was not able to be extracted and why, and instructions on how to fix the issue. Good error handling was very important since the process was meant for someone without programming knowledge who couldn't just debug the program if something unexpected happened.</p>
+
+
 			    <h6>Key Technologies</h6>
 			    <ul className="inner">
 			    <li>FileZilla</li>
@@ -125,7 +132,7 @@ export default class Back extends React.Component{
 			   	<span className="break"/>
 
 			   	<h5>Udemy</h5>
-			    <p><strong>I took</strong> a course at <a className="link" href="www.udemy.com" target="_blank">Udemy</a> on Meteor and React. Currently I'm working through a course on app development using Swift.</p>
+			    <p><strong>I took</strong> a course at <a className="link" href="http://www.udemy.com" target="_blank">Udemy</a> on Meteor and React. Currently I'm working through a course on app development using Swift.</p>
 
 			    </HidingDiv>
 
