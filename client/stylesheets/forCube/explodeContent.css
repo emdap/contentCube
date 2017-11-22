@@ -10,7 +10,7 @@
 }
 
 #thumbnail.show{
-	opacity: .7;
+	opacity: .8;
 	left: 0;
 	top: 30px;
 	height: 200px;
@@ -44,4 +44,5 @@
 
 #content.hide{
   opacity: 0;
+  visibility: hidden;
 }
