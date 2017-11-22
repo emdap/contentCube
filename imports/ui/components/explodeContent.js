@@ -14,7 +14,6 @@ import EmailWindow from './emailWindow';
 export default class ExplodeContent extends React.Component{
 
 	render(){
-		console.log(this.state);
 		thumbClass = (this.state.isMax ? 'hide' : 'show');
 		contentClass = (this.state.isMax ? 'show' : 'hide');
 		return(
@@ -152,21 +151,12 @@ export default class ExplodeContent extends React.Component{
 			}});
 		}, 1000); //remove this state after rotation finishes
 
-		console.log(this.state);
-		// if(trigger == 'made'){
-		// 	this.setState(()=>{return{
-		// 		showBottomMade: true,
-		// 		curFace: page,
-		// 		isMax: true
-		// 	}});
-		// } else if(trigge)
 
 		this.props.handleRotate(coords, page, force);
 	}
 	
 
 	componentWillReceiveProps(nextProps){
-		console.log('here');
 		this.setState(() => { 
 			return {
 				curFace: nextProps.curFace,

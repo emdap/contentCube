@@ -69,8 +69,18 @@ export default class ExplodeCube extends React.Component{
 		const rotation = {transform: `translateZ(-100px) rotateX( ${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`} 
 		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
 
-		const custColor = (this.state.explodeClass == 'back' || this.state.explodeClass == 'back hide smooth' ? this.state.custBackStyle : {}); //use custom color for backpage if that's the current face
+
+		const custColor = (this.state.explodeClass == 'back' || this.state.explodeClass == 'back hide smooth' ? this.state.custBackStyle : false); //use custom color for backpage if that's the current face
 		
+		var explodeStyle = {};
+
+
+		if(!custColor){
+			explodeStyle = deltaRotation;
+		} else {
+			explodeStyle = Object.assign(deltaRotation, custColor);
+		}
+
 		//show or hide each menu based on state
 		innerMenuClass = (this.state.showInnerMenu ? 'open' : 'closed'); //inner menu
 		topMenuClass = (this.state.showTopMenu ? 'open' : 'closed'); //top menu
@@ -78,7 +88,7 @@ export default class ExplodeCube extends React.Component{
 		
 		//size of content window
 		minMaxClass = (this.state.isMax ? 'open' : 'closed'); //minmax icon
-		explodeClasses = this.state.explodeClass + ' ' + (this.state.isMax ? 'max' : 'min'); //resize content window by toggling class
+		explodeClasses = this.state.explodeClass + (this.state.explodeClass.indexOf("hide") != -1 ? '' : ' ' + (this.state.isMax ? 'max' : 'min')); //resize content window by toggling class
 			
 
 		return(
@@ -86,7 +96,7 @@ export default class ExplodeCube extends React.Component{
 			<Cube rotation={rotation} backColor={this.state.custBackStyle}/>
 			<MenuContent menuID='topMenu' menuClass={topMenuClass} handleRotate={this.handleMenuRotate} highlight={this.state.menuHighlight}/>
 
-			<div key="main_div" id="explode" className={explodeClasses} style={deltaRotation, custColor}>
+			<div key="main_div" id="explode" className={explodeClasses} style={explodeStyle}>
 
 				<MinMaxButton minMaxClass={minMaxClass} handleClick={this.handleMinMax}/>
 			
@@ -122,7 +132,7 @@ export default class ExplodeCube extends React.Component{
 
 		// } else {
 			this.setState(()=>{return{
-				custBackStyle: {background: newColor},
+				custBackStyle: {background: newColor}
 		//		custStyleSet: true
 			}});
 		//}

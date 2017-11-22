@@ -153,10 +153,10 @@ export default class Bottom extends React.Component{
 			    <HidingDiv trigger={this.state.showHere}>
 			    {/* what's here? */}
 			    <h5>Now</h5>
-			    <p><strong>Currently</strong> this contentCube is serving as the personal webpage for Emma DaPonte. Check out <a className="link" onClick={()=>{this.handleRotate('about')}}>other pages</a> for more specific information on Emma without the third person narrative.
+			    <p><strong>This</strong> contentCube is serving as the personal webpage for Emma DaPonte. Check out <a className="link" onClick={()=>{this.handleRotate('about')}}>other pages</a> for more specific information on Emma without the third person narrative.
 			    </p>
 			    <h5>Future</h5>
-			    <p><strong>Eventually</strong> this contentCube will serve as more of a portfolio where each side can showcase a web app. In its current state it has a lot of redundant and needlessly spread out information, which is not the end goal. Come back for updates!
+			    <p><strong>Eventually</strong> this contentCube will serve as more of a portfolio where each side can showcase a web app. Come back for updates!
 			    </p>
 
 			    </HidingDiv>

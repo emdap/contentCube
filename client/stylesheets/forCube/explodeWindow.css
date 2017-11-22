@@ -27,19 +27,21 @@
 	top: calc(50% - 100px);
 	left: calc(50% - 100px);
 	color: black;
-	transition: top 1s, left 1s, margin 1s, opacity 1s, width 1s, height 1s, color .25s;
+	visibility: visible;
+	transition: top 1s, left 1s, margin 1s, opacity 1s, visibility 1s, width 1s, height 1s, color .25s;
 
 }
 
 #explode.hide{
 	opacity: 0;
+	visibility: none;
 	height: 200px;
 	width: 200px;
 	top: calc(50% - 99px);
 	left: calc(50% - 99px);
 	border: 0px solid black;
 
-	transition: top 1s, left 1s, margin 1s, opacity .5s, width 1s, height 1s, transform .8s, color .25s;
+	transition: top 1s, left 1s, margin 1s, opacity .5s, visibility .5s width 1s, height 1s, transform .8s, color .25s;
 }
 
 #explode.max{

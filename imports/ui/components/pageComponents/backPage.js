@@ -85,7 +85,7 @@ export default class Back extends React.Component{
 			    </p>
 			    <p><strong>My</strong> main focus was creating automated Excel reports and automating pre-existing Excel reports. The automated reports used data both from SQL Server databases and human generated reports. This was a great opportunity to learn about working with large amounts of data, and also for handling human error in manual reports. The reports that I automated greatly reduced error and saved company time, allowing for more advanced analysis on the same data. When the automated reports required some human input (like importing files), I created user friendly interfaces with in-depth logs and error descriptions for maximum ease and efficiency.</p>
 
-			    <p><strong>I was</strong> also responsible for optimizing, debugging, and documenting pre-existing code/programs. I hold my code to a high standard and imparted this on the company programs I worked with to ensure that they would be maintainable by future developers.</p>
+			    <p><strong>I was</strong> also responsible for optimizing, debugging, and documenting pre-existing code/programs. I ensured that all code I worked with was well documented so that it would be maintainable by future developers.</p>
 
 			    <p><strong>Otherwise,</strong> I fulfilled ad hoc requests to add features to other programs or reports, full stack web development and website maintenance, and helping people both in and outside of my department solve technical issues.</p>
 
