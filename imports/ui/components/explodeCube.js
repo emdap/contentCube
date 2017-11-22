@@ -142,7 +142,7 @@ export default class ExplodeCube extends React.Component{
 
 		this.setState(()=>{ //transition to 0 0 0 and hidden so that smooth transition to custom mode
 			return{ 
-				explodeClass: this.state.explodeClass + ' hide smooth',
+				explodeClass: this.state.explodeClass + ' hide',
 				isMax: false,
 				coords: [0, 0, 0],
 				delta: [-1 * this.state.coords[0], -1 * this.state.coords[1], -1 * this.state.coords[2]]

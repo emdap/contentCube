@@ -42,6 +42,10 @@
 		  white-space: nowrap;
 	}
 
+	#thumbnail.show{
+		top: 25px;
+	}
+
 
 	#topMenu > .bolded{
 	  padding: .60rem .60rem;
@@ -68,6 +72,9 @@
 	  margin-left: 5%;
 	}
 
+	#pageHolder h1{
+		width: calc(95vw - 20px);
+	}
 	#pageHolder h2 { 
 	  font-size: 4vw;
 	}
@@ -82,9 +89,20 @@
 
 	#pHolder {
 	  margin-top: calc(4rem + 2px);
-	  width: 100%;
+	  width: calc(95vw - 20px);
+	  right: calc((95vw - 20px) - 100%);
 	  height: calc(80vh - 14.5rem + 2px);
 	  position: absolute;
+	}
+
+	#contact{
+	  width: calc(95vw - 20px);
+	  right: calc((95vw - 20px) - 100%);
+	}
+
+	#links{
+	  width: calc(95vw - 20px);
+	  right: calc((95vw - 20px) - 100%);
 	}
 
 	.portrait{

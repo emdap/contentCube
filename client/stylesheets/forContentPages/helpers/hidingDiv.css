@@ -1,8 +1,9 @@
 
 #pHolder {
   margin-top: calc(4rem + 2px);
-  width: 100%;
+  width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
   height: calc(90vh - 14.5rem + 2px);
+  right: calc((80vw + ((100vh - 100vw) / 2) - 20px) - 100%);
   position: absolute;
 }
 

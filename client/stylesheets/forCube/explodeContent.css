@@ -15,8 +15,8 @@
 	top: 30px;
 	height: 200px;
 	line-height: 160px;
-	transition: left .7s, top .7s, height .7s, line-height .7s, width .7s, font-size .7s, color .7s .7s;
-	color: black;
+	transition: left .7s, top .7s, height .7s, line-height .7s, width .7s, font-size .7s, color 0s;
+	color: inherit;
 }
 
 #thumbnail.hide{

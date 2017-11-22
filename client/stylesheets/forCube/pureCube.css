@@ -7,10 +7,8 @@
   height: 200px;
   position: fixed;
   perspective: 1000px;
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -100px;
+  top: calc(50% - 99px);
+  left: calc(50% - 99px);
   
 }
 
@@ -20,7 +18,6 @@
   display: block;
   position: absolute;
   transform-style: preserve-3d;
-  transform: translateZ(-100px);
   transition: transform 1s;
 }
 
@@ -33,7 +30,8 @@
   border: 2px white solid;
   width: 198px;
   height: 198px;
-  backface-visibility: hidden;
+  opacity: .9;
+  backface-visibility: visible;
   
 }
 

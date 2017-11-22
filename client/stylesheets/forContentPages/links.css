@@ -1,3 +1,8 @@
+#links{
+	width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
+    right: calc((80vw + ((100vh - 100vw) / 2) - 20px) - 100%);
+}
+
 #links a{
 	text-decoration: none !important;
 	transition: all 1s;

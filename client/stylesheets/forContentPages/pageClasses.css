@@ -72,6 +72,7 @@
 #pageHolder h1 { /* welcome */
   margin-top: 10px;
   margin-bottom: -5px;
+  width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
   text-align: center;
   line-height: 5rem;
   color: inherit;
