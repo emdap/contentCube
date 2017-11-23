@@ -90,11 +90,15 @@
 	#pHolder {
 	  margin-top: calc(4rem + 2px);
 	  width: calc(95vw - 20px);
-	  right: calc((95vw - 20px) - 100%);
+	  right: 0;
 	  height: calc(80vh - 14.5rem + 2px);
 	  position: absolute;
 	}
 
+	#pHolder div:not(.inner){
+	  right: calc((95vw - 20px) - 100%);
+	}
+	
 	#contact{
 	  width: calc(95vw - 20px);
 	  right: calc((95vw - 20px) - 100%);

@@ -70,7 +70,7 @@ export default class ExplodeCube extends React.Component{
 		const deltaRotation = {transform: `rotateX( ${dx}deg) rotateY(${dy}deg) rotateZ(${dz}deg) translateZ(100px)`}
 
 
-		const custColor = (this.state.explodeClass == 'back' || this.state.explodeClass == 'back hide smooth' ? this.state.custBackStyle : false); //use custom color for backpage if that's the current face
+		const custColor = ((this.state.explodeClass == 'back' || this.state.explodeClass == 'back hide smooth') && this.state.isMax == true ? this.state.custBackStyle : false); //use custom color for backpage if that's the current face
 		
 		var explodeStyle = {};
 
