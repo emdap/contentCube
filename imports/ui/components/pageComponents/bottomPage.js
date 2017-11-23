@@ -188,7 +188,7 @@ export default class Bottom extends React.Component{
 
 				<h5>Other Components</h5>
 				<p><strong>
-					The </strong> min/max button, the menu button, the clickable tabs on each page, and the div this text is within are all React components. Perhaps the most interesting is the menu. The menu seen when the cube is minimized (the top menu) and maximized (the inner menu) are generated from the same React component. The top menu component is declared from within the app, while the inner menu is declared from within the content window. The menu component assigns class based on a prop, making the appearance easily changed while retaining all of the same functionality.
+					The </strong> min/max button, the menu button, the clickable tabs on each page, and the div this text is within are all React components. Some components are used in more than one spot but appear different due to their class. For example, the menu seen when the cube is minimized (the top menu) and maximized (the inner menu) are generated from the same component. The top menu is declared from within the app, while the inner menu is declared from within the content window. The menu component assigns class based on a prop, making the appearance easily changed while retaining all of the same functionality.
 				</p>
 
 			    </HidingDiv>

@@ -91,8 +91,7 @@ export default class Right extends React.Component{
 			    <h6>Technologies Used</h6>
 			    <ul className="inner">
 			    <li>Javascript</li>
-			    <li>jQuery</li>			    
-			    <li>JSON</li>
+			    <li>jQuery</li>		
 			    </ul>
 
 			    <ClickingH activate={this.state.linkPreview} initClass={"inner"} trigger={'linkPreview'} handleShow={this.handleMenuShow}>More Info</ClickingH>

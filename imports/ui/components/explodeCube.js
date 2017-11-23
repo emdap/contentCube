@@ -333,28 +333,30 @@ export default class ExplodeCube extends React.Component{
 	}
 
 	handleMinMax(){
-		if(this.state.isMax){ //downsize, hide inner menu no matter what
+		if(this.state.preSpinMax == 'ready'){ //isn't currently rotating, ignore min max if rotating as can lead to false states
+			if(this.state.isMax){ //downsize, hide inner menu no matter what
+				this.setState((prevState, props) => {
+					return {
+						showInnerMenu: false,
+						showTopMenu: prevState.showMenu
+					}
+				});
+			
+			} else { //up sizing
+				this.setState((prevState, props) => {
+					return {
+						showInnerMenu: prevState.showMenu,
+						showTopMenu: false,
+					}
+				});
+			}
+
 			this.setState((prevState, props) => {
 				return {
-					showInnerMenu: false,
-					showTopMenu: prevState.showMenu
-				}
-			});
-		
-		} else { //up sizing
-			this.setState((prevState, props) => {
-				return {
-					showInnerMenu: prevState.showMenu,
-					showTopMenu: false,
+					isMax: !prevState.isMax
 				}
 			});
 		}
-
-		this.setState((prevState, props) => {
-			return {
-				isMax: !prevState.isMax
-			}
-		});
 	}
 
 	handleMenuShow(){

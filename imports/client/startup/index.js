@@ -10,6 +10,9 @@ Meteor.startup(() => {
 //initial side to show
 //var firstFace = 'bottom'; //make dictionary with default coords = face name for future
 
+//make app invisible so can fade in
+document.getElementById('app').style.opacity = 0;
+
 //initial values
 const firstFace = 'bottom'; //needs to match initCoords
 const initCoords = [90, 0, 0];
@@ -38,6 +41,9 @@ document.addEventListener('touchend', function(e) {
 	}
 }, false);
 
+setTimeout(()=>{
+	document.getElementById('app').style.opacity = 1;
+}, 1000);
 
 
 
