@@ -2,8 +2,8 @@
   background: rgba(255, 255, 255, .1);
 }
 
-#projects h2{/* menu options for this page */
-  width: calc(100%/2);
+#projects .pageMenu h2{/* menu options for this page */
+  width: calc(100%/2 - 1px);
   border-top: 1px solid rgba(255, 255, 255, .5);
   border-bottom: 1px solid rgba(255, 255, 255, .5);;
 }

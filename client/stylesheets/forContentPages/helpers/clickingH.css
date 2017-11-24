@@ -5,12 +5,12 @@
 }
 
 
-.pageHolder h2:hover:not(.inner){
+.pageHolder .pageMenu h2:hover{
    background: rgba(255, 255, 255, .6);
 }
 
 
-.pageHolder h2:not(.inner){ 
+.pageHolder .pageMenu h2{ 
   transition: background 1s;
   float: left;
   margin: 0;
@@ -24,11 +24,11 @@
   white-space: nowrap;
 }
 
-h2.inactive:not(.inner){
+.pageMenu h2.inactive{
   background: rgba(255, 255, 255, .2);
 }
 
-h2.active:not(.inner) {
+.pageMenu h2.active {
   background: rgba(255, 255, 255, .4);
 }
 
