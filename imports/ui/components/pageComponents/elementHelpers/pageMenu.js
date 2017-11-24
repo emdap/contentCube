@@ -16,7 +16,7 @@ export default class PageMenu extends React.Component{
 	render(){
 
 		return(
-			    <div id="pageMenu">
+			    <div className="pageMenu">
 
 {this.props.children}
 

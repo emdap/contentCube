@@ -15,7 +15,7 @@ export default class Top extends React.Component{
 
         pageClass = this.props.disp;
             return (
-                <div id="pageHolder" className={pageClass}>
+                <div className={"pageHolder " + pageClass}>
                 <div id="links">
                 <h1>Find me Online</h1>
 

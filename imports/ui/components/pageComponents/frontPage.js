@@ -37,11 +37,11 @@ export default class Front extends React.Component{
 
 		pageClass = this.props.disp;
 			return (
-				<div id="pageHolder" className={pageClass}>
+				<div className={"pageHolder " + pageClass}>
 				<div id="about">
 			    <h1>Emma DaPonte</h1>
 			    <h3>ecodapo@gmail.com • (416) 452 6279</h3>
-			    <div id="pageMenu">
+			    <div className="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.hello} trigger={"hello"} handleShow={this.handleMenuShow}>
 			 	Hello!
@@ -49,7 +49,7 @@ export default class Front extends React.Component{
 
 			    </div>
 
-			    <div id="pHolder">
+			    <div className="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.hello}>
 			    <img border="0" className="portrait"

@@ -65,10 +65,10 @@ export default class Right extends React.Component{
 		pageClass = this.props.disp;
 		
 			return (
-				<div id="pageHolder" className={pageClass}>
+				<div className={"pageHolder " + pageClass}>
 				<div id="projects">
 			    <h1>Programming Projects</h1>
-			    <div id="pageMenu">
+			    <div className="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.personal} trigger={"personal"} handleShow={this.handleMenuShow}>
 			    Personal Projects
@@ -80,7 +80,7 @@ export default class Right extends React.Component{
 
 			    </div>
 
-			    <div id="pHolder">
+			    <div className="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.personal}>
 			    <h5>Link Preview • Summer 2017</h5>

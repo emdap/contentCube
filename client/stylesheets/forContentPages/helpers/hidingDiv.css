@@ -1,5 +1,5 @@
 
-#pHolder {
+.pHolder {
   margin-top: calc(4rem + 2px);
   height: calc(90vh - 14.5rem + 2px);
   width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
@@ -7,7 +7,7 @@
   position: absolute;
 }
 
-#pHolder div:not(.inner){
+.pHolder div:not(.inner){
   text-align: ltr;
   width: 80%;
   height: 96%;
@@ -20,7 +20,7 @@
 }
 
 
-#pHolder div.show:not(.inner){
+.pHolder div.show:not(.inner){
   opacity: 1;
   overflow-y: scroll;
   overflow-x: wrap;
@@ -30,7 +30,7 @@
 
 }
 
-#pHolder div.hide:not(.inner){
+.pHolder div.hide:not(.inner){
 
   opacity: 0;
   overflow-y: hidden;
@@ -41,51 +41,29 @@
   
 }
 
-#pHolder div.show.inner{
+.pHolder div.show.inner{
   font-size: 1rem;
   opacity: 1;
   transition: font-size .5s, opacity .5s .3s;
 }
 
-#pHolder div.hide.inner{
+.pHolder div.hide.inner{
   font-size: 0rem;
   opacity: 0;
   transition: font-size .3s, opacity .3s;
 }
 
-#pHolder div.inner{
+.pHolder div.inner{
 }
 
-#pHolder div.hide.inner > h2.inner.short{
+.pHolder div.hide.inner > h2.inner.short{
   height: 0;
   font-size: 0;
   margin-bottom: 0px;
 }
 
-#pHolder div.inner > h2.inner.short{
+.pHolder div.inner > h2.inner.short{
   margin-bottom: 45px;
 }
-
-/* 
-#pHolder p.show{
-  opacity: 1;
-  float: left;
-  margin: 20px 0 10px 0;
-    transition:  font-size .25s,
-                margin .25s,
-                padding .25s,
-                opacity .15s .25s;
-}
-
-#pHolder p.hide{
-  opacity: 0;
-  font-size: 0;
-  margin: 0 0 0 0;
-      transition:  font-size .15s .25s,
-                margin .15s .25s,
-                padding .15s .25s,
-                opacity .25s;
-} 
-*/
 
 

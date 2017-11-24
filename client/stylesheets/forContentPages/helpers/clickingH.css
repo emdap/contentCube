@@ -1,16 +1,16 @@
 
-#pageMenu {
+.pageMenu {
   width: 100%;
   clear: both;
 }
 
 
-#pageHolder h2:hover:not(.inner){
+.pageHolder h2:hover:not(.inner){
    background: rgba(255, 255, 255, .6);
 }
 
 
-#pageHolder h2:not(.inner){ 
+.pageHolder h2:not(.inner){ 
   transition: background 1s;
   float: left;
   margin: 0;
@@ -32,7 +32,7 @@ h2.active:not(.inner) {
   background: rgba(255, 255, 255, .4);
 }
 
-#pageHolder h2.inner{
+.pageHolder h2.inner{
   width: calc(100% + 50px);
   text-align: center;
   font-weight: normal;
@@ -48,11 +48,11 @@ h2.active:not(.inner) {
   transition: all .5s;
 }
 
-#pageHolder h2.inner:hover{
+.pageHolder h2.inner:hover{
   color: black;
 }
 
-#pageHolder h2.inner.active{
+.pageHolder h2.inner.active{
   color: black;
 }
 

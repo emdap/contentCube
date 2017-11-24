@@ -25,7 +25,7 @@ export default class Bottom extends React.Component{
 		
 		switch (where){
 			case 'intro':
-				this.props.spinIt([225,45,315], 'bottom', true);
+				this.props.spinIt([Math.random() * 900, Math.random() * 45, Math.random() * -90], 'bottom', true);
 				setTimeout(()=>{
 					this.props.spinIt([90,0,0], 'bottom', true);
 					this.changeMessage();
@@ -89,7 +89,7 @@ export default class Bottom extends React.Component{
 	renderInterior(){
 		if(this.state.message == 'init' && pageClass == 'pageOpen'){
 			return(
-				<div id="pageHolder" className={pageClass + ' ' + this.state.intro}>
+				<div className={"pageHolder " + pageClass + ' ' + this.state.intro}>
 				<div id="home">
 			    <h1>Welcome to contentCube!</h1>
 			    <h3><button onClick={()=>{this.handleRotate('intro')}}>
@@ -101,10 +101,10 @@ export default class Bottom extends React.Component{
 			);
 		} else {
 			return (
-				<div id="pageHolder" className={pageClass + ' ' + this.state.intro}>
+				<div className={"pageHolder " + pageClass + ' ' + this.state.intro}>
 				<div id="home">
 			    <h1>Welcome back!</h1>
-			    <div id="pageMenu">
+			    <div className="pageMenu">
 
 
 			    <ClickingH activate={this.state.showControls} trigger={'controls'} handleShow={this.handleMenuShow}>
@@ -120,7 +120,7 @@ export default class Bottom extends React.Component{
 			    </ClickingH>
 
 			    </div>
-			    <div id="pHolder">
+			    <div className="pHolder">
 
 
 			    <HidingDiv trigger={this.state.showControls}>

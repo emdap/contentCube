@@ -61,10 +61,10 @@ export default class Back extends React.Component{
 		return(
 
 
-	       <div id="pageHolder" className={pageClass}>
+	       <div className={"pageHolder " + pageClass}>
 				<div id="experience">
 			    <h1>Relevant Experience</h1>
-			    <div id="pageMenu">
+			    <div className="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.work} trigger={"work"} handleShow={this.handleMenuShow}>
 			 	Work
@@ -76,7 +76,7 @@ export default class Back extends React.Component{
 
 			    </div>
 
-			    <div id="pHolder">
+			    <div className="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.work}>
 			    <h5>Programmer/Technician • Amec Foster Wheeler</h5>

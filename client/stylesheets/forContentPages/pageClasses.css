@@ -6,7 +6,7 @@
 	display: none;
 }
 
-#pageHolder{
+.pageHolder{
   transition: all .5s;
   transition: color 0s;
   position: relative;
@@ -16,7 +16,7 @@
   padding-right: 10px;
 }
 
-#pageHolder > div {
+.pageHolder > div {
   transition: all .25s;
   transition: color 0s;
   position: relative;
@@ -25,19 +25,19 @@
   overflow: hidden;
 }
 
-#pageHolder.in{ /* trans between intro/welcome back */
+.pageHolder.in{ /* trans between intro/welcome back */
   transition: margin .25s, opacity .25s;
   margin: 0;
   opacity: 1;
 }
 
-#pageHolder.out{
+.pageHolder.out{
   transition: margin .25s, opacity .25s;
   margin: -10%;
   opacity: 0;
 }
 
-#pageHolder button{
+.pageHolder button{
   border: 0;
   font-weight: bold;
   background: none;
@@ -52,15 +52,15 @@
   color: inherit;
 }
 
-#pageHolder h3 button:hover{
+.pageHolder h3 button:hover{
    background: rgba(255,255,255,.3);
 }
 
-#pageHolder h4 button:hover{
+.pageHolder h4 button:hover{
   margin-left: 20px;
 }
 
-#pageHolder h4{ /* bottom button */
+.pageHolder h4{ /* bottom button */
   margin: 0;
   height: 2.5rem;
   line-height: 2rem;
@@ -69,7 +69,7 @@
   text-align: left;
 }
 
-#pageHolder h1 { /* welcome */
+.pageHolder h1 { /* welcome */
   margin-top: 10px;
   margin-bottom: -5px;
   width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
@@ -78,7 +78,7 @@
   color: inherit;
 }
 
-#pageHolder h5{
+.pageHolder h5{
   margin-top: 1rem;
   margin-bottom: .5rem;
   margin-left: -1rem;
@@ -93,7 +93,7 @@
   background: linear-gradient(to right, rgba(255,255,255,.5), rgba(0,0,0,0)); /* Standard syntax */
 }
 
-#pageHolder li{
+.pageHolder li{
   margin-left: -1rem;
   margin-bottom: 5px;
 }

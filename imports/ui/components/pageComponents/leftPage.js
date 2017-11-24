@@ -13,7 +13,7 @@ export default class Left extends React.Component{
 		pageClass = this.props.disp;
 
 			return (
-				<div id="pageHolder" className={pageClass}>
+				<div className={"pageHolder " +pageClass}>
 				<div id="contact">
 			    <h1>Get in Touch</h1>
 
