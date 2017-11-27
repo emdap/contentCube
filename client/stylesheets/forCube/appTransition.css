@@ -1,0 +1,11 @@
+#explode.hideApp{
+	height: 0px !important;
+	width: 0px !important;
+	top: -100% !important;
+	left: 50% !important;
+	position: absolute;
+}
+
+#cubeHolder.hideApp{
+	opacity: 0;
+}

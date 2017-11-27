@@ -11,7 +11,6 @@ Meteor.startup(() => {
 //var firstFace = 'bottom'; //make dictionary with default coords = face name for future
 
 //make app invisible so can fade in
-document.getElementById('app').style.opacity = 0;
 
 //initial values
 const firstFace = 'bottom'; //needs to match initCoords
@@ -23,6 +22,9 @@ const renderEl = document.getElementById('app');
 var dir = null;
 
 var myCube = initRender(firstFace, initCoords, isMax, showMenu, renderEl);
+
+document.getElementById('explode').classList.add('hideApp');
+document.getElementById('cubeHolder').classList.add('hideApp');
 
 document.onkeydown = (e) =>  handleRender(e, myCube, renderEl);
 
@@ -42,9 +44,12 @@ document.addEventListener('touchend', function(e) {
 }, false);
 
 setTimeout(()=>{
-	document.getElementById('app').style.opacity = 1;
+	document.getElementById('explode').classList.remove('hideApp');
 }, 1000);
 
+setTimeout(()=> {
+	document.getElementById('cubeHolder').classList.remove('hideApp');
+}, 2000);
 
 
 

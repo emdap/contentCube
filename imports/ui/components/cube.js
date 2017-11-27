@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class Cube extends React.Component {
 	render(){
 		return(
-			<section className="container">
+			<section id="cubeHolder" className="container">
 				  <div id="card" style={this.props.rotation}>
 				    <figure className="front"></figure>
 				    <figure className="back" style={this.props.backColor}></figure>   
