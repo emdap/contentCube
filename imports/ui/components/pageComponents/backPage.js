@@ -80,7 +80,7 @@ export default class Back extends React.Component{
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.work}>
 			    <h5>Programmer/Technician • Amec Foster Wheeler</h5>
-			    <span className="italic">July 2016 - August 2017</span>
+			    <span className="italic">August 2016 - August 2017</span>
 			    <p><strong>During</strong> my time at Amec Foster Wheeler I worked in the Project Planning department, where I did full stack software development and provided technical support.
 			    </p>
 			    <p><strong>My</strong> main focus was creating automated Excel reports and automating pre-existing Excel reports. The automated reports used data both from SQL Server databases and human generated reports. This was a great opportunity to learn about working with large amounts of data, and also for handling human error in manual reports. The reports that I automated greatly reduced error and saved company time, allowing for more advanced analysis on the same data. When the automated reports required some human input (like importing files), I created user friendly interfaces with in-depth logs and error descriptions for maximum ease and efficiency.</p>
