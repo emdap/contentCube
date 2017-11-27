@@ -2,22 +2,22 @@
 @media screen and (max-device-width: 640px){
 
 	html {
-		font-size: 62.5% !important;
+		font-size: 62.5% ;
 	}
 
 	body {
-		font-size: 1.3rem !important;
+		font-size: 1.3rem ;
 	}
 
 
 
 	#explode.max{
 		opacity: 1;
-		height: 80vh !important;
-		width: 95vw !important;
-		top: 2vh !important;
-		left: 2.5vw !important;
-		margin: 0 !important;
+		height: 80vh ;
+		width: 95vw ;
+		top: 2vh ;
+		left: 2.5vw ;
+		margin: 0 ;
 	}
 
 
@@ -32,11 +32,11 @@
 	}
 
 	#topMenu{
-		top: 10% !important;
+		top: 10% ;
 		width: 90%;
 		left: 5%;
-		font-size: 4.5vw !important;
-		line-height: 6.7rem !important;
+		font-size: 4.5vw ;
+		line-height: 6.7rem ;
 
 		  overflow-x: scroll;
 		  white-space: nowrap;
@@ -46,6 +46,46 @@
 		top: 25px;
 	}
 
+	#explode > button{
+		height: 1.5rem;
+		width: 1.5rem;
+		line-height: .75rem;
+		font-size: .75rem;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	#menubutton{
+		margin-right: .5rem;
+	}
+
+	#minmaxbutt{
+		margin-left: .5rem;
+	}
+
+	.min > button{
+		margin-top: .3rem;
+	}
+
+	#innerMenu{
+		font-size: .75rem;
+		left: 4rem;
+		line-height: 1.5rem;
+	}
+
+	#innerMenu.open{
+		height: 1.5rem;
+		width: calc(80vw - 3.5rem);
+	}
+
+	#thumbnail.hide{
+		width: 1.5rem;
+		height: 1.5rem;
+		font-size: .75rem;
+		line-height: 1.5rem;
+		margin-left: .5rem;
+	}
+
 
 	#topMenu > .bolded{
 	  padding: .60rem .60rem;
@@ -53,9 +93,9 @@
 
 	#topMenu > div{
 		display: inline-block;
-		height: 6.5vw !important;
-		text-align: center !important;
-		line-height: 6.5vw !important;
+		height: 6.5vw;
+		text-align: center ;
+		line-height: 6.5vw ;
 	}
 
 
@@ -64,38 +104,32 @@
 	}	
 
 	#topMenu > div.default:hover{
-	margin: 0rem .5rem !important;
+	margin: 0rem .5rem ;
 	}
 
 	#about h3{ /* contact info */
-	  width: 90% !important;
+	  width: 90% ;
 	  margin-left: 5%;
 	}
 
-	#pageHolder h1{
-		width: calc(95vw - 20px);
-	}
-	#pageHolder h2 { 
-	  font-size: 4vw;
+
+	.pageHolder{
+	  height: calc(80vh - 1.5rem);
 	}
 
-	#pageHolder{
-	  height: calc(80vh - 2.5rem);
+	.pageHolder > div {
+	  height: calc(80vh - 3rem);
 	}
 
-	#pageHolder > div {
-	  height: calc(80vh - 5rem);
-	}
-
-	#pHolder {
-	  margin-top: calc(4rem + 2px);
+	.pHolder {
+	  margin-top: calc(2rem + 2px);
 	  width: calc(95vw - 20px);
 	  right: 0;
-	  height: calc(80vh - 14.5rem + 2px);
+	  height: calc(80vh - 8.5rem + 2px);
 	  position: absolute;
 	}
 
-	#pHolder div:not(.inner){
+	.pageHolder .pHolder div{
 	  right: calc((95vw - 20px) - 100%);
 	}
 	
@@ -113,84 +147,227 @@
 		height: 150px;
 		margin-left: -10%;
 	}
+
+
+	.pageHolder .pageMenu h2{
+		line-height: 2rem;
+		font-size: .9rem;
+		height: 2rem;
+	}
+	
+	.pageHolder h1 { 
+	  font-size: 1.5rem;
+	  line-height: 2rem;
+	  height: 3rem;
+	  width: calc(95vw - 20px);
+	}
+
+	.pageHolder h4 { 
+	  font-size: .75rem;
+	  height: 1.5rem;
+	  line-height: 1.5rem;
+	}
+
+	.pageHolder h4 button{ 
+	  padding: 0 5px;
+	}
+
+	.pageHolder h5{
+		font-size: 1.2rem;
+	}
+
+	.pageHolder .pHolder div:not(.inner){
+	  right: calc((95vw - 20px) - 100%);
+	  height: calc(80vh - 9rem);
+	  margin-top: 5px !important;
+	}
+
+	#about .pHolder{
+		height: calc(80vh - 11.5rem + 2px);
+		margin-top: 2rem;
+	}
+
+	#about .pHolder div{
+		height: calc(80vh - 11.8rem + 2px);
+	}
+
+
 }
 
 /* #### Mobile Phones Landscape #### */
 @media screen and (max-device-width: 800px) and (orientation: landscape){
   	.container { 
-	  top: 60% !important;
+	  top: calc(50% - 100px);
+	  left: calc(50% - 100px);
 	}
+
 	#explode{
-	  top: calc(60% - 20rem) !important;
+	  top: calc(50% - 100px);
 	 }
 
 	 #explode.max{
-		height: 90vh !important;
-		width: 98% !important;
-		top: 5% !important;
-		left: 1% !important;
+		height: 97vh;
+		width: 98vw;
+		top: 1vh;
+		left: .7vw;
 	}
 
 	#explode.min{
+		visibility: visible;
 		opacity: .7;
-		height: 198px;
-		width: 198px;
-		top: calc(60% - 99px) !important;
-		left: calc(50% - 99px) !important;
-		margin: 0 0 0 0 !important;
+		top: calc(50% - 101px);
+		margin: 0 0 0 0;
 	}
 	
 	#explode.hide{
 		opacity: 0;
-		height: 0% !important;
-		width: 0% !important;
-		margin: 0 0 0 0 !important;
-		top: 60% !important;
-		left: 50% !important;
+		visibility: hidden;
+		margin: 0 0 0 0 ;
+		top: calc(50% - 100px);
+		left: calc(50% - 100px);
+	}
+
+	#explode > button{
+		height: 1.5rem;
+		width: 1.5rem;
+		line-height: .75rem;
+		font-size: .75rem;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	#menubutton{
+		margin-right: .5rem;
+	}
+
+	#minmaxbutt{
+		margin-left: .5rem;
+	}
+
+	#innerMenu{
+		font-size: .75rem;
+		left: 4rem;
+		line-height: 1.5rem;
+	}
+
+	#innerMenu.open{
+		height: 1.5rem;
+	}
+
+	#thumbnail.hide{
+		width: 1.5rem;
+		height: 1.5rem;
+		font-size: .75rem;
+		line-height: 1.5rem;
+		margin-left: .5rem;
 	}
 
 	#topMenu{
-		top: 3% !important;
-		width: 100%;
-		left: 0;
+		top: .1rem;
+		width: 95vw;
+		font-size: 1rem;
+		left: 2.5vw;
+	}
+
+	#topMenu > .bolded{
+	  padding: .4rem .4rem;
+	}
+
+	#topMenu.open{
+		height: 3rem;
+		line-height: 3rem;
 	}
 
 	#topMenu.closed{
-		opacity: 0 !important;
-		margin: 0 0 0 0 !important;
-		height: auto !important;
-		visibility: visible !important;
-	}	
+		opacity: 0 ;
+		margin: 0 0 0 0 ;
+		height: auto ;
+		visibility: visible ;
+	}
 
+	#topMenu > div{
+		margin: 0rem 1rem;
+	}
+
+	#topMenu > div.default:hover{
+		margin: 0rem .5rem;
+		padding: 0rem .5rem;
+		background: rgba(255, 255, 255, .3);
+	}
 
 	#about h3{ /* contact info */
-	  width: 90% !important;
+	  width: 90% ;
 	  margin-left: 5%;
 	}
 
-	#pageHolder h2 { 
-	  font-size: 4vw;
+	.pageHolder .pageMenu h2{
+		line-height: 2rem;
+		font-size: 1rem;
+		height: 2rem;
+	}
+	
+	.pageHolder h1 { 
+	  font-size: 1.5rem;
+	  line-height: 2rem;
+	  height: 3rem;
 	}
 
-	#pageHolder{
-	  height: calc(90vh - 2.5rem);
+	.pageHolder h4 { 
+	  font-size: .75rem;
+	  height: 1.5rem;
+	  line-height: 1.5rem;
 	}
 
-	#pageHolder > div {
-	  height: calc(90vh - 5rem);
+	.pageHolder h4 button{ 
+	  padding: 0 5px;
 	}
 
-	#pHolder {
-	  margin-top: calc(4rem + 2px);
-	  width: 100%;
-	  height: calc(90vh - 14.5rem + 2px);
+	.pageHolder h5{
+		font-size: 1.2rem;
+	}
+
+	.pageHolder{
+	  height: calc(98vh - 1.5rem);
+	}
+
+	.pageHolder > div {
+	  height: calc(98vh - 3.2rem);
+	}
+
+	.pHolder {
+	  margin-top: calc(2rem + 2px);
+	  width: calc(98vw - 20px);
+	  right: 0;
+	  height: calc(98vh - 8.5rem - 2px);
 	  position: absolute;
 	}
 
-	#pHolder div{
-	  height: calc(90vh - 16rem + 2px);
-	  position: absolute;
+	.pageHolder .pHolder div:not(.inner){
+	  right: calc((98vw - 20px) - 100%);
+	  height: calc(98vh - 9rem);
+	  margin-top: 5px !important;
 	}
+
+	#contact{
+	  width: calc(98vw - 20px);
+	  right: calc((98vw - 20px) - 100%);
+	  overflow: scroll;
+	}
+
+	#links{
+	  width: calc(98vw - 20px);
+	  right: calc((98vw - 20px) - 100%);
+	}
+
+	#about .pHolder{
+		height: calc(98vh - 11.5rem + 2px);
+		margin-top: 2rem;
+	}
+
+	#about .pHolder div{
+		height: calc(98vh - 11.8rem + 2px);
+	}
+
 
 
 

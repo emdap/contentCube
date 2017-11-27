@@ -17,7 +17,7 @@ export default class ExplodeContent extends React.Component{
 		thumbClass = (this.state.isMax ? 'hide' : 'show');
 		contentClass = (this.state.isMax ? 'show' : 'hide');
 		return(
-			<div>
+			<div id="explodeContent">
 			{/* thumbnails */}
 			<div id='thumbnail' className={thumbClass}>
 					<div className={(this.state.curFace == 'front' ? "pageOpen" : "pageClosed")}>

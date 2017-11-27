@@ -64,7 +64,7 @@ export function handleTouchMove(e) {
 
         }                                                                 
     }
-    console.log(dir.which);
+    
     /* reset values */               
     xDown = null;
     yDown = null;                                             
