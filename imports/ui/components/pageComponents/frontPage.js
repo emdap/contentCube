@@ -40,7 +40,7 @@ export default class Front extends React.Component{
 				<div className={"pageHolder " + pageClass}>
 				<div id="about">
 			    <h1>Emma DaPonte</h1>
-			    <h3>ecodapo@gmail.com • (416) 452 6279</h3>
+			    <h3>emma.daponte@mail.utoronto.ca • (416) 452 6279</h3>
 			    <div className="pageMenu">
 			    {/* create ClickingH for each menu item, activate/trigger corresponds to state/name of header */}
 			    <ClickingH activate={this.state.hello} trigger={"hello"} handleShow={this.handleMenuShow}>

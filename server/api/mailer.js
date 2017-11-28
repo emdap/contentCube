@@ -12,7 +12,7 @@ Meteor.methods({
 
 		var mailOptions = {
 		    from: 'contentcuber@gmail.com',
-		    to: 'ecodapo@gmail.com', 
+		    to: 'emma.daponte@mail.utoronto.ca', 
 		    cc: fromAdd,
 		    subject: sub,
 		    text: msg
