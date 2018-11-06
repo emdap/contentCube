@@ -79,7 +79,32 @@ export default class Back extends React.Component{
 			    <div className="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.work}>
-			    <h5>Programmer/Technician • Amec Foster Wheeler</h5>
+			    <h5>Software Developer • KPMG</h5>
+			    <span className="italic">Jaunuary 2018 - Current</span>
+			    <p><strong>Currently</strong> I work at KPMG in the Tax Transformation Technology (TTT) department. During my time here I've mainly done fullstack web development using Vuejs and Nodejs and hosted on Window's Azure, in addition automation work in Python, and creating + maintaining C# ETL applications. 
+			    </p>
+			    <p><strong>Using</strong> Vuejs and Azure is something new for my department, and I took on a mentorship role in order to introduce them to the rest of the team after learning the basics. Now they are being used for all of our upcoming web application projects both internal and external. Working for TTT has reinforced my passion for learning new technologies and working collaboratively with others. I wasn't able to work with other devs at my first job, so it has been really great to experience that at TTT, through both projects for our clients, and also a fun machine learning NBA-predictor-bot side project.</p>
+
+			    <p><strong>Outside</strong> of web development, I worked directly with the immigration department of KPMG to identify areas in their process that could be automated, and then automating them using Python. This gave me exposure to the requirements gathering side of software development, as well as first hand user stories and how to deliver software that will help people succeed. The C# ETL applications I've worked on require fast turn around times and have been a great way to get exposed to C# and Visual Studio, technologies I did not have much experience with before joining KPMG.</p>
+
+			    <p><strong>My</strong> favorite project that I've worked on at KPMG TTT was creating an analytics dashboard. It was made in Vuejs/Nodejs with a REST API for fetching data from a SQL backend. I used Chartjs for creating graphs and Boostrap to style it. The dashboard was to help our client be able to see how much time was being spent throughout their workflow and which parts of the workflow were taking longer than projected. The steps in the workflow were represented by bubbles, and clicking into them would update all graphs to show detailed metrics pertaining to that step in the workflow. There was also a search bar so that individual cases could be searched for, which would also update all graphs to reflect only the relevant cases. Overall, it was highly interactive and very fast, and I was proud to be able to present it back to my team to show them some cool Vuejs features, such as transition effects for elements entering/leaving the DOM. Another reason I'm proud of it is due to the short amount of time I was able to create it in. I had under a week to put it together, and was able to re-use my old code from workflow management tool. Thanks to my past self for informative comments and clean code!</p>
+
+
+			    <h6>Key Technologies</h6>
+			    <ul className="inner">
+			    <li>Vuejs</li>
+			    <li>Nodejs</li>
+			    <li>REST APIs</li>
+			    <li>HTML/CSS and Bootstrap</li>
+			    <li>SQL</li>
+			    <li>C#</li>
+			    <li>Python</li>
+			    <li>Window's Azure</li>
+			   	</ul>
+
+			   	<span className="break"/>
+
+			    <h5>Programmer • Amec Foster Wheeler</h5>
 			    <span className="italic">August 2016 - August 2017</span>
 			    <p><strong>During</strong> my time at Amec Foster Wheeler I worked in the Project Planning department, where I did full stack software development and provided technical support.
 			    </p>
