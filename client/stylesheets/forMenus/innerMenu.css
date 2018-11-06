@@ -8,19 +8,21 @@
 	display: inline;
 	transition: margin 1s, opacity 1s, height 1s, left 1s, line-height 1s;
 	width: calc(100% - 7.5rem);
-  overflow-x: scroll;
+  overflow: auto;
   white-space: nowrap;
 }
 
 #innerMenu.open{
 	height: 2.5rem;
 	opacity: 1;
+	margin-top: 3px;
 }
 
 #innerMenu.closed{
 	height: 0rem;
 	opacity: 0;
 	left: 3.5rem;
+	margin-top: 3px;
 }
 
 #innerMenu > .bolded{

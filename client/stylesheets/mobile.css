@@ -23,7 +23,7 @@
 
 	#innerMenu{
 		font-size: 1.1rem;
-		  overflow-x: scroll;
+		  overflow-x: auto;
 		  white-space: nowrap;
 	}
 
@@ -38,7 +38,7 @@
 		font-size: 4.5vw ;
 		line-height: 6.7rem ;
 
-		  overflow-x: scroll;
+		  overflow-x: auto;
 		  white-space: nowrap;
 	}
 
@@ -351,7 +351,7 @@
 	#contact{
 	  width: calc(98vw - 20px);
 	  right: calc((98vw - 20px) - 100%);
-	  overflow: scroll;
+	  overflow: auto;
 	}
 
 	#links{

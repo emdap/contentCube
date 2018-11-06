@@ -64,7 +64,7 @@ export default class Front extends React.Component{
 			    </div>
 			    </div>
 
-			    <h4><button><a href="/Emma-DaPonte_Resume-2017.pdf" download>Download Resume</a></button></h4>
+			    <h4><button><a class="noLink" href="/Emma-DaPonte_Resume-2017.pdf" download>Download Resume</a></button></h4>
 			    </div>
 				);
 		
