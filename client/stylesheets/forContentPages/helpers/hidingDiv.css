@@ -22,7 +22,7 @@
 
 .pHolder div.show:not(.inner){
   opacity: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: wrap;
   margin: 2% 0 0 0;
   top: 0px;

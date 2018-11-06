@@ -20,7 +20,7 @@
   height: 4rem;
   color: inherit;
 
-  overflow-x: scroll;
+  overflow-x: auto;
   white-space: nowrap;
 }
 
