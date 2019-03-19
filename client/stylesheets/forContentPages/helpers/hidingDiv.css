@@ -5,6 +5,7 @@
   width: calc(80vw + ((100vh - 100vw) / 2) - 20px);
   right: 0;
   position: absolute;
+  overflow: auto;
 }
 
 .pHolder div:not(.inner){
