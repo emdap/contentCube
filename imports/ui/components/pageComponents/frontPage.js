@@ -55,7 +55,7 @@ export default class Front extends React.Component{
 			    <img border="0" className="portrait"
 			    src="/images/face.jpg" />
 
-			    <p> <strong>Thanks</strong> for visiting my website. I first found a love for coding back in the early 2000s designing pages for my Neopets. Now I have a <a className="link"onClick={()=>{this.handleRotate('school')}}>bachelor's degree</a> from the University of Toronto in Computer Science, and a year <a className="link"onClick={()=>{this.handleRotate('work')}}>experience working as a programmer</a> in a corporate environment. I'm always looking to learn more and prefer a hands-on approach by experimenting with new technologies to problem solve, as seen in some of my <a className="link"onClick={()=>{this.handleRotate('projects')}}>personal projects</a>. You can download my resume <a href="/Emma-DaPonte_Resume-2017.pdf" className="link" download>here</a>. Or send me an email by <span onClick={this.props.handleEmail}>clicking here!</span> 
+			    <p> <strong>Thanks</strong> for visiting my website. I first found a love for coding back in the early 2000s designing pages for my Neopets. Now I have a <a className="link"onClick={()=>{this.handleRotate('school')}}>bachelor's degree</a> from the University of Toronto in Computer Science, and a year <a className="link"onClick={()=>{this.handleRotate('work')}}>experience working as a programmer</a> in a corporate environment. I'm always looking to learn more and prefer a hands-on approach by experimenting with new technologies to problem solve, as seen in some of my <a className="link"onClick={()=>{this.handleRotate('projects')}}>personal projects</a>. You can download my resume <a href="/Emma-DaPonte_Resume-2019.pdf" className="link" download>here</a>. Or send me an email by <span onClick={this.props.handleEmail}>clicking here!</span> 
 			    </p>
 			    <p><strong>When</strong> I'm not coding you might find me biking around Toronto or enjoying a coffee with my sketch book. Other hobbies include fermenting food, collecting plants, and petting neighborhood cats.</p>
 			    <p><strong>Feel</strong> free to get in touch via email or phone as listed at the top, or send an email through this website using the button below.</p>
@@ -64,7 +64,7 @@ export default class Front extends React.Component{
 			    </div>
 			    </div>
 
-			    <h4><button><a class="noLink" href="/Emma-DaPonte_Resume-2017.pdf" download>Download Resume</a></button></h4>
+			    <h4><button><a class="noLink" href="/Emma-DaPonte_Resume-2019.pdf" download>Download Resume</a></button></h4>
 			    </div>
 				);
 		

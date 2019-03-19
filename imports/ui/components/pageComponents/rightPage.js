@@ -83,6 +83,34 @@ export default class Right extends React.Component{
 			    <div className="pHolder">
 			{/* create HidingDiv for each menu, displays content when corresponding ClickingH clicked, trigger corresponds to state */}
 			    <HidingDiv trigger={this.state.personal}>
+				
+			    <h5>Good Movie • Winter 2019</h5>
+			    <p><strong>Good Movie</strong> uses <a className="link" target="_blank" href="https://www.themoviedb.org/">The Movie DB API</a> to drive a web app with a VueJS front end for viewing popular and top rated movie posters and details. 
+				Uses a NodeJS server as a half-way point to connect to The Movie DB API using a private key stored on the server. 
+				Features include monitoring the API's rate limit and spacing out requests accordingly, infinite scrolling for both movie lists, and the ability to add movies to an in-app favorites list. 
+				<br/>
+				Optimized for viewing on mobile browsers, but works on Desktop too. Check out the <a className="link" target="_blank" href="https://good-movie.herokuapp.com/">implementation here</a>, or view the <a className="link" target="_blank" href="https://github.com/emdap/MovieApp">github repository</a></p>
+
+			    <h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>Heroku</li>
+			    <li>Javascript</li>
+			    <li>Nodejs</li>
+			    <li>Vuejs</li>
+				<li>REST Api</li>
+			    </ul>
+
+				<h5>contentCube • Fall 2017</h5>
+			    <p><strong>contentCube</strong> is a ... oh wait, you're already here! I created this project to get hands-on experience using React and to try out CSS's transform properties. Read more about how it works <a className="link" onClick={()=>{this.handleRotate('bottom','made')}}>here</a>.</p>
+
+			    <h6>Technologies Used</h6>
+			    <ul className="inner">
+			    <li>Heroku</li>
+			    <li>Javascript</li>
+			    <li>Meteor</li>
+			    <li>React</li>
+			    </ul>
+
 			    <h5>Link Preview • Summer 2017</h5>
 			    <p><strong>Link Preview</strong> is an extension for Google Chrome that allows the user to see certain information from a link on a webpage, without having to actually click on the link. It generates a div which follows the mouse (the preview window) to show this information, and only creates the preview window when hovering over specific HTML elements (as opposed to creating a preview window for all links). The information that the preview window shows is specific to each website (as opposed to showing the next webpage in its entirety). Currently, Link Preview only works on Kijji.ca. You can download it <a href="https://chrome.google.com/webstore/detail/link-preview/bjoabjghhaegfioipdfaggpecmegfelp?" className="link" target="_blank">here</a>.
 			    </p>
@@ -111,18 +139,6 @@ export default class Right extends React.Component{
 			    <ClickingH activate={this.state.linkPreview} initClass={"inner short"} trigger={'linkPreview'} handleShow={this.handleMenuShow}>Hide</ClickingH>
 
 			    </HidingDiv>
-
-
-			    <h5>contentCube • Fall 2017</h5>
-			    <p><strong>contentCube</strong> is a ... oh wait, you're already here! I created this project to get hands-on experience using React and to try out CSS's transform properties. Read more about how it works <a className="link" onClick={()=>{this.handleRotate('bottom','made')}}>here</a>.</p>
-
-			    <h6>Technologies Used</h6>
-			    <ul className="inner">
-			    <li>Heroku</li>
-			    <li>Javascript</li>
-			    <li>Meteor</li>
-			    <li>React</li>
-			    </ul>
 
 			    </HidingDiv>
 
