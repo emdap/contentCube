@@ -2,14 +2,13 @@
 #innerMenu{
 	color: inherit;
 	position: absolute;
-	height: 2.5rem;
 	line-height: 2.5rem;
 	left: 5rem;
 	display: inline;
 	transition: margin 1s, opacity 1s, height 1s, left 1s, line-height 1s;
-	width: calc(100% - 7.5rem);
-  overflow: auto;
-  white-space: nowrap;
+  	overflow: auto;
+  	white-space: nowrap;
+  	cursor: pointer;
 }
 
 #innerMenu.open{

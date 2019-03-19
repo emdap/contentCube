@@ -26,6 +26,7 @@
   left: calc((100% - 200px) / 2);
   text-align: center;
   transition: all 1s;
+  cursor: pointer;
 }
 
 ul.controlsList{

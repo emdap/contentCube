@@ -7,6 +7,7 @@
 	width: 200px;
 	overflow: hidden;
 	transition: all .7s;
+	cursor: pointer;
 }
 
 #thumbnail.show{

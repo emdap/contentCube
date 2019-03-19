@@ -2,6 +2,7 @@
 .pageMenu {
   width: 100%;
   clear: both;
+  cursor: pointer;
 }
 
 

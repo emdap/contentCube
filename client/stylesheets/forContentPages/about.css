@@ -1,10 +1,14 @@
 .portrait{
-  height: 250px;
+  height: 400px;
   position: relative;
   margin-left: -1.5em;
   margin-right: 1.5em; 
   margin-bottom: .5em;
   float: left;
+}
+
+.portraitHolder{
+  height: 250px;
 }
 
 #about h3{ /* contact info */

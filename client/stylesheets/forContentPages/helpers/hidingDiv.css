@@ -9,8 +9,6 @@
 
 .pHolder div:not(.inner){
   text-align: ltr;
-  width: 80%;
-  height: 96%;
   padding-left: 10%;
   padding-right: 10%;
   color: black;
@@ -53,8 +51,6 @@
   transition: font-size .3s, opacity .3s;
 }
 
-.pHolder div.inner{
-}
 
 .pHolder div.hide.inner > h2.inner.short{
   height: 0;
