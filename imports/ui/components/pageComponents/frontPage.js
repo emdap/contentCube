@@ -54,7 +54,8 @@ export default class Front extends React.Component{
 			    <HidingDiv trigger={this.state.hello}>
 			    <img border="0" className="portrait"
 			    src="/images/face.jpg" />
-
+					<p><strong>No longer maintained.</strong></p>
+					<p>I created this website in 2017 when I was still starting out as a software developer. I had never made or deployed a website by myself, so I took some online crash courses in React, and this was the result. If you want to see something more recent I've created, head over to the <a href="http://herokuapp.com/css-garden">CSS Garden</a>.</p>
 			    <p> <strong>Thanks</strong> for visiting my website. I first found a love for coding back in the early 2000s designing pages for my Neopets. Now I have a <a className="link"onClick={()=>{this.handleRotate('school')}}>bachelor's degree</a> from the University of Toronto in Computer Science, and a year <a className="link"onClick={()=>{this.handleRotate('work')}}>experience working as a programmer</a> in a corporate environment. I'm always looking to learn more and prefer a hands-on approach by experimenting with new technologies to problem solve, as seen in some of my <a className="link"onClick={()=>{this.handleRotate('projects')}}>personal projects</a>. You can download my resume <a href="/Emma-DaPonte_Resume-2019.pdf" className="link" download>here</a>. Or send me an email by <span onClick={this.props.handleEmail}>clicking here!</span> 
 			    </p>
 			    <p><strong>When</strong> I'm not coding you might find me biking around Toronto or enjoying a coffee with my sketch book. Other hobbies include fermenting food, collecting plants, and petting neighborhood cats.</p>
