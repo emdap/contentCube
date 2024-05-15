@@ -1,0 +1,34 @@
+@import "styles/contentPages/helpers/clickingH.css";
+@import "styles/contentPages/helpers/hidingDiv.css";
+@import "styles/contentPages/about.css";
+@import "styles/contentPages/contact.css";
+@import "styles/contentPages/experience.css";
+@import "styles/contentPages/home.css";
+@import "styles/contentPages/links.css";
+@import "styles/contentPages/pageClasses.css";
+@import "styles/contentPages/projects.css";
+@import "styles/cube/cubeButtons.css";
+@import "styles/cube/cubeColors.css";
+@import "styles/cube/explodeContent.css";
+@import "styles/cube/explodeWindow.css";
+@import "styles/cube/pureCube.css";
+@import "styles/cube/secretCode.css";
+@import "styles/menus/innerMenu.css";
+@import "styles/menus/topMenu.css";
+@import "styles/mobile.css";
+@import "styles/smallscreen.css";
+
+body {
+  background: black;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
